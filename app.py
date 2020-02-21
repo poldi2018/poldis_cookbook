@@ -110,6 +110,9 @@ def get_countries():
 
 @app.route('/')
 def index():
+    session["username"] = ""
+    session["user"] = ""
+    session["email_address"] = ""
     return render_template("index.html")
 
 # welcome page
