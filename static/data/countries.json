@@ -1,0 +1,755 @@
+[{
+        "country_name": "ad",
+        "filename": "images/flags-mini/ad.png"
+    },
+    {
+        "country_name": "ae",
+        "filename": "images/flags-mini/ae.png"
+    },
+    {
+        "country_name": "af",
+        "filename": "images/flags-mini/af.png"
+    },
+    {
+        "country_name": "ag",
+        "filename": "images/flags-mini/ag.png"
+    },
+    {
+        "country_name": "al",
+        "filename": "images/flags-mini/al.png"
+    },
+    {
+        "country_name": "am",
+        "filename": "images/flags-mini/am.png"
+    },
+    {
+        "country_name": "ao",
+        "filename": "images/flags-mini/ao.png"
+    },
+    {
+        "country_name": "ar",
+        "filename": "images/flags-mini/ar.png"
+    },
+    {
+        "country_name": "at",
+        "filename": "images/flags-mini/at.png"
+    },
+    {
+        "country_name": "au",
+        "filename": "images/flags-mini/au.png"
+    },
+    {
+        "country_name": "az",
+        "filename": "images/flags-mini/az.png"
+    },
+    {
+        "country_name": "ba",
+        "filename": "images/flags-mini/ba.png"
+    },
+    {
+        "country_name": "bb",
+        "filename": "images/flags-mini/bb.png"
+    },
+    {
+        "country_name": "bd",
+        "filename": "images/flags-mini/bd.png"
+    },
+    {
+        "country_name": "be",
+        "filename": "images/flags-mini/be.png"
+    },
+    {
+        "country_name": "bf",
+        "filename": "images/flags-mini/bf.png"
+    },
+    {
+        "country_name": "bg",
+        "filename": "images/flags-mini/bg.png"
+    },
+    {
+        "country_name": "bh",
+        "filename": "images/flags-mini/bh.png"
+    },
+    {
+        "country_name": "bi",
+        "filename": "images/flags-mini/bi.png"
+    },
+    {
+        "country_name": "bj",
+        "filename": "images/flags-mini/bj.png"
+    },
+    {
+        "country_name": "bn",
+        "filename": "images/flags-mini/bn.png"
+    },
+    {
+        "country_name": "bo",
+        "filename": "images/flags-mini/bo.png"
+    },
+    {
+        "country_name": "br",
+        "filename": "images/flags-mini/br.png"
+    },
+    {
+        "country_name": "bs",
+        "filename": "images/flags-mini/bs.png"
+    },
+    {
+        "country_name": "bt",
+        "filename": "images/flags-mini/bt.png"
+    },
+    {
+        "country_name": "bw",
+        "filename": "images/flags-mini/bw.png"
+    },
+    {
+        "country_name": "by",
+        "filename": "images/flags-mini/by.png"
+    },
+    {
+        "country_name": "bz",
+        "filename": "images/flags-mini/bz.png"
+    },
+    {
+        "country_name": "ca",
+        "filename": "images/flags-mini/ca.png"
+    },
+    {
+        "country_name": "cd",
+        "filename": "images/flags-mini/cd.png"
+    },
+    {
+        "country_name": "cf",
+        "filename": "images/flags-mini/cf.png"
+    },
+    {
+        "country_name": "cg",
+        "filename": "images/flags-mini/cg.png"
+    },
+    {
+        "country_name": "ch",
+        "filename": "images/flags-mini/ch.png"
+    },
+    {
+        "country_name": "ci",
+        "filename": "images/flags-mini/ci.png"
+    },
+    {
+        "country_name": "ck",
+        "filename": "images/flags-mini/ck.png"
+    },
+    {
+        "country_name": "cl",
+        "filename": "images/flags-mini/cl.png"
+    },
+    {
+        "country_name": "cm",
+        "filename": "images/flags-mini/cm.png"
+    },
+    {
+        "country_name": "cn",
+        "filename": "images/flags-mini/cn.png"
+    },
+    {
+        "country_name": "co",
+        "filename": "images/flags-mini/co.png"
+    },
+    {
+        "country_name": "cr",
+        "filename": "images/flags-mini/cr.png"
+    },
+    {
+        "country_name": "cu",
+        "filename": "images/flags-mini/cu.png"
+    },
+    {
+        "country_name": "cv",
+        "filename": "images/flags-mini/cv.png"
+    },
+    {
+        "country_name": "cy",
+        "filename": "images/flags-mini/cy.png"
+    },
+    {
+        "country_name": "cz",
+        "filename": "images/flags-mini/cz.png"
+    },
+    {
+        "country_name": "de",
+        "filename": "images/flags-mini/de.png"
+    },
+    {
+        "country_name": "dj",
+        "filename": "images/flags-mini/dj.png"
+    },
+    {
+        "country_name": "dk",
+        "filename": "images/flags-mini/dk.png"
+    },
+    {
+        "country_name": "dm",
+        "filename": "images/flags-mini/dm.png"
+    },
+    {
+        "country_name": "do",
+        "filename": "images/flags-mini/do.png"
+    },
+    {
+        "country_name": "dz",
+        "filename": "images/flags-mini/dz.png"
+    },
+    {
+        "country_name": "ec",
+        "filename": "images/flags-mini/ec.png"
+    },
+    {
+        "country_name": "ee",
+        "filename": "images/flags-mini/ee.png"
+    },
+    {
+        "country_name": "eg",
+        "filename": "images/flags-mini/eg.png"
+    },
+    {
+        "country_name": "eh",
+        "filename": "images/flags-mini/eh.png"
+    },
+    {
+        "country_name": "er",
+        "filename": "images/flags-mini/er.png"
+    },
+    {
+        "country_name": "es",
+        "filename": "images/flags-mini/es.png"
+    },
+    {
+        "country_name": "et",
+        "filename": "images/flags-mini/et.png"
+    },
+    {
+        "country_name": "fi",
+        "filename": "images/flags-mini/fi.png"
+    },
+    {
+        "country_name": "fj",
+        "filename": "images/flags-mini/fj.png"
+    },
+    {
+        "country_name": "fm",
+        "filename": "images/flags-mini/fm.png"
+    },
+    {
+        "country_name": "fr",
+        "filename": "images/flags-mini/fr.png"
+    },
+    {
+        "country_name": "ga",
+        "filename": "images/flags-mini/ga.png"
+    },
+    {
+        "country_name": "gb",
+        "filename": "images/flags-mini/gb.png"
+    },
+    {
+        "country_name": "gd",
+        "filename": "images/flags-mini/gd.png"
+    },
+    {
+        "country_name": "ge",
+        "filename": "images/flags-mini/ge.png"
+    },
+    {
+        "country_name": "gh",
+        "filename": "images/flags-mini/gh.png"
+    },
+    {
+        "country_name": "gm",
+        "filename": "images/flags-mini/gm.png"
+    },
+    {
+        "country_name": "gn",
+        "filename": "images/flags-mini/gn.png"
+    },
+    {
+        "country_name": "gq",
+        "filename": "images/flags-mini/gq.png"
+    },
+    {
+        "country_name": "gr",
+        "filename": "images/flags-mini/gr.png"
+    },
+    {
+        "country_name": "gt",
+        "filename": "images/flags-mini/gt.png"
+    },
+    {
+        "country_name": "gw",
+        "filename": "images/flags-mini/gw.png"
+    },
+    {
+        "country_name": "gy",
+        "filename": "images/flags-mini/gy.png"
+    },
+    {
+        "country_name": "hn",
+        "filename": "images/flags-mini/hn.png"
+    },
+    {
+        "country_name": "hr",
+        "filename": "images/flags-mini/hr.png"
+    },
+    {
+        "country_name": "ht",
+        "filename": "images/flags-mini/ht.png"
+    },
+    {
+        "country_name": "hu",
+        "filename": "images/flags-mini/hu.png"
+    },
+    {
+        "country_name": "id",
+        "filename": "images/flags-mini/id.png"
+    },
+    {
+        "country_name": "ie",
+        "filename": "images/flags-mini/ie.png"
+    },
+    {
+        "country_name": "il",
+        "filename": "images/flags-mini/il.png"
+    },
+    {
+        "country_name": "in",
+        "filename": "images/flags-mini/in.png"
+    },
+    {
+        "country_name": "iq",
+        "filename": "images/flags-mini/iq.png"
+    },
+    {
+        "country_name": "ir",
+        "filename": "images/flags-mini/ir.png"
+    },
+    {
+        "country_name": "is",
+        "filename": "images/flags-mini/is.png"
+    },
+    {
+        "country_name": "it",
+        "filename": "images/flags-mini/it.png"
+    },
+    {
+        "country_name": "jm",
+        "filename": "images/flags-mini/jm.png"
+    },
+    {
+        "country_name": "jo",
+        "filename": "images/flags-mini/jo.png"
+    },
+    {
+        "country_name": "jp",
+        "filename": "images/flags-mini/jp.png"
+    },
+    {
+        "country_name": "ke",
+        "filename": "images/flags-mini/ke.png"
+    },
+    {
+        "country_name": "kg",
+        "filename": "images/flags-mini/kg.png"
+    },
+    {
+        "country_name": "kh",
+        "filename": "images/flags-mini/kh.png"
+    },
+
+    {
+        "country_name": "ki",
+        "filename": "images/flags-mini/ki.png"
+    },
+    {
+        "country_name": "km",
+        "filename": "images/flags-mini/km.png"
+    },
+    {
+        "country_name": "kn",
+        "filename": "images/flags-mini/kn.png"
+    },
+    {
+        "country_name": "kp",
+        "filename": "images/flags-mini/kp.png"
+    },
+    {
+        "country_name": "kr",
+        "filename": "images/flags-mini/kr.png"
+    },
+    {
+        "country_name": "kw",
+        "filename": "images/flags-mini/kw.png"
+    },
+    {
+        "country_name": "kz",
+        "filename": "images/flags-mini/kz.png"
+    },
+    {
+        "country_name": "la",
+        "filename": "images/flags-mini/la.png"
+    },
+    {
+        "country_name": "lb",
+        "filename": "images/flags-mini/lb.png"
+    },
+    {
+        "country_name": "lc",
+        "filename": "images/flags-mini/lc.png"
+    },
+    {
+        "country_name": "li",
+        "filename": "images/flags-mini/li.png"
+    },
+    {
+        "country_name": "lk",
+        "filename": "images/flags-mini/lk.png"
+    },
+    {
+        "country_name": "lr",
+        "filename": "images/flags-mini/lr.png"
+    },
+    {
+        "country_name": "ls",
+        "filename": "images/flags-mini/ls.png"
+    },
+    {
+        "country_name": "lt",
+        "filename": "images/flags-mini/lt.png"
+    },
+    {
+        "country_name": "lu",
+        "filename": "images/flags-mini/lu.png"
+    },
+    {
+        "country_name": "lv",
+        "filename": "images/flags-mini/lv.png"
+    },
+    {
+        "country_name": "ly",
+        "filename": "images/flags-mini/ly.png"
+    },
+    {
+        "country_name": "ma",
+        "filename": "images/flags-mini/ma.png"
+    },
+    {
+        "country_name": "mc",
+        "filename": "images/flags-mini/mc.png"
+    },
+    {
+        "country_name": "md",
+        "filename": "images/flags-mini/md.png"
+    },
+    {
+        "country_name": "me",
+        "filename": "images/flags-mini/me.png"
+    },
+    {
+        "country_name": "mg",
+        "filename": "images/flags-mini/mg.png"
+    },
+    {
+        "country_name": "mh",
+        "filename": "images/flags-mini/mh.png"
+    },
+    {
+        "country_name": "mk",
+        "filename": "images/flags-mini/mk.png"
+    },
+    {
+        "country_name": "ml",
+        "filename": "images/flags-mini/ml.png"
+    },
+    {
+        "country_name": "mm",
+        "filename": "images/flags-mini/mm.png"
+    },
+    {
+        "country_name": "mn",
+        "filename": "images/flags-mini/mn.png"
+    },
+    {
+        "country_name": "mr",
+        "filename": "images/flags-mini/mr.png"
+    },
+    {
+        "country_name": "mt",
+        "filename": "images/flags-mini/mt.png"
+    },
+    {
+        "country_name": "mu",
+        "filename": "images/flags-mini/mu.png"
+    },
+    {
+        "country_name": "mv",
+        "filename": "images/flags-mini/mv.png"
+    },
+    {
+        "country_name": "mw",
+        "filename": "images/flags-mini/mw.png"
+    },
+    {
+        "country_name": "mx",
+        "filename": "images/flags-mini/mx.png"
+    },
+    {
+        "country_name": "my",
+        "filename": "images/flags-mini/my.png"
+    },
+    {
+        "country_name": "mz",
+        "filename": "images/flags-mini/mz.png"
+    },
+    {
+        "country_name": "na",
+        "filename": "images/flags-mini/na.png"
+    },
+    {
+        "country_name": "ne",
+        "filename": "images/flags-mini/ne.png"
+    },
+    {
+        "country_name": "ng",
+        "filename": "images/flags-mini/ng.png"
+    },
+    {
+        "country_name": "ni",
+        "filename": "images/flags-mini/ni.png"
+    },
+    {
+        "country_name": "nl",
+        "filename": "images/flags-mini/nl.png"
+    },
+    {
+        "country_name": "no",
+        "filename": "images/flags-mini/no.png"
+    },
+    {
+        "country_name": "np",
+        "filename": "images/flags-mini/np.png"
+    },
+    {
+        "country_name": "nr",
+        "filename": "images/flags-mini/nr.png"
+    },
+    {
+        "country_name": "nu",
+        "filename": "images/flags-mini/nu.png"
+    },
+    {
+        "country_name": "nz",
+        "filename": "images/flags-mini/nz.png"
+    },
+    {
+        "country_name": "om",
+        "filename": "images/flags-mini/om.png"
+    },
+    {
+        "country_name": "pa",
+        "filename": "images/flags-mini/pa.png"
+    },
+    {
+        "country_name": "pe",
+        "filename": "images/flags-mini/pe.png"
+    },
+    {
+        "country_name": "pg",
+        "filename": "images/flags-mini/pg.png"
+    },
+    {
+        "country_name": "ph",
+        "filename": "images/flags-mini/ph.png"
+    },
+    {
+        "country_name": "pk",
+        "filename": "images/flags-mini/pk.png"
+    },
+    {
+        "country_name": "pl",
+        "filename": "images/flags-mini/pl.png"
+    },
+
+    {
+        "country_name": "ps",
+        "filename": "images/flags-mini/ps.png"
+    },
+    {
+        "country_name": "pt",
+        "filename": "images/flags-mini/pt.png"
+    },
+    {
+        "country_name": "pw",
+        "filename": "images/flags-mini/pw.png"
+    },
+    {
+        "country_name": "py",
+        "filename": "images/flags-mini/py.png"
+    },
+    {
+        "country_name": "qa",
+        "filename": "images/flags-mini/qa.png"
+    },
+    {
+        "country_name": "ro",
+        "filename": "images/flags-mini/ro.png"
+    },
+    {
+        "country_name": "rs",
+        "filename": "images/flags-mini/rs.png"
+    },
+    {
+        "country_name": "ru",
+        "filename": "images/flags-mini/ru.png"
+    },
+    {
+        "country_name": "rw",
+        "filename": "images/flags-mini/rw.png"
+    },
+    {
+        "country_name": "sa",
+        "filename": "images/flags-mini/sa.png"
+    },
+    {
+        "country_name": "sb",
+        "filename": "images/flags-mini/sb.png"
+    },
+    {
+        "country_name": "sc",
+        "filename": "images/flags-mini/sc.png"
+    },
+    {
+        "country_name": "sd",
+        "filename": "images/flags-mini/sd.png"
+    },
+    {
+        "country_name": "se",
+        "filename": "images/flags-mini/se.png"
+    },
+    {
+        "country_name": "sg",
+        "filename": "images/flags-mini/sg.png"
+    },
+    {
+        "country_name": "si",
+        "filename": "images/flags-mini/si.png"
+    },
+    {
+        "country_name": "sk",
+        "filename": "images/flags-mini/sk.png"
+    },
+    {
+        "country_name": "sl",
+        "filename": "images/flags-mini/sl.png"
+    },
+    {
+        "country_name": "sm",
+        "filename": "images/flags-mini/sm.png"
+    },
+    {
+        "country_name": "sn",
+        "filename": "images/flags-mini/sn.png"
+    },
+    {
+        "country_name": "so",
+        "filename": "images/flags-mini/so.png"
+    },
+    {
+        "country_name": "sr",
+        "filename": "images/flags-mini/sr.png"
+    },
+    {
+        "country_name": "ss",
+        "filename": "images/flags-mini/ss.png"
+    },
+    {
+        "country_name": "st",
+        "filename": "images/flags-mini/st.png"
+    },
+    {
+        "country_name": "sv",
+        "filename": "images/flags-mini/sv.png"
+    },
+    {
+        "country_name": "sy",
+        "filename": "images/flags-mini/sy.png"
+    },
+    {
+        "country_name": "sz",
+        "filename": "images/flags-mini/sz.png"
+    },
+    {
+        "country_name": "td",
+        "filename": "images/flags-mini/td.png"
+    },
+    {
+        "country_name": "tg",
+        "filename": "images/flags-mini/tg.png"
+    },
+    {
+        "country_name": "th",
+        "filename": "images/flags-mini/th.png"
+    },
+    {
+        "country_name": "tj",
+        "filename": "images/flags-mini/tj.png"
+    },
+    {
+        "country_name": "tl",
+        "filename": "images/flags-mini/tl.png"
+    },
+    {
+        "country_name": "tm",
+        "filename": "images/flags-mini/tm.png"
+    },
+    {
+        "country_name": "tn",
+        "filename": "images/flags-mini/tn.png"
+    },
+    {
+        "country_name": "to",
+        "filename": "images/flags-mini/to.png"
+    },
+    {
+        "country_name": "tr",
+        "filename": "images/flags-mini/tr.png"
+    },
+    {
+        "country_name": "tt",
+        "filename": "images/flags-mini/tt.png"
+    },
+    {
+        "country_name": "tv",
+        "filename": "images/flags-mini/tv.png"
+    },
+    {
+        "country_name": "tw",
+        "filename": "images/flags-mini/tw.png"
+    },
+    {
+        "country_name": "tz",
+        "filename": "images/flags-mini/tz.png"
+    },
+    {
+        "country_name": "ua",
+        "filename": "images/flags-mini/ua.png"
+    },
+    {
+        "country_name": "ug",
+        "filename": "images/flags-mini/ug.png"
+    },
+    {
+        "country_name": "us",
+        "filename": "images/flags-mini/us.png"
+    },
+    {
+        "country_name": "uy",
+        "filename": "images/flags-mini/uy.png"
+    }
+]

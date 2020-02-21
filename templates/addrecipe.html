@@ -1,0 +1,212 @@
+{% extends 'base.html'%}
+{% block content %}
+<form id="recipeForm" action="{{ url_for('insert_recipe')}}" method="POST" class="addRecipeForm"
+    enctype="multipart/form-data">
+
+    <div class="recipeWrapper">
+        <div class="headline">
+            Add a recipe
+        </div>
+        <div class="recipeHeader">
+            <div id="readRecipeTitle" class="recipeHeaderItem">
+                <div class="input-field" id="">
+                    <i class="material-icons prefix">playlist_add</i>
+                    <input id="recipetitle" name="recipe_title" type="text" class="validate" data-length="30">
+                    <label for="recipetitle">Recipe Title</label>
+                </div>
+            </div>
+
+            <div id="chooseDishtype" class="recipeHeaderItem">
+                <div class="input-field">
+                    <i class="material-icons prefix">playlist_add</i>
+                    <select id="dishType" name="dish_type">
+                        <option value="" disabled selected>Choose Dish Type</option>
+                        <optgroup label="Starters">
+                            <option value="Soup">Soup</option>
+                            <option value="Salad">Salad</option>
+                            <option value="Fingerfood">Fingerfood</option>
+                        </optgroup>
+                        <optgroup label="Main Course">
+                            <option value="Chicken">Chicken</option>
+                            <option value="Fish">Fish</option>
+                            <option value="Game">Game</option>
+                            <option value="Meat">Meat</option>
+                            <option value="Vegetarian">Vegetarian</option>
+
+                        </optgroup>
+                        <optgroup label="Desserts">
+                            <option value="Cake">Cake</option>
+                            <option value="Dessert">Dessert</option>
+                            <option value="Fruit">Fruit</option>
+                            <option value="Ice">Ice</option>
+                        </optgroup>
+                        <optgroup label="Drinks">
+                            <option value="Juice">Juice</option>
+                            <option value="Shake">Shake</option>
+                            <option value="Cocktail">Cocktail</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+            <div id="chooseOrigin" class="recipeHeaderItem">
+                <div class="input-field">
+                    <i class="material-icons prefix">playlist_add</i>
+                    <select id="origin" class="icons" name="origin">
+                        <option value="" disabled selected>Choose origin country</option>
+                        {% for country in countries %}
+                        <option value="{{country['country_name']}}"
+                            data-icon="{{url_for('static', filename=country['filename'])}}" class="circle">
+                            {{country['country_name']}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div id="outerStatsWrapper">
+            <div id="innerStatsWrapper">
+                <div class="statsWrapper">
+                    <div class="statsfield">Added By:</div>
+                    <div class="statsfield">{{session["username"]}}</div>
+                </div>
+
+                <div class="statsWrapper">
+                    <div class="statsfield">Date added:</div>
+                    <div class="statsfield">Today</div>
+                </div>
+
+                <div class="statsWrapper">
+                    <div class="statsfield">Time added:</div>
+                    <div class="statsfield">Now</div>
+                </div>
+
+                <div class="statsWrapper">
+                    <div class="levelStatsfield">Level:</div>
+                    <div class="input-field levelstatsinput">
+                        <select id="level" name="level">
+                            <option value="" disabled selected>Difficulty:</option>
+                            <option value="Easy">Easy</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Difficult">Difficult</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="statsWrapper">
+                    <div class="statsfield">Reviews:</div>
+                    <div class="statsfield">-</div>
+                </div>
+
+                <div class="statsWrapper">
+                    <div class="statsfield">Viewed:</div>
+                    <div class="statsfield">-</div>
+                </div>
+
+                <div class="outerTimesWrapper">
+                    <div class="timesWrapper">
+                        <div class="innerTimesWrapper">
+                            <div class="directionsLabel">Preparation Time [mins]:</div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">playlist_add</i>
+                                <input id="prepTime" name="prep_time" type="text" class="validate"
+                                    onchange="calcTotalTime()">
+                                <label for="prepTime">Preparation time</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timesWrapper">
+                        <div class="innerTimesWrapper">
+                            <div class="directionsLabel">Cooking Time [mins]:</div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">playlist_add</i>
+                                <input id="cookingTime" name="cooking_time" type="text" class="validate"
+                                    onchange="calcTotalTime()">
+                                <label for="cookingTime">Cooking time</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timesWrapper">
+                        <div class="innerTimesWrapper">
+                            <div class="directionsLabel">Total Time:</div>
+                            <div id="totalTime">-</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="dishImageWrapper">
+                <div id="fileselectorInputField" class="input-field">
+                    <input id="fileinputfield" type="file" name="file" onchange="validateImageName(this)"
+                        enctype="multipart/form-data">
+                </div>
+                <input id="checkboxUploadFileLater" type="checkbox" name="checkbox_upload_file_later" class="filled-in"
+                    value="checked" onclick=disableFileInputField()>
+                <label for="checkboxUploadFileLater">I will upload an image later.</label>
+            </div>
+        </div>
+
+        <div id="outerInstructionsWrapper">
+            <div id="outerIngredientsWrapper">
+                <div id="ingredientsHeadline">Ingredients</div>
+                <div class="AddIngredientButtonWrapper">
+                    <div class="addIngredientField btn waves-effect waves-light" onclick="addIngredientField()">add
+                        ingredient field</div>
+                    <div class="removeIngredientField btn waves-effect waves-light" onclick="removeIngredientField()">
+                        remove ingredient field
+                    </div>
+                </div>
+                <div id="ingredientWrapper">
+                    <div class="outerIngredientContainer">
+                        <div class="amountContainer">
+                            <div class="input-field">
+                                <i class="material-icons prefix">playlist_add</i>
+                                <input id="amount1" name="amount1" type="text" class="validate amounts"
+                                    data-length="30">
+                                <label for="amount1">Amount</label>
+                            </div>
+                        </div>
+                        <div class="ingredientContainer">
+                            <div class="input-field">
+                                <i class="material-icons prefix">playlist_add</i>
+                                <input id="ingredient1" name="ingredient1" type="text" class="validate ingredients"
+                                    data-length="30">
+                                <label for="ingredient1">Ingredient</label>
+                            </div>
+                            <input id="allergenCheck1" type="checkbox" class="filled-in allergens" value="checked" />
+                            <label for="allergenCheck1">Allergen?</label>
+                        </div>
+                    </div>
+                </div>
+                <input id="amountsString" name="amounts_string" type="text" class="" hidden>
+                <input id="ingredientsString" name="ingredients_string" type="text" class="" hidden>
+                <input id="allergensString" name="allergens_string" type="text" class="" hidden>
+                <textarea id="base64file" name="base64file" hidden></textarea>
+
+            </div>
+
+            <div id="outerDirectionsWrapper">
+                <div id="directionsHeadline">Directions</div>
+                <div id="directionsWrapper">
+                    <i class="material-icons prefix">playlist_add</i>
+                    <textarea id="directions" name="directions" data-length="1000"
+                        placeholder="Please provide a directions text..."></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="buttonWrapper">
+            <div onclick="fieldvalidation()" class="btn waves-effect waves-light">Save recipe</div>
+            <div id="cancelAddEditRecipeBtn" class="btn waves-effect waves-light"><a
+                    href="{{url_for('home')}}">Cancel</a></div>
+        </div>
+    </div>
+</form>
+
+<div id="popupCheckForValidFields">
+    <div id="resultCheckForValidFields"></div>
+    <div class="buttonWrapperPopup">
+        <div id="closeCheckForValidFieldsBtn" class="btn waves-effect waves-light"
+            onclick="closeCheckForValidFieldsPopup()">Close</div>
+    </div>
+</div>
+
+{% endblock %}

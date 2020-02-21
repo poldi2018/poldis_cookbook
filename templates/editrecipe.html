@@ -1,0 +1,297 @@
+{% extends 'base.html'%}
+{% block content %}
+<form id="recipeForm" action="{{ url_for('update_recipe', recipe_id=recipe._id)}}" method="POST" class="addRecipeForm"
+    enctype="multipart/form-data">
+    <div class="recipeWrapper">
+        <div class="headline">
+            Edit recipe for {{recipe.title}}
+        </div>
+        <div class="recipeHeader">
+            <div id="readRecipeTitle" class="recipeHeaderItem">
+                <div class="input-field" id="">
+                    <i class="material-icons prefix">playlist_add</i>
+                    <input id="recipetitle" name="recipe_title" type="text" class="validate" value="{{recipe.title}}"
+                        data-length="30">
+                </div>
+            </div>
+            <div id="chooseDishtype" class="recipeHeaderItem">
+                <div class="input-field">
+                    <i class="material-icons prefix">playlist_add</i>
+                    <select id="dishType" name="dish_type">
+                        <option value="" disabled selected>Choose Dish Type</option>
+                        <optgroup label="Starters">
+                            {% if recipe.dish_type=="Soup" %}
+                            <option value="Soup" selected>Soup</option>
+                            {% else %}
+                            <option value="Soup">Soup</option>
+                            {% endif %}
+                            {% if recipe.dish_type=="Salad" %}
+                            <option value="Salad" selected>Salad</option>
+                            {% else %}
+                            <option value="Salad">Salad</option>
+                            {% endif %}
+                            {% if recipe.dish_type=="Fingerfood" %}
+                            <option value="Fingerfood" selected>Fingerfood</option>
+                            {% else %}
+                            <option value="Fingerfood">Fingerfood</option>
+                            {% endif %}
+                        </optgroup>
+                        <optgroup label="Main Course">
+                            {% if recipe.dish_type=="Chicken" %}
+                            <option value="Chicken" selected>Chicken</option>
+                            {% else %}
+                            <option value="Chicken">Chicken</option>
+                            {% endif %}
+                            {% if recipe.dish_type=="Fish" %}
+                            <option value="Fish" selected>Fish</option>
+                            {% else %}
+                            <option value="Fish">Fish</option>
+                            {% endif %}
+                            {% if recipe.dish_type=="Game" %}
+                            <option value="Game" selected>Game</option>
+                            {% else %}
+                            <option value="Game">Game</option>
+                            {% endif %}
+                            {% if recipe.dish_type=="Meat" %}
+                            <option value="Meat" selected>Meat</option>
+                            {% else %}
+                            <option value="Meat">Meat</option>
+                            {% endif %}
+                            {% if recipe.dish_type=="Vegetarian" %}
+                            <option value="Vegetarian" selected>Vegetarian</option>
+                            {% else %}
+                            <option value="Vegetarian">Vegetarian</option>
+                            {% endif %}
+                        </optgroup>
+                        <optgroup label="Desserts">
+                            {% if recipe.dish_type=="Cake" %}
+                            <option value="Cake" selected>Cake</option>
+                            {% else %}
+                            <option value="Cake">Cake</option>
+                            {% endif %}
+                            {% if recipe.dish_type=="Dessert" %}
+                            <option value="Dessert" selected>Dessert</option>
+                            {% else %}
+                            <option value="Dessert">Dessert</option>
+                            {% endif %}
+                            {% if recipe.dish_type=="Fruit" %}
+                            <option value="Fruit" selected>Fruit</option>
+                            {% else %}
+                            <option value="Fruit">Fruit</option>
+                            {% endif %}
+                            {% if recipe.dish_type=="Ice" %}
+                            <option value="Ice" selected>Ice</option>
+                            {% else %}
+                            <option value="Ice">Ice</option>
+                            {% endif %}
+                        </optgroup>
+                        <optgroup label="Drinks">
+                            {% if recipe.dish_type=="Juice" %}
+                            <option value="Juice" selected>Juice</option>
+                            {% else %}
+                            <option value="Juice">Juice</option>
+                            {% endif %}
+                            {% if recipe.dish_type=="Shake" %}
+                            <option value="Shake" selected>Shake</option>
+                            {% else %}
+                            <option value="Shake">Shake</option>
+                            {% endif %}
+                            {% if recipe.dish_type=="Cocktail" %}
+                            <option value="Cocktail" selected>Cocktail</option>
+                            {% else %}
+                            <option value="Cocktail">Cocktail</option>
+                            {% endif %}
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+            <div id="chooseOrigin" class="recipeHeaderItem">
+                <div class="input-field">
+                    <i class="material-icons prefix">playlist_add</i>
+                    <select id="origin" class="icons" name="origin">
+                        <option value="" disabled selected>Choose origin country</option>
+                        {% for country in countries %}
+                        {% if recipe.country_name==country['country_name'] %}
+                        <option value="{{country['country_name']}}"
+                            data-icon="{{url_for('static', filename=country['filename'])}}" class="circle" selected>
+                            {{country['country_name']}}</option>
+                        {% else %}
+                        <option value="{{country['country_name']}}"
+                            data-icon="{{url_for('static', filename=country['filename'])}}" class="circle">
+                            {{country['country_name']}}</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div id="outerStatsWrapper">
+            <div id="innerStatsWrapper">
+                <div class="statsWrapper">
+                    <div class="statsfield">Added By:</div>
+                    <div class="statsfield">{{session["username"]}}</div>
+                </div>
+
+                <div class="statsWrapper">
+                    <div class="statsfield">Date added:</div>
+                    <div class="statsfield">{{recipe.added_on_date}}</div>
+                </div>
+
+                <div class="statsWrapper">
+                    <div class="statsfield">Time added:</div>
+                    <div class="statsfield">{{recipe.added_on_time}}</div>
+                </div>
+
+                <div class="statsWrapper">
+                    <div class="levelStatsfield">Level:</div>
+                    <div class="input-field levelstatsinput">
+                        <select id="level" name="level">
+                            <option value="" disabled selected>Difficulty level:</option>
+                            {% if recipe.level=="Easy" %}
+                            <option value="Easy" selected>Easy</option>
+                            {% else %}
+                            <option value="Easy">Easy</option>
+                            {% endif %}
+                            {% if recipe.level=="Medium" %}
+                            <option value="Medium" selected>Medium</option>
+                            {% else %}
+                            <option value="Medium">Medium</option>
+                            {% endif %}
+                            {% if recipe.level=="Difficult" %}
+                            <option value="Difficult" selected>Difficult</option>
+                            {% else %}
+                            <option value="Difficult">Difficult</option>
+                            {% endif %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="statsWrapper">
+                    <div class="statsfield">Reviews:</div>
+                    <div class="statsfield">{{recipe.review_count}}</div>
+                </div>
+
+                <div class="statsWrapper">
+                    <div class="statsfield">Viewed:</div>
+                    <div class="statsfield">{{recipe.view_count}}</div>
+                </div>
+
+                <div class="outerTimesWrapper">    
+                    <div class="timesWrapper">
+                        <div class="innerTimesWrapper">
+                            <div class="directionsLabel">Preparation Time [mins]:</div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">playlist_add</i>
+                                <input id="prepTime" name="prep_time" type="text" class="validate"
+                                    onchange="calcTotalTime()" value="{{recipe.prep_time}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timesWrapper">
+                        <div class="innerTimesWrapper">
+                            <div class="directionsLabel">Cooking Time [mins]:</div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">playlist_add</i>
+                                <input id="cookingTime" name="cooking_time" type="text" class="validate"
+                                    onchange="calcTotalTime()" value="{{recipe.cooking_time}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timesWrapper">
+                        <div class="innerTimesWrapper">
+                            <div class="directionsLabel">Total Time:</div>
+                            <div id="totalTime"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="dishImageWrapper">
+                <div id="fileselectorInputField" class="input-field">
+                    <input id="fileinputfield" type="file" name="file" onchange="validateImageName(this)"
+                        enctype="multipart/form-data">
+                </div>
+                <input id="checkboxUseCurrentFile" type="checkbox" name="checkbox_use_current_file" class="filled-in"
+                    value="checked" onclick=disableFileInputField()>
+                <label for="checkboxUseCurrentFile">Use current, already uploaded image</label>
+            </div>
+        </div>
+
+        <div id="outerInstructionsWrapper">
+            <div id="outerIngredientsWrapper">
+                <div id="ingredientsHeadline">Ingredients</div>
+                <div class="AddIngredientButtonWrapper">
+                    <div class="addIngredientField btn waves-effect waves-light" onclick="addIngredientField()">add
+                        ingredient field</div>
+                    <div class="removeIngredientField btn waves-effect waves-light" onclick="removeIngredientField()">
+                        remove ingredient field
+                    </div>
+                </div>
+
+                <div id="ingredientWrapper">
+                    {% for ingredient in recipe.ingredients %}
+                    {% set amount_field_id = "amount"+loop.index|string %}
+                    {% set ingredient_field_id = "ingredient"+loop.index|string %}
+                    {% set allergens_check_field_id = "allergensCheck"+loop.index|string %}
+
+                    <div class="outerIngredientContainer">
+                        <div class="amountContainer">
+                            <div class="input-field">
+                                <i class="material-icons prefix">playlist_add</i>
+                                <input id="{{amount_field_id}}" name="{{amount_field_id}}" type="text"
+                                    class="validate amounts" value="{{ingredient.amount}}" data-length="30">
+                                <label for="{{amount_field_id}}">Amount</label>
+                            </div>
+                        </div>
+                        <div class="ingredientContainer">
+                            <div class="input-field">
+                                <i class="material-icons prefix">playlist_add</i>
+                                <input id="{{ingredient_field_id}}" name="{{ingredient_field_id}}" type="text"
+                                    class="validate ingredients" value="{{ingredient.ingredient}}" data-length="30">
+                                <label for="{{ingredient_field_id}}">Ingredient</label>
+                            </div>
+
+                            {% if ingredient.ingredient in recipe.allergens %}
+                            <input id="{{allergens_check_field_id}}" type="checkbox" class="filled-in allergens"
+                                value="checked" checked />
+                            <label for="{{allergens_check_field_id}}">Allergen?</label>
+                            {% else %}
+                            <input id="{{allergens_check_field_id}}" type="checkbox" class="filled-in allergens"
+                                unchecked />
+                            <label for="{{allergens_check_field_id}}">Allergen?</label>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <input id="amountsString" name="amounts_string" type="text" class="" hidden>
+                <input id="ingredientsString" name="ingredients_string" type="text" class="" hidden>
+                <input id="allergensString" name="allergens_string" type="text" class="" hidden>
+                <textarea id="base64file" name="base64file" hidden></textarea>
+                <input id="imgageURL" name="image_url" type="text" class="" value="{{recipe.img_src}}" hidden>
+            </div>
+            <div id="outerDirectionsWrapper">
+                <div id="directionsHeadline">Directions</div>
+                <div id="directionsWrapper">
+                    <i class="material-icons prefix">playlist_add</i>
+                    <textarea id="directions" name="directions" data-length="1000">{{recipe.directions}}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="buttonWrapper">
+            <div onclick="fieldvalidation()" class="btn waves-effect waves-light">Update recipe</div>
+            <div id="cancelAddEditRecipeBtn" class="btn waves-effect waves-light"><a
+                    href="{{url_for('read_recipe', recipe_id=recipe._id)}}">Cancel</a></div>
+        </div>
+    </div>
+</form>
+
+<div id="popupCheckForValidFields">
+    <div id="resultCheckForValidFields"></div>
+    <div class="buttonWrapperPopup">
+        <div id="closeCheckForValidFieldsBtn" class="btn waves-effect waves-light"
+            onclick="closeCheckForValidFieldsPopup()">Close</div>
+    </div>
+</div>
+{% endblock %}

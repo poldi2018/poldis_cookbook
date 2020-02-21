@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="searchformWrapper">
+    <div class="headline">
+        Please select the search criteria
+    </div>
+    <form id="searchForm" action="{{ url_for('advanced_results', category='none', value='none')}}" method="POST"
+        class="" enctype="multipart/form-data">
+
+        <div class="searchformOuterWrapper">
+            <div class="searchformInnerWrapper">
+                <div class="searchfieldDescription">Recipe Title:</div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">playlist_add</i>
+                    <input id="searchtitle" name="search_title" type="text" class="validate" value="">
+                    <label for="searchtitle">Title</label>
+                </div>
+
+                <div class="searchfieldDescription">Dish type:</div>
+                <div class="input-field">
+                    <i class="material-icons prefix">playlist_add</i>
+                    <select id="dishType" name="dish_type">
+                        <option value="" disabled selected>Choose Dish Type</option>
+                        <optgroup label="Starters">
+                            <option value="Soup">Soup</option>
+                            <option value="Salad">Salad</option>
+                            <option value="Fingerfood">Fingerfood</option>
+                        </optgroup>
+                        <optgroup label="Main Course">
+                            <option value="Chicken">Chicken</option>
+                            <option value="Fish">Fish</option>
+                            <option value="Game">Game</option>
+                            <option value="Meat">Meat</option>
+                            <option value="Vegetarian">Vegetarian</option>
+                        </optgroup>
+                        <optgroup label="Desserts">
+                            <option value="Cake">Cake</option>
+                            <option value="Dessert">Dessert</option>
+                            <option value="Fruit">Fruit</option>
+                            <option value="Ice">Ice</option>
+                        </optgroup>
+                        <optgroup label="Drinks">
+                            <option value="Juice">Juice</option>
+                            <option value="Shake">Shake</option>
+                            <option value="Cocktail">Cocktail</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="searchfieldDescription">Added by User:</div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">playlist_add</i>
+                    <input id="searchfieldAddedBy" name="searchfield_added_by" type="text" class="validate" value="">
+                    <label for="searchfieldAddedBy">Recipes by user</label>
+                </div>
+
+                <div class="searchfieldDescription">Difficulty:</div>
+                <div class="input-field">
+                    <i class="material-icons prefix">playlist_add</i>
+                    <select id="level" name="level">
+                        <option value="" disabled selected>Experience level:</option>
+                        <option value="Easy">Easy</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Difficult">Difficult</option>
+                    </select>
+                </div>
+
+                <div class="searchfieldDescription">Ingredients</div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">playlist_add</i>
+                    <input id="searchfieldIngredients" name="searchfield_ingredients" type="text" class="validate"
+                        value="">
+                    <label for="searchfieldIngredients">Ingredients</label>
+                </div>
+
+                <div class="searchfieldDescription">By country: </div>
+                <div class="input-field">
+                    <i class="material-icons prefix">playlist_add</i>
+                    <select id="countryname" class="icons" name="country_name">
+                        <option value="" disabled selected>Choose origin country</option>
+                        {% for country in countries %}
+                        <option value="{{country['country_name']}}" data-icon="{{url_for('static', filename=country['filename'])}}" class="circle">{{country['country_name']}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="searchfieldDescription">Rating:</div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">playlist_add</i>
+                    <select id="searchfieldRating" name="searchfield_rating">
+                        <option value="" disabled selected>Please select stars</option>
+                        <option value=1>1 stars</option>
+                        <option value=2>2 stars</option>
+                        <option value=3>3 stars</option>
+                        <option value=4>4 stars</option>
+                        <option value=5>5 stars</option>
+                    </select>
+                </div>
+            </div>
+            <div class="buttonWrapper">
+                <div onclick="sendSearchform()" class="btn waves-effect waves-light">Search!</div>
+            </div>
+
+        </div>
+    </form>
+</div>
+{% endblock %}

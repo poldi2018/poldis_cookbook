@@ -1,0 +1,72 @@
+{% extends 'base.html'%}
+{% block content %}
+<div id="registerWrapper">
+    <div class="headline">
+        <h3>User Registration</h3>
+    </div>
+    <div class="headline">
+        <h4>{{message}}</h4>
+    </div>
+    <div class="headline">
+        <h5>Have already an account? <a href="{{url_for('login_page')}}">Login here</a></h5>
+    </div>
+
+    <div class="row">
+        <form action="{{ url_for('insert_user') }}" method="POST" id="registrationForm">
+            <div class="row">
+                <div class="input-field">
+                    <i class="material-icons prefix">playlist_add</i>
+                    {% if form %}
+                    <input id="username" name="username" type="text" class="validate" value="{{form.get('username')}}">
+                    {% else %}
+                    <input id="username" name="username" type="text" class="validate" value="">
+                    {% endif %}
+                    <label for="username">Your username</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <i class="material-icons prefix">playlist_add</i>
+                    {% if form %}
+                    <input id="email_address" name="email_address" type="text" class="validate" value="{{form.get('email_address')}}">
+                    {% else %}
+                    <input id="email_address" name="email_address" type="text" class="validate" value="">
+                    {% endif %}
+                    <label for="email_address">Email Address</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <i class="material-icons prefix">playlist_add</i>
+                    {% if form %}
+                    <input id="password" name="password" type="password" class="validate" value="{{form.get('password')}}" autocomplete="">
+                    {% else %}
+                    <input id="password" name="password" type="password" class="validate" value="" autocomplete="">
+                    {% endif %}
+                    <label for="email_address">Password</label>
+                </div>
+                <div class="input-field">
+                    <i class="material-icons prefix">playlist_add</i>
+                    {% if form %}
+                    <input id="password2" name="password2" type="password" class="validate" value="{{form.get('password2')}}" autocomplete="">
+                    {% else %}
+                    <input id="password2" name="password2" type="password" class="validate" value="" autocomplete="">
+                    {% endif %}
+                    <label for="email_address">Password</label>
+                </div>
+            </div>
+            <div class="buttonWrapper">
+                <div class="btn waves-effect waves-light" id="registrationFormSendBtn"
+                    onclick="checkRegistrationForm()">Register me!</div>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="popupCheckForValidFields">
+    <div id="resultCheckForValidFields"></div>
+    <div class="buttonWrapperPopup">
+        <div id="closeCheckForValidFieldsBtn" class="btn waves-effect waves-light"
+            onclick="closeCheckForValidFieldsPopup()">Close</div>
+    </div>
+</div>
+{% endblock %}

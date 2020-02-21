@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+{% block content %}
+<div id="loginWrapper">
+    <div class="headline">
+        <h3>Login</h3>
+    </div>
+    <div class="headline">
+        <h4>{{message}}</h4>
+    </div>
+    <div class="headline">
+        <h5>Have no account? <a href="{{url_for('register')}}">Register here for free!</a></h5>
+    </div>
+
+    <div class="row">
+        <form action="{{ url_for('check_credentials') }}" method="POST" id="loginForm">
+            <div class="row">
+                <div class="input-field">
+                    <i class="material-icons prefix">playlist_add</i>
+                    <input id="username" name="username" type="text" class="validate" value="">
+                    <label for="username">Your username</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <i class="material-icons prefix">playlist_add</i>
+                    <input id="email_address" name="email_address" type="text" class="validate" value="">
+                    <label for="email_address">Email Address</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <i class="material-icons prefix">playlist_add</i>
+                    <input id="password" name="password" type="password" class="validate" value="" autocomplete="">
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <div class="buttonWrapper">
+                <div class="btn waves-effect waves-light" id="loginFormSendBtn"
+                    onclick="login()">Login</div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="welcomeWrapper">
+    <div class="headline">
+        <h4>Hi! Thanks for the visit. Feel free to search for recipes you like to try. Or even better, share your
+            favourite dish!</h4>
+    </div>
+
+    <div class="chartWrapper">
+        <div class="chart">
+            <h3>Total viewcount per user</h3>
+            <div id="per-user-viewcount"></div>
+        </div>
+
+        <div class="chart">
+            <h3>Total reviewcount per user</h3>
+            <div id="per-user-reviewcount"></div>
+        </div>
+    </div>
+</div>
+<script src="{{url_for('static', filename='vendor/dc/dc-script.js')}}" type="text/javascript"></script>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="resultsWapper">
+    {% if search_term=="" %}
+    <div class="headline">
+        <h3>Search results for all Recipes</h3>
+    </div>
+    {% else %}
+    <div class="headline">
+        '{{search_term}}' has been found in {{recipes_count}} recipe(s).
+    </div>
+    {% endif %}
+    <div class="outerRecipesWrapper">
+        <div class="innerRecipesWrapper">
+            {% for recipe in recipes_by_searchterm %}
+            <div class="recipeTile">
+                <div class="recipeTileStatsWrapper">
+                    <div class="recipeTileStats">
+                        <div class="recipeTileName">
+                            <a href="{{url_for('read_recipe', recipe_id=recipe._id)}}">{{recipe.title}}</a>
+                        </div>
+                        <div class="recipeTileDishType">Category: <a
+                                href="{{url_for('advanced_results', category='dish_type', value=recipe.dish_type)}}">{{recipe.dish_type}}</a></div>
+                        <div class="recipeTileAddedBy">Added by: <a
+                                href="{{url_for('advanced_results', category='user', value=recipe.added_by)}}">{{recipe.added_by}}</a>
+                        </div>
+                        <div class="recipeTileReviewCount">Review count: {{recipe.review_count}}</div>
+                        <div class="recipeTileViewCount">View count: {{recipe.view_count}}</div>
+                    </div>
+                </div>
+                <div id="dishImageWrapper">
+                    <a href="{{url_for('read_recipe', recipe_id=recipe._id)}}">
+                        <img src="{{recipe.img_src}}" alt="picture_of_dish" /></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% if search_term=="" %}
+    <div class="headline">
+        <h3>Search results for all Reviews</h3>
+    </div>
+    {% else %}
+    <div class="headline">
+        '{{search_term}}' has been found in {{reviews_count}} review(s).
+    </div>
+    {% endif %}
+    <div class="outerReviewsWrapper">
+        <div class="innerReviewsWrapper">
+            {% for review in reviews_by_searchterm %}
+            <div class="reviewTile">
+                <div class="reviewKey">Review Title</div>
+                <div class="reviewValue">{{review.review_title}}</div>
+                <div class="reviewKey">Review For</div>
+                <div class="reviewValue">
+                    <a href="{{url_for('read_recipe', recipe_id=review.recipe_id)}}">{{review.review_for}}</a>
+                </div>
+                <div class="reviewKey">Rating</div>
+                <div class="reviewValue">
+                    {% for star in range(review.rating) %}
+                    <i class="material-icons prefix">star</i>
+                    {% endfor %}
+                </div>
+                <div class="reviewKey">Added on date</div>
+                <div class="reviewValue">{{review.added_on_date}}</div>
+                <div class="reviewKey">Added on time</div>
+                <div class="reviewValue">{{review.added_on_time}}</div>
+                <div class="reviewKey">Reviewed By</div>
+                <div class="reviewValue">{{review.rated_by}}</div>
+                <div class="reviewKey">Comment</div>
+                <div class="reviewValue">{{review.comment}}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

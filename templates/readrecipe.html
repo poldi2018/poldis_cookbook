@@ -1,0 +1,268 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="recipeWrapper">
+    <!-- if user is not logged in, no button for edit and delete is displayed -->
+    {% if session["username"]=="" %}
+    <div class="recipeHeader">
+        <div id="readRecipeTitle" class="recipeHeaderItem">{{recipe.title}}</div>
+        <div id="dishType" class="recipeHeaderItem"><a href="{{url_for('advanced_results', category='dish_type', value=recipe.dish_type)}}">{{recipe.dish_type}}</a></div>
+        <div id="showReviewsPopupBtn" class="recipeHeaderItem" onclick="showReviewsPopup()">
+            <div class="recipeButtonWrapper btn waves-effect waves-light">Reviews</div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- if a user is logged in, but is not author of displayed recipe only rate button is displayed -->
+    {% if session["username"]!="" and recipe.user_email_hash!=session["email_address"] %}
+    <div class="recipeHeader">
+        <div id="readRecipeTitle" class="recipeHeaderItem">{{recipe.title}}</div>
+        <div id="dishType" class="recipeHeaderItem width16"><a href="{{url_for('advanced_results', category='dish_type', value=recipe.dish_type)}}">{{recipe.dish_type}}</a></div>
+        <div id="showReviewsPopupBtn" class="recipeHeaderItem" onclick="showReviewsPopup()">
+            <div class="recipeButtonWrapper btn waves-effect waves-light">Reviews</div>
+        </div>
+        <div id="showRatePopupBtn" class="recipeHeaderItem" onclick="showRatePopup()">
+            <div class="recipeButtonWrapper btn waves-effect waves-light">Rate!</div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- if a user is logged in and is author buttons for edit and delete are displayed -->
+    {% if session["username"]!="" and recipe.user_email_hash==session["email_address"] %}
+    <div class="recipeHeader">
+        <div id="readRecipeTitle" class="recipeHeaderItem">{{recipe.title}}</div>
+        <div id="dishType" class="recipeHeaderItem"><a href="{{url_for('advanced_results', category='dish_type', value=recipe.dish_type)}}">{{recipe.dish_type}}</a></div>
+        <div id="showReviewsPopupBtn" class="recipeHeaderItem" onclick="showReviewsPopup()">
+            <div class="recipeButtonWrapper btn waves-effect waves-light">Reviews</div>
+        </div>
+        <div id="showRatePopupBtn" class="recipeHeaderItem" onclick="showRatePopup()">
+            <div class="recipeButtonWrapper btn waves-effect waves-light">Rate!</div>
+        </div>
+        <div id="editRecipeBtn" class="recipeHeaderItem"><a
+                href="{{url_for('edit_recipe', recipe_id=recipe._id)}}">
+                <div class="recipeButtonWrapper btn waves-effect waves-light">Edit</div>
+            </a></div>
+        <div id="deleteRecipePopupBtn" class="recipeHeaderItem" onclick="showdeleteRecipePopup()">
+            <div class="recipeButtonWrapper btn waves-effect waves-light">Delete</div>
+            </a>
+        </div>
+    </div>
+    {% endif %}
+
+    <div id="outerStatsWrapper">
+        <div id="innerStatsWrapper">
+            <div class="statsWrapper">
+                <div class="statsfield">Added By:</div>
+                <div class="statsfield">{{recipe.added_by}}</div>
+            </div>
+
+            <div class="statsWrapper">
+                <div class="statsfield">Date added:</div>
+                <div class="statsfield">{{recipe.added_on_date}}</div>
+            </div>
+
+            <div class="statsWrapper">
+                <div class="statsfield">Time added:</div>
+                <div class="statsfield">{{recipe.added_on_time}}</div>
+            </div>
+
+            <div class="statsWrapper">
+                <div class="statsfield">Level:</div>
+                <div class="statsfield">{{recipe.level}}</div>
+            </div>
+
+            <div class="statsWrapper">
+                <div class="statsfield">Reviews:</div>
+                <div class="statsfield">{{recipe.review_count}}</div>
+            </div>
+
+            <div class="statsWrapper">
+                <div class="statsfield">Viewed:</div>
+                <div class="statsfield">{{recipe.view_count}}</div>
+            </div>
+            <div class="outerTimesWrapper">
+                <div class="timesWrapper">
+                    <div class="innerTimesWrapper">
+                    <div class="directionsLabel">Prep Time:</div>
+                    <div id="prepTimeDiv">{{recipe.prep_time}}</div>             
+                </div>
+                </div>
+                <div class="timesWrapper">
+                    <div class="innerTimesWrapper">
+                    <div class="directionsLabel">Cooking Time:</div>
+                    <div id="cookingTimeDiv">{{recipe.cooking_time}}</div>
+                </div>
+                </div>
+                <div class="timesWrapper">
+                    <div class="innerTimesWrapper">
+                    <div class="directionsLabel">Total Time:</div>
+                    <div id="totalTimeDiv"></div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div id="dishImageWrapper">
+            <div id="origin">
+                <img id="originFlag" src="{{recipe.origin}}">
+            </div>
+            <img id="dishImage" src="{{recipe.img_src}}" alt="image of dish">
+        </div>
+    </div>
+
+    <div id="outerInstructionsWrapper">
+        <div id="outerIngredientsWrapper">
+            <div id="ingredientsHeadline">Ingredients</div>
+            {% for ingredient in recipe.ingredients %}
+            <div class="outerIngredientContainer">
+                <div class="amountContainer">
+                    <i class="material-icons prefix">playlist_add</i>
+                    <div class="ingredientfield">{{ingredient.amount}}</div>
+                </div>
+                <div class="ingredientContainer">
+                    <div class="ingredientfield">{{ingredient.ingredient}}</div>
+                    {% if recipe.allergens %}
+                    {% for allergen in recipe.allergens %}
+                    {% if allergen==ingredient.ingredient %}
+                    <div class="warning">
+                    <i class="material-icons prefix warning-icon">warning</i>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                </div>                
+            </div>
+            {% endfor %}
+        </div>
+        <div id="outerDirectionsWrapper">
+            <div id="directionsHeadline">Directions</div>
+            <div id="directionsWrapper">
+                <textarea id="directions" name="directions" data-length="1000" disabled>{{recipe.directions}}</textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block popups %}
+<div id="reviewsPopup">
+    <div id="reviewsWrapper">
+        <div class="innerReviewsWrapper">
+            <div class="headline">Reviews for {{recipe.title}}</div>
+            {% if message %}
+            <div class="div">{{message}}</div>
+            {% else %}
+            {% for review in reviews_of_recipe %}
+            <div class="reviewTile">
+                <div class="reviewKey">Review Title</div>
+                <div class="reviewValue">{{review.review_title}}</div>
+                <div class="reviewKey">Review For</div>
+                <div class="reviewValue">
+                    <a href="{{url_for('read_recipe', recipe_id=review.recipe_id)}}">{{review.review_for}}</a>
+                </div>
+                <div class="reviewKey">Rating</div>
+                <div class="reviewValue">
+                    {% for star in range(review.rating) %}
+                    <i class="material-icons prefix">star</i>
+                    {% endfor %}
+                </div>
+                <div class="reviewKey">Added on date</div>
+                <div class="reviewValue">{{review.added_on_date}}</div>
+                <div class="reviewKey">Added on time</div>
+                <div class="reviewValue">{{review.added_on_time}}</div>
+                <div class="reviewKey">Reviewed By</div>
+                <div class="reviewValue">{{review.rated_by}}</div>
+                <div class="reviewKey">Comment</div>
+                <div class="reviewValue">{{review.comment}}</div>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+
+    </div>
+    <div class="buttonWrapper">
+        <div id="closeReviewsPopupBtn" class="btn waves-effect waves-light" onclick="closeReviewsPopup()">Close</div>
+    </div>
+</div>
+
+<div id="ratePopup">
+    <div id="rateWrapper">
+        <div class="headline"> Rate recipe for {{recipe.title}}, created by {{recipe.added_by}}</div>
+        <div class="row">
+            <form id="rateForm" action="{{ url_for('insert_rating', recipe_id=recipe._id, recipe_title=recipe.title) }}"
+                method="POST" class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">playlist_add</i>
+                        <input id="review_title" name="review_title" type="text" class="validate" required>
+                        <label for="review_title">review title</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">playlist_add</i>
+                        <select id="level" name="rating">
+                            <option value="" disabled selected>Please select stars</option>
+                            <option value=1>1 stars</option>
+                            <option value=2>2 stars</option>
+                            <option value=3>3 stars</option>
+                            <option value=4>4 stars</option>
+                            <option value=5>5 stars</option>
+                        </select>
+                        <label for="level">rating</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">playlist_add</i>
+                        <input id="comment" name="comment" type="text" class="validate">
+                        <label for="comment">Comment:</label>
+                    </div>
+                </div>
+                <div class="buttonWrapper">
+                    <div id="sendReviewPopupBtn" class="btn waves-effect waves-light" onclick="sendReview()">Save
+                        Review!</div>
+                    <div id="cancelReviewPopupBtn" class="btn waves-effect waves-light" onclick="cancelReview()">Cancel
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="deletePopup">
+    <div id="deletePopupWrapper">
+        <div class="div">
+            <h3>Are you sure to delete this recipe ?</h3>
+        </div>
+        <div class="buttonWrapper">
+            <div id="deleteRecipeConfirmBtn" class="btn waves-effect waves-light">
+                <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}">Delete!</a>
+            </div>
+            <div id="deleteRecipePopupCancelBtn" class="btn waves-effect waves-light" onclick="cancelDeleteRecipe()">
+                Cancel</div>
+        </div>
+    </div>
+</div>
+
+<div id="popupCheckForValidFields">
+    <div id="resultCheckForValidFields"></div>
+    <div class="buttonWrapperPopup">
+        <div id="closeCheckForValidFieldsBtn" class="btn waves-effect waves-light"
+            onclick="closeCheckForValidFieldsPopup()">Close</div>
+    </div>
+</div>
+
+{% with message = get_flashed_messages() %}
+         {% if message  %}
+         <div id="flashesPopup" class="opacityRise">
+             <div id="resultCheckForValidFields">Your review has been saved and is now visible under reviews.</div>
+             <div class="buttonWrapperPopup">
+                 <div id="closeCheckForValidFieldsBtn" class="btn waves-effect waves-light"
+                     onclick="closeFlashesPopup()">Close</div>
+             </div>
+        </div>
+         {% endif %}
+{% endwith %}       
+
+{% endblock %}
