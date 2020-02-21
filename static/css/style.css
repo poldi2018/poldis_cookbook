@@ -1,8 +1,9 @@
-h3, .recipeTitle, .headline {
-  font-family: 'Dosis', sans-serif;
-}
-
 @media screen and (orientation: landscape) {
+  h3,
+  .recipeTitle,
+  .headline {
+    font-family: 'Dosis', sans-serif;
+  }
   body {
     background-color: #EAE7DC;
   }
@@ -20,6 +21,7 @@ h3, .recipeTitle, .headline {
     width: 83vw;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    color: red;
   }
   #home {
     padding-top: 5px;
@@ -216,7 +218,7 @@ h3, .recipeTitle, .headline {
   .recipeButtonWrapper {
     border-radius: 10px;
     padding-top: 2px;
-    width: 80%;
+    width: 90%;
     height: 50%;
     font-size: 1.2vw;
   }
@@ -232,7 +234,9 @@ h3, .recipeTitle, .headline {
   #chooseOrigin {
     width: 24.7%;
   }
-  #chooseDishtype .input-field, #chooseOrigin .input-field, .recipeHeaderItem .input-field {
+  #chooseDishtype .input-field,
+  #chooseOrigin .input-field,
+  .recipeHeaderItem .input-field {
     margin-top: 0px;
   }
   #dishType {
@@ -785,7 +789,7 @@ h3, .recipeTitle, .headline {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    width: 60%;
+    width: 100%;
   }
   .chart {
     display: -webkit-box;
@@ -811,6 +815,11 @@ h3, .recipeTitle, .headline {
 }
 
 @media screen and (orientation: portrait) {
+  h3,
+  .recipeTitle,
+  .headline {
+    font-family: 'Dosis', sans-serif;
+  }
   body {
     background-color: #EAE7DC;
   }
@@ -836,13 +845,78 @@ h3, .recipeTitle, .headline {
     height: 4vw;
     padding: 0;
     margin-top: 25px;
-  }
-  #menulistMobile,
-  #sideMobileMenu {
     display: none;
   }
+  #menulistMobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    z-index: 500;
+  }
+  #logoMobileList {
+    width: 90%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #sideMobileMenu {
+    width: 33vw;
+    -webkit-transform: translateX(-40vw);
+            transform: translateX(-40vw);
+    -webkit-transition: -webkit-transform .6s ease-in-out;
+    transition: -webkit-transform .6s ease-in-out;
+    transition: transform .6s ease-in-out;
+    transition: transform .6s ease-in-out, -webkit-transform .6s ease-in-out;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: left;
+        -ms-flex-pack: left;
+            justify-content: left;
+    position: absolute;
+    top: 6px;
+    left: -25px;
+    z-index: 1000;
+    background-color: darkgray;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  #sideMobileMenu .menulistitem {
+    width: 100%;
+    height: 10vw;
+  }
+  #sideMobileMenu .menulistitem form {
+    width: 100%;
+    height: 6.5vw;
+    width: 30vw;
+  }
+  #sideMobileMenu .menulistitem .hyperlinks {
+    width: 100%;
+    font-size: 4vw;
+    color: white;
+  }
+  #searchfield {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: left;
+        -ms-flex-pack: left;
+            justify-content: left;
+  }
+  #menulistMobileCloseBtn {
+    width: 10%;
+  }
   body,
-  .menulistitem,
+  #menulistDesktop .menulistitem,
   .logoMenuListItem,
   .headline,
   .recipeWrapper,
@@ -901,7 +975,6 @@ h3, .recipeTitle, .headline {
   }
   .logoMenuListItem .hyperlinks header,
   .headline,
-  #menulistDesktop,
   .menulistitem form,
   .menulistitem .hyperlinks,
   .recipeWrapper .input-field,
@@ -930,7 +1003,6 @@ h3, .recipeTitle, .headline {
         -ms-flex-align: center;
             align-items: center;
   }
-  #menulistDesktop,
   #baseWrapper {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -951,7 +1023,7 @@ h3, .recipeTitle, .headline {
             justify-content: space-between;
   }
   .logo_small {
-    width: 8vw;
+    width: 16vw;
   }
   .menulistitem,
   .logoMenuListItem {
@@ -1002,12 +1074,13 @@ h3, .recipeTitle, .headline {
     margin-top: 1vw;
   }
   .headline {
+    margin-top: 10px;
     margin-bottom: 10px;
     width: 100%;
-    font-size: 2vw;
+    font-size: 3.8vw;
   }
   #recipetitle {
-    font-size: 1.2vw;
+    font-size: 2.8vw;
   }
   .recipeHeader {
     width: 100%;
@@ -1025,18 +1098,19 @@ h3, .recipeTitle, .headline {
     background-color: lightgrey;
     margin-top: 2px;
     margin-bottom: 2px;
+    height: 10vw;
   }
   .recipeButtonWrapper {
     border-radius: 10px;
     padding-top: 2px;
-    width: 80%;
+    width: 90%;
     height: 50%;
-    font-size: 1.2vw;
+    font-size: 2.8vw;
   }
   #readRecipeTitle {
     width: 100%;
     font-family: "Dosis", sans-serif;
-    font-size: 2.5vw;
+    font-size: 6.5vw;
   }
   #readRecipeTitle .input-field {
     width: 50%;
@@ -1045,22 +1119,27 @@ h3, .recipeTitle, .headline {
   #chooseOrigin {
     width: 49.7%;
   }
-  #chooseDishtype .input-field, #chooseOrigin .input-field, .recipeHeaderItem .input-field {
+  #chooseDishtype .input-field,
+  #chooseOrigin .input-field,
+  .recipeHeaderItem .input-field {
     margin-top: 0px;
   }
   #dishType {
-    font-size: 1.5vw;
+    font-size: 4.5vw;
   }
-  #dishType, #showReviewsPopupBtn, #showRatePopupBtn {
+  #dishType,
+  #showReviewsPopupBtn,
+  #showRatePopupBtn {
     width: 33%;
   }
   .select-wrapper input.select-dropdown {
-    font-size: 1.2vw;
+    font-size: 2.8vw;
   }
   .select-wrapper {
     width: 80%;
   }
-  #editRecipeBtn, #deleteRecipePopupBtn {
+  #editRecipeBtn,
+  #deleteRecipePopupBtn {
     width: 50%;
   }
   #editRecipeBtn a {
@@ -1087,11 +1166,12 @@ h3, .recipeTitle, .headline {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     width: 33%;
+    height: 10vw;
     margin-top: 2px;
     margin-bottom: 2px;
   }
   .statsWrapper div {
-    font-size: 1.2vw;
+    font-size: 2.8vw;
   }
   .statsfield {
     width: 100%;
@@ -1127,27 +1207,30 @@ h3, .recipeTitle, .headline {
     width: 33.03%;
     margin-top: 2px;
     margin-bottom: 2px;
-    height: 4vw;
+    height: 10vw;
   }
   .timesWrapper .input-field {
     margin-top: 0px;
   }
   .timesWrapper div {
-    font-size: 1.2vw;
-  }
-  #prepTime,
-  #cookingTime {
-    font-size: 1.2vw;
+    font-size: 2.8vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .directionsLabel {
     width: 100%;
-    margin-top: 5px;
   }
   #outerStatsWrapper #dishImageWrapper {
     border: 2px solid none;
     border-radius: 10px;
     overflow: hidden;
-    font-size: 1.2vw;
+    font-size: 2.8vw;
     background-color: lightgrey;
     width: 100%;
     -ms-flex-wrap: wrap;
@@ -1178,8 +1261,8 @@ h3, .recipeTitle, .headline {
   }
   #originFlag {
     position: absolute;
-    width: 3vw;
-    height: 1.68vw;
+    width: 12vw;
+    height: 6.72vw;
     border: 2px solid black;
     border-radius: 10px;
     overflow: hidden;
@@ -1192,17 +1275,17 @@ h3, .recipeTitle, .headline {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     margin-top: 2px;
-    margin-bottom: 1vw;
-    padding-bottom: 4vw;
+    padding-bottom: 6vw;
     background-color: lightgrey;
     border-radius: 10px;
   }
   #outerInstructionsWrapper div,
   #ingredientWrapper input {
-    font-size: 1.2vw;
+    font-size: 2.8vw;
     font-family: "Dosis", sans-serif;
   }
-  #outerIngredientsWrapper, #outerDirectionsWrapper {
+  #outerIngredientsWrapper,
+  #outerDirectionsWrapper {
     width: 100%;
     margin-top: 10px;
   }
@@ -1242,7 +1325,7 @@ h3, .recipeTitle, .headline {
     width: 50%;
   }
   .amountContainer i {
-    font-size: 1.2vw;
+    font-size: 2.8vw;
   }
   .ingredientContainer {
     display: -webkit-box;
@@ -1295,6 +1378,7 @@ h3, .recipeTitle, .headline {
   }
   .footerWrapper {
     width: 75vw;
+    height: 10vw;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     margin-top: 20px;
@@ -1306,12 +1390,34 @@ h3, .recipeTitle, .headline {
     border: 1px solid grey;
     border-radius: 1px;
   }
+  .innerfooterWrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
   .created,
   .contact,
   .github {
-    width: 25%;
     height: 3vw;
-    font-size: 1.2vw;
+    font-size: 2vw;
+  }
+  .created {
+    width: 35%;
+  }
+  .contact {
+    width: 45%;
+  }
+  .github {
+    width: 20%;
   }
   a i {
     color: black;
@@ -1322,7 +1428,7 @@ h3, .recipeTitle, .headline {
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    width: 65%;
+    width: 90%;
     margin-bottom: 1vw;
     height: 15vw;
   }
@@ -1365,11 +1471,11 @@ h3, .recipeTitle, .headline {
     border-radius: 10px;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    width: 30%;
+    width: 70%;
     margin: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 1.2vw;
+    font-size: 2.8vw;
     font-family: "Dosis", sans-serif;
   }
   .reviewValue {
@@ -1384,7 +1490,7 @@ h3, .recipeTitle, .headline {
     border: 2px solid none;
     border-radius: 10px;
     overflow: hidden;
-    font-size: 1.2vw;
+    font-size: 2.8vw;
     background-color: lightgrey;
     height: 100%;
     margin-left: 5px;
@@ -1455,12 +1561,11 @@ h3, .recipeTitle, .headline {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     top: 7vw;
-    font-size: 1.2vw;
+    font-size: 2.8vw;
   }
   #reviewsWrapper,
   #rateWrapper {
     margin-top: 10px;
-    margin-bottom: 10px;
     width: 100%;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -1472,7 +1577,6 @@ h3, .recipeTitle, .headline {
   .innerReviewsWrapper,
   .innerRecipesWrapper {
     margin-top: 20px;
-    margin-bottom: 20px;
     width: 80vw;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -1495,14 +1599,13 @@ h3, .recipeTitle, .headline {
     font-family: "Dosis", sans-serif;
   }
   .buttonWrapperPopup div {
-    font-size: 1.2vw;
+    font-size: 2.8vw;
   }
   #resultCheckForValidFields {
     margin: 2vw;
   }
   .buttonWrapper div {
-    margin-left: 44px;
-    font-size: 1.2vw;
+    font-size: 2.8vw;
   }
   .buttonWrapper a {
     color: white;
@@ -1522,12 +1625,15 @@ h3, .recipeTitle, .headline {
   }
   #loginWrapper,
   #registerWrapper {
-    width: 50vw;
+    width: 70vw;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
   #loginForm {
-    width: 15vw;
+    width: 50vw;
+  }
+  #registrationForm .row .input-field {
+    height: 12vw;
   }
   #flashesPopup {
     position: absolute;
@@ -1540,7 +1646,7 @@ h3, .recipeTitle, .headline {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     top: 7vw;
-    font-size: 1.2vw;
+    font-size: 2.8vw;
   }
   .searchformOuterWrapper {
     display: -webkit-box;
@@ -1556,13 +1662,14 @@ h3, .recipeTitle, .headline {
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    width: 30%;
+    width: 90%;
     height: 100%;
     font-family: "Dosis", sans-serif;
+    margin-bottom: 1vw;
   }
   .searchfieldDescription {
     width: 30%;
-    font-size: 1.2vw;
+    font-size: 2.8vw;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -1572,7 +1679,7 @@ h3, .recipeTitle, .headline {
   }
   .searchformInnerWrapper .input-field {
     width: 70%;
-    height: 3vw;
+    height: 12vw;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;

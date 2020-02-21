@@ -3,7 +3,7 @@
 $(document).ready(function () {
     $('select').material_select();
     calcTotalTime();
-    adaptRecipeButtons();
+    checkCurrentBreakpoint();
 });
 
 // global variables
@@ -310,27 +310,119 @@ function disableFileInputField() {
     }
 }
 
-function adaptRecipeButtons() {
-    if ($(window).width() > $(window).height() && $(window).width() > 736 && $(window).height() > 414) {
-        //check if logged in by checking existence of popup button and set width for 2 buttons to fillup space
-        if (!$('#showRatePopupBtn').length) {
-            $('#dishType').css("width", "24.7%");
-            $('#showReviewsPopupBtn').css("width", "24.7%");
+function checkCurrentBreakpoint() {
+    // if in landscape mode
+    if ($(window).width() > $(window).height()) {
+        // landscape mobile
+        if ($(window).width() <= 823 && $(window).height() <= 414) {
+            setWidthBtnLandscapeMobile();
         }
-        // if logged in but user is not author
-        else if ($('#showRatePopupBtn').length && !$('#editRecipeBtn').length) {
-            $('#dishType').css("width", "16.43%")
-            $('#showReviewsPopupBtn').css("width", "16.43%")
-            $('#showRatePopupBtn').css("width", "16.43%")
-
-        }
-        // for author
-        else if ($('#editRecipeBtn').length) {
-            $('#dishType').css("width", "9.7%")
-            $('#showReviewsPopupBtn').css("width", "9.7%")
-            $('#showRatePopupBtn').css("width", "9.7%")
-            $('#editRecipeBtn').css("width", "9.7%")
-            $('#deleteRecipePopupBtn').css("width", "9.7%")
+        // landscape desktop and pad
+        else if ($(window).width() <= 1366 && $(window).height() <= 1024) {
+            setWidthBtnDesktop();
+        } else {
+            setWidthBtnDesktop();
         }
     }
+
+    // if in portrait mode
+    else if ($(window).width() < $(window).height()) {
+
+        // portrait mobile
+        if ($(window).width() <= 414 && $(window).height() <= 823) {
+            setWidthBtnPortrait();
+        }
+        // portrait, pad
+        else if ($(window).width() <= 1024 && $(window).height() <= 1366) {
+            setWidthBtnPortrait();
+        }
+    }
+}
+
+function setWidthBtnDesktop() {
+    //check if logged in by checking existence of popup button and set width for 2 buttons to fillup space
+    console.log("hi")
+    if (!$('#showRatePopupBtn').length) {
+        $('#dishType').css("width", "24.7%");
+        $('#showReviewsPopupBtn').css("width", "24.7%");
+    }
+    // if logged in but user is not author
+    else if ($('#showRatePopupBtn').length && !$('#editRecipeBtn').length) {
+        $('#dishType').css("width", "16.43%")
+        $('#showReviewsPopupBtn').css("width", "16.43%")
+        $('#showRatePopupBtn').css("width", "16.43%")
+
+    }
+    // for author
+    else if ($('#editRecipeBtn').length) {
+        $('#dishType').css("width", "9.7%")
+        $('#showReviewsPopupBtn').css("width", "9.7%")
+        $('#showRatePopupBtn').css("width", "9.7%")
+        $('#editRecipeBtn').css("width", "9.7%")
+        $('#deleteRecipePopupBtn').css("width", "9.7%")
+    }
+}
+
+function setWidthBtnLandscapeMobile() {
+    var width25 = "24.7%";
+    var width33 = "32%";
+    var width50 = "49.52%";
+    //check if logged in by checking existence of popup button and set width for 2 buttons to fillup space
+    console.log("hi")
+    if (!$('#showRatePopupBtn').length) {
+        $('#dishType').css("width", width50);
+        $('#showReviewsPopupBtn').css("width", width50);
+    }
+    // if logged in but user is not author
+    else if ($('#showRatePopupBtn').length && !$('#editRecipeBtn').length) {
+        $('#dishType').css("width", width33)
+        $('#showReviewsPopupBtn').css("width", width33)
+        $('#showRatePopupBtn').css("width", width33)
+
+    }
+    // for author
+    else if ($('#editRecipeBtn').length) {
+        $('#dishType').css("width", width33)
+        $('#showReviewsPopupBtn').css("width", width33)
+        $('#showRatePopupBtn').css("width", width33)
+        $('#editRecipeBtn').css("width", width25)
+        $('#deleteRecipePopupBtn').css("width", width25)
+    }
+
+}
+
+function setWidthBtnPortrait() {
+    //check if logged in by checking existence of popup button and set width for 2 buttons to fillup space
+    var width25 = "24.7%";
+    var width33 = "32%";
+    var width50 = "49.52%";
+    if (!$('#showRatePopupBtn').length) {
+        $('#dishType').css("width", width50);
+        $('#showReviewsPopupBtn').css("width", width50);
+    }
+    // if logged in but user is not author
+    else if ($('#showRatePopupBtn').length && !$('#editRecipeBtn').length) {
+        $('#dishType').css("width", width33)
+        $('#showReviewsPopupBtn').css("width", width33)
+        $('#showRatePopupBtn').css("width", width33)
+    }
+    // for author
+    else if ($('#editRecipeBtn').length) {
+        $('#dishType').css("width", width33)
+        $('#showReviewsPopupBtn').css("width", width33)
+        $('#showRatePopupBtn').css("width", width33)
+        $('#editRecipeBtn').css("width", width25)
+        $('#deleteRecipePopupBtn').css("width", width25)
+    }
+}
+
+function showMobileMenu(){
+    $('#sideMobileMenu').css("transform", "translateX(4vw)");
+    console.log("shown")
+}
+
+function hideMobileMenu() {
+    $('#sideMobileMenu').css("transform", "translateX(-40vw)");
+    console.log("hidden")
+
 }
