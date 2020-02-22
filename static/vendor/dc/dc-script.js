@@ -8,7 +8,7 @@ queue()
             var user_dim = ndx.dimension(dc.pluck('added_by'));
             var total_viewcount_per_user = user_dim.group().reduceSum(dc.pluck('view_count'));
             dc.pieChart('#per-user-viewcount')
-                .height(330)
+                .height(230)
                 .radius(90)
                 .transitionDuration(1500)
                 .dimension(user_dim)
@@ -17,7 +17,7 @@ queue()
             var user_dim = ndx.dimension(dc.pluck('added_by'));
             var total_reviewcount_per_user = user_dim.group().reduceSum(dc.pluck('review_count'));
             dc.pieChart('#per-user-reviewcount')
-                .height(330)
+                .height(230)
                 .radius(90)
                 .transitionDuration(1500)
                 .dimension(user_dim)

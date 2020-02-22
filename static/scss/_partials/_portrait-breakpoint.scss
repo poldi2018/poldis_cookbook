@@ -53,33 +53,39 @@
     #menulistMobile {
         display: flex;
         align-items: center;
-        z-index: 500;
+        //z-index: 500;
+        height: 10vw;
     }
 
     #menulistMobileCloseBtn {
         width: 10%;
     }
 
-
-    #logoMobileList {
-        width: 90%;
+    #menulistMobile #logoMobileListItem {
+        width: 70vw;
         display: flex;
         justify-content: center;
+        height: 10vw;
+    }
+
+    #menulistMobile #logoMobileListItem a img {
+        height: 10vw;
     }
 
     #sideMobileMenu {
-        width: 33vw;
-        transform: translateX(-40vw);
+        width: 60vw;
+        transform: translateX(-76vw);
         transition: transform .6s ease-in-out;
         display: flex;
         flex-wrap: wrap;
         justify-content: left;
         position: absolute;
-        top: 0px;
-        left: -20px;
+        top: 7px;
+        left: -27px;
         z-index: 1000;
         background-color: rgba($color: darkgray, $alpha: 0.9);
         border-radius: 10px;
+
         padding: {
             top: 10px;
             bottom: 10px;
@@ -88,10 +94,10 @@
 
     #sideMobileMenu .menulistitem {
         width: 100%;
-        height: 10vw;
+        height: 16vw;
     }
 
-    #sideMobileMenu .menulistitem #searchfieldMobile{
+    #sideMobileMenu .menulistitem #searchfieldMobile {
         width: 100%;
         height: 6.5vw;
         width: 30vw;
@@ -103,10 +109,10 @@
     #searchfieldMobile i {
         color: red;
     }
- 
+
     #sideMobileMenu .menulistitem .hyperlinks {
         width: 100%;
-        font-size: 4vw;
+        font-size: 7vw;
         color: white;
         text-decoration: none;
         -webkit-transition: color .6s ease-in-out;
@@ -122,10 +128,6 @@
     #searchfield {
         display: flex;
         justify-content: left;
-    }
-
-    .logo_small {
-        width: 16vw;
     }
 
     .menulistitem,
@@ -228,7 +230,6 @@
         justify-content: center;
     }
 
-    //.logoMenuListItem .hyperlinks header,
     .headline,
     .menulistitem form,
     .menulistitem .hyperlinks,
@@ -980,14 +981,14 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        width: 60%;
+        width: 90%;
     }
 
     .chart {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        width: 50%;
+        width: 100%;
     }
 
     #per-user-viewcount,

@@ -26,7 +26,7 @@
         <ul id="menulistDesktop">
             <li class="logoMenuListItem"><a class="hyperlinks" href="{{url_for('welcome')}}" class="brand-logo">
                     <img class="logo_small" src="{{url_for('static', filename='images/logo_small.jpeg')}}"
-                        alt="logo_small"></a></li>
+                        alt="logo Poldis cookbook"></a></li>
             <li class="menulistitem"><a class="hyperlinks" href="{{url_for('add_recipe')}}">Add A Recipe</a></li>
             <li class="menulistitem"><a class="hyperlinks" href="{{url_for('reviews_today')}}">Today's Top Reviews</a>
             </li>
@@ -62,9 +62,9 @@
             <li id="menulistMobileShowBtn">
                 <i class="material-icons" onclick=showMobileMenu()>menu</i>
             </li>
-            <li id="logoMobileList">
-                <img class="logo_small" src="{{url_for('static', filename='images/logo_small.jpeg')}}"
-                    alt="logo_small"></a></li>
+            <li id="logoMobileListItem"><a class="hyperlinks" href="{{url_for('welcome')}}" class="brand-logo">
+                <img id="logoMobile" src="{{url_for('static', filename='images/logo_small.jpeg')}}"
+                    alt="logo Poldis cookbook"></a></li>
             </li>
         </ul>
 

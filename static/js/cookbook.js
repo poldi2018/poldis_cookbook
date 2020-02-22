@@ -417,5 +417,5 @@ function showMobileMenu(){
 }
 
 function hideMobileMenu() {
-    $('#sideMobileMenu').css("transform", "translateX(-40vw)");
+    $('#sideMobileMenu').css("transform", "translateX(-76vw)");
 }
