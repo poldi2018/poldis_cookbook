@@ -50,17 +50,14 @@
         padding-top: 5px;
     }
 
-    #menulistDesktop {
-        height: 4vw;
-        padding: 0;
-        margin-top: 25px;
-        display: none;
-    }
-
     #menulistMobile {
         display: flex;
         align-items: center;
         z-index: 500;
+    }
+
+    #menulistMobileCloseBtn {
+        width: 10%;
     }
 
 
@@ -78,10 +75,10 @@
         flex-wrap: wrap;
         justify-content: left;
         position: absolute;
-        top: 6px;
-        left: -25px;
+        top: 0px;
+        left: -20px;
         z-index: 1000;
-        background-color: darkgray;
+        background-color: rgba($color: darkgray, $alpha: 0.9);
         border-radius: 10px;
         padding: {
             top: 10px;
@@ -94,16 +91,32 @@
         height: 10vw;
     }
 
-    #sideMobileMenu .menulistitem form{
+    #sideMobileMenu .menulistitem #searchfieldMobile{
         width: 100%;
         height: 6.5vw;
         width: 30vw;
+        background-color: rgba($color: darkgrey, $alpha: 0.45);
+        border-radius: 10px;
+        border: 2px black;
     }
 
+    #searchfieldMobile i {
+        color: red;
+    }
+ 
     #sideMobileMenu .menulistitem .hyperlinks {
         width: 100%;
         font-size: 4vw;
         color: white;
+        text-decoration: none;
+        -webkit-transition: color .6s ease-in-out;
+        -o-transition: color .6s ease-in-out;
+        transition: color .6s ease-in-out;
+        font-family: $dosisFont;
+    }
+
+    #sideMobileMenu .menulistitem:hover .hyperlinks {
+        color: red;
     }
 
     #searchfield {
@@ -111,9 +124,53 @@
         justify-content: left;
     }
 
+    .logo_small {
+        width: 16vw;
+    }
 
-    #menulistMobileCloseBtn {
-        width: 10%;
+    .menulistitem,
+    .logoMenuListItem {
+        padding-left: 1vw;
+        padding-right: 1vw;
+        font-size: 1vw;
+    }
+
+    #search_term {
+        background-color: transparent;
+        margin: 0;
+        height: 80%;
+    }
+
+    #menulistDesktop {
+        height: 4vw;
+        padding: 0;
+        margin-top: 25px;
+        display: none;
+    }
+
+    #menulistDesktop .menulistitem .hyperlinks {
+        color: #8D8D8A;
+        text-decoration: none;
+        -webkit-transition: color .6s ease-in-out;
+        -o-transition: color .6s ease-in-out;
+        transition: color .6s ease-in-out;
+        font-size: $menuheaderFont;
+        font-family: $dosisFont;
+    }
+
+    #menulistDesktop .menulistitem:hover .hyperlinks {
+        color: red;
+    }
+
+    #menulistDesktop .menulistitem #searchfieldDesktop {
+        width: 20vw;
+        height: 1.5vw;
+        background-color: $header-bgcolor;
+    }
+
+    .hyperlinks i {
+        font-size: 1.5vw;
+        color: #3399ff;
     }
 
     body,
@@ -171,7 +228,7 @@
         justify-content: center;
     }
 
-    .logoMenuListItem .hyperlinks header,
+    //.logoMenuListItem .hyperlinks header,
     .headline,
     .menulistitem form,
     .menulistitem .hyperlinks,
@@ -210,48 +267,6 @@
         display: flex;
         justify-content: space-between;
 
-    }
-
-    .logo_small {
-        width: 16vw;
-    }
-
-    .menulistitem,
-    .logoMenuListItem {
-        padding-left: 1vw;
-        padding-right: 1vw;
-        font-size: 1vw;
-    }
-
-    .menulistitem form {
-        width: 20vw;
-        height: 1.5vw;
-        background-color: $header-bgcolor;
-    }
-
-    #search_term {
-        background-color: transparent;
-        margin: 0;
-        height: 80%;
-    }
-
-    .menulistitem .hyperlinks {
-        color: #8D8D8A;
-        text-decoration: none;
-        -webkit-transition: color .6s ease-in-out;
-        -o-transition: color .6s ease-in-out;
-        transition: color .6s ease-in-out;
-        font-size: $menuheaderFont;
-        font-family: $dosisFont;
-    }
-
-    .menulistitem:hover .hyperlinks {
-        color: red;
-    }
-
-    .hyperlinks i {
-        font-size: 1.5vw;
-        color: #3399ff;
     }
 
     #baseWrapper {
@@ -657,14 +672,15 @@
 
     .recipeTile {
         display: flex;
+        justify-content: center;
         flex-wrap: wrap;
-        width: 90%;
+        width: 95%;
         margin-bottom: 1vw;
-        height: 15vw;
+        height: 20vw;
     }
 
     .recipeTileStatsWrapper {
-        width: 50%;
+        width: 40%;
         border-radius: 10px;
         display: flex;
         justify-content: center;
@@ -675,7 +691,7 @@
     }
 
     .recipeTileStats {
-        width: 90%;
+        width: 50%;
     }
 
     .recipeTileDishType,
@@ -732,6 +748,10 @@
         //width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+
+    .recipeTile #dishImageWrapper a {
+        width: 100%;
     }
 
     .reviewKey {

@@ -341,7 +341,6 @@ function checkCurrentBreakpoint() {
 
 function setWidthBtnDesktop() {
     //check if logged in by checking existence of popup button and set width for 2 buttons to fillup space
-    console.log("hi")
     if (!$('#showRatePopupBtn').length) {
         $('#dishType').css("width", "24.7%");
         $('#showReviewsPopupBtn').css("width", "24.7%");
@@ -368,7 +367,6 @@ function setWidthBtnLandscapeMobile() {
     var width33 = "32%";
     var width50 = "49.52%";
     //check if logged in by checking existence of popup button and set width for 2 buttons to fillup space
-    console.log("hi")
     if (!$('#showRatePopupBtn').length) {
         $('#dishType').css("width", width50);
         $('#showReviewsPopupBtn').css("width", width50);
@@ -378,7 +376,6 @@ function setWidthBtnLandscapeMobile() {
         $('#dishType').css("width", width33)
         $('#showReviewsPopupBtn').css("width", width33)
         $('#showRatePopupBtn').css("width", width33)
-
     }
     // for author
     else if ($('#editRecipeBtn').length) {
@@ -388,13 +385,12 @@ function setWidthBtnLandscapeMobile() {
         $('#editRecipeBtn').css("width", width25)
         $('#deleteRecipePopupBtn').css("width", width25)
     }
-
 }
 
 function setWidthBtnPortrait() {
     //check if logged in by checking existence of popup button and set width for 2 buttons to fillup space
     var width25 = "24.7%";
-    var width33 = "32%";
+    var width33 = "32.85%";
     var width50 = "49.52%";
     if (!$('#showRatePopupBtn').length) {
         $('#dishType').css("width", width50);
@@ -418,11 +414,8 @@ function setWidthBtnPortrait() {
 
 function showMobileMenu(){
     $('#sideMobileMenu').css("transform", "translateX(4vw)");
-    console.log("shown")
 }
 
 function hideMobileMenu() {
     $('#sideMobileMenu').css("transform", "translateX(-40vw)");
-    console.log("hidden")
-
 }
