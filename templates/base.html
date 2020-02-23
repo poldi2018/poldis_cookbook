@@ -99,7 +99,8 @@
                 <a class="hyperlinks" href="{{url_for('logout')}}">Logout</a>
             </li>
             <li class="menulistitem">
-                <a class="hyperlinks" href="{{url_for('home')}}">{{session["username"]}}'s Homepage</a>
+                <a class="hyperlinks" href="{{url_for('home')}}">{{session["username"]}}'s <i id="home"
+                    class="material-icons">home</i></a>
             </li>
             {% endif %}
         </ul>
