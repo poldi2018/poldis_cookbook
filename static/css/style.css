@@ -855,7 +855,6 @@
   }
   #menulistMobileCloseBtn {
     width: 10%;
-    padding-left: 17px;
   }
   #menulistMobile #logoMobileListItem {
     width: 70vw;
@@ -894,6 +893,7 @@
     border-radius: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
+    padding-left: 17px;
   }
   #sideMobileMenu .menulistitem {
     width: 100%;
@@ -936,10 +936,8 @@
     padding-right: 1vw;
     font-size: 1vw;
   }
-  #search_term {
-    background-color: transparent;
-    margin: 0;
-    height: 80%;
+  #search_term_mobile {
+    font-size: 7vw;
   }
   #menulistDesktop {
     height: 4vw;
@@ -1081,7 +1079,7 @@
     -webkit-transform: translateY(4vw);
             transform: translateY(4vw);
     margin-top: 70px;
-    margin-bottom: 1vw;
+    margin-bottom: 4vw;
     border-radius: 1vw;
   }
   .recipeWrapper {
@@ -1097,7 +1095,7 @@
     font-size: 4.8vw;
   }
   #recipetitle {
-    font-size: 3.5vw;
+    font-size: 4.5vw;
   }
   .recipeHeader {
     width: 100%;
@@ -1124,7 +1122,7 @@
     padding-top: 2px;
     width: 90%;
     height: 50%;
-    font-size: 3.5vw;
+    font-size: 4.5vw;
   }
   #readRecipeTitle {
     width: 100%;
@@ -1145,7 +1143,7 @@
     width: 90%;
   }
   #dishType {
-    font-size: 4.5vw;
+    font-size: 6.5vw;
   }
   #dishType,
   #showReviewsPopupBtn,
@@ -1153,7 +1151,7 @@
     width: 33%;
   }
   .select-wrapper input.select-dropdown {
-    font-size: 3.5vw;
+    font-size: 4.5vw;
   }
   .select-wrapper {
     width: 80%;
@@ -1190,7 +1188,7 @@
     margin-bottom: 2px;
   }
   .statsWrapper div {
-    font-size: 3.5vw;
+    font-size: 4.5vw;
   }
   .statsfield {
     width: 100%;
@@ -1231,7 +1229,7 @@
     margin-top: 0px;
   }
   .timesWrapper div {
-    font-size: 3.5vw;
+    font-size: 4.5vw;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1244,11 +1242,14 @@
   .directionsLabel {
     width: 100%;
   }
+  #prepTime, #cookingTime {
+    font-size: 4.5vw;
+  }
   #outerStatsWrapper #dishImageWrapper {
     border: 2px solid none;
     border-radius: 10px;
     overflow: hidden;
-    font-size: 3.5vw;
+    font-size: 4.5vw;
     background-color: lightgrey;
     width: 100%;
     -ms-flex-wrap: wrap;
@@ -1326,8 +1327,8 @@
     border-radius: 10px;
   }
   #outerInstructionsWrapper,
-  #ingredientWrapper input {
-    font-size: 3.5vw;
+  .amountContainer .input-field input, .ingredientContainer .input-field input {
+    font-size: 4.5vw;
     font-family: "Dosis", sans-serif;
   }
   #outerIngredientsWrapper,
@@ -1373,7 +1374,7 @@
     width: 25%;
   }
   .amountContainer i {
-    font-size: 3.5vw;
+    font-size: 4.5vw;
   }
   .ingredientContainer {
     display: -webkit-box;
@@ -1417,6 +1418,8 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    font-size: 5vw;
+    white-space: pre;
   }
   #directionsWrapper textarea {
     margin: 0px;
@@ -1542,7 +1545,7 @@
     margin: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 3.5vw;
+    font-size: 4.5vw;
     font-family: "Dosis", sans-serif;
   }
   .reviewValue {
@@ -1557,7 +1560,7 @@
     border: 2px solid none;
     border-radius: 10px;
     overflow: hidden;
-    font-size: 3.5vw;
+    font-size: 4.5vw;
     background-color: lightgrey;
     height: 100%;
     width: 38%;
@@ -1593,15 +1596,19 @@
     margin-bottom: 4vw;
   }
   #ratePopup {
-    width: 50vw;
+    width: 90vw;
   }
   #rateForm .input-field {
     font-family: "Dosis", sans-serif;
   }
   #deletePopup {
-    width: 44vw;
+    width: 80vw;
     background-color: #E85A4F;
     padding-bottom: 1vw;
+  }
+  #deletePopupMessage {
+    padding-top: 5vw;
+    padding-bottom: 2vw;
   }
   #popupCheckForValidFields,
   #flashesPopup {
@@ -1633,7 +1640,7 @@
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     top: 7vw;
-    font-size: 3.5vw;
+    font-size: 4.5vw;
   }
   #reviewsWrapper,
   #rateWrapper {
@@ -1670,13 +1677,13 @@
     font-family: "Dosis", sans-serif;
   }
   .buttonWrapperPopup div {
-    font-size: 3.5vw;
+    font-size: 4.5vw;
   }
   #resultCheckForValidFields {
     margin: 2vw;
   }
   .buttonWrapper div {
-    font-size: 3.5vw;
+    font-size: 4.5vw;
     margin-left: 10px;
     margin-right: 10px;
   }
@@ -1689,7 +1696,7 @@
   #closeCheckForValidFieldsBtn,
   #deleteRecipeConfirmBtn,
   #deleteRecipePopupCancelBtn {
-    width: 10vw;
+    width: 20vw;
     border-radius: 10px;
   }
   .wrapperLogoBig {
@@ -1698,7 +1705,7 @@
   }
   #loginWrapper,
   #registerWrapper {
-    width: 70vw;
+    width: 80vw;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
@@ -1719,7 +1726,7 @@
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     top: 7vw;
-    font-size: 3.5vw;
+    font-size: 4.5vw;
   }
   .searchformOuterWrapper {
     display: -webkit-box;
@@ -1742,7 +1749,7 @@
   }
   .searchfieldDescription {
     width: 30%;
-    font-size: 3.5vw;
+    font-size: 4.5vw;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;

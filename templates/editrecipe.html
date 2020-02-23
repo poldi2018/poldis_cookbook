@@ -178,7 +178,7 @@
                 <div class="outerTimesWrapper">    
                     <div class="timesWrapper">
                         <div class="innerTimesWrapper">
-                            <div class="directionsLabel">Prep. Time [mins]:</div>
+                            <div class="directionsLabel">Prep. Time:</div>
                             <div class="input-field col s12">
                                 <input id="prepTime" name="prep_time" type="text" class="validate"
                                     onchange="calcTotalTime()" value="{{recipe.prep_time}}">
@@ -187,7 +187,7 @@
                     </div>
                     <div class="timesWrapper">
                         <div class="innerTimesWrapper">
-                            <div class="directionsLabel">Cooking Time [mins]:</div>
+                            <div class="directionsLabel">Cooking Time:</div>
                             <div class="input-field col s12">
                                 <input id="cookingTime" name="cooking_time" type="text" class="validate"
                                     onchange="calcTotalTime()" value="{{recipe.cooking_time}}">
@@ -241,7 +241,6 @@
                         </div>
                         <div class="ingredientContainer">
                             <div class="input-field">
-                                <i class="material-icons prefix">playlist_add</i>
                                 <input id="{{ingredient_field_id}}" name="{{ingredient_field_id}}" type="text"
                                     class="validate ingredients" value="{{ingredient.ingredient}}" data-length="30">
                                 <label for="{{ingredient_field_id}}">Ingredient</label>

@@ -17,13 +17,13 @@
     }
 
 
-    $recipeFontSize: 3.5vw;
+    $recipeFontSize: 4.5vw;
     $readRecipeTitleFontSize: 6.5vw;
     $headlineFontSize: 4.8vw;
     $menuheaderFont: 1.4vw;
     $dosisFont: 'Dosis',
     sans-serif;
-    $dishTypeFontSize: 4.5vw;
+    $dishTypeFontSize: 6.5vw;
     $footerFontSize: 3.5vw;
 
     body {
@@ -61,9 +61,9 @@
     #menulistMobileShowBtn {
         padding-left: 10px;
     }
+
     #menulistMobileCloseBtn {
         width: 10%;
-        padding-left: 17px;
     }
 
     #menulistMobile #logoMobileListItem {
@@ -94,6 +94,7 @@
         padding: {
             top: 10px;
             bottom: 10px;
+            left: 17px;
         }
     }
 
@@ -142,10 +143,8 @@
         font-size: 1vw;
     }
 
-    #search_term {
-        background-color: transparent;
-        margin: 0;
-        height: 80%;
+    #search_term_mobile {
+       font-size: 7vw;
     }
 
     #menulistDesktop {
@@ -283,7 +282,7 @@
 
         margin: {
             top: 70px;
-            bottom: 1vw;
+            bottom: 4vw;
         }
 
         border-radius: 1vw;
@@ -475,6 +474,11 @@
         width: 100%;
     }
 
+    #prepTime, #cookingTime {
+        font-size: $recipeFontSize;
+
+    }
+
     #outerStatsWrapper #dishImageWrapper {
         border: 2px solid none;
         border-radius: 10px;
@@ -551,7 +555,7 @@
     }
 
     #outerInstructionsWrapper,
-    #ingredientWrapper input {
+    .amountContainer .input-field input, .ingredientContainer .input-field input {
         font-size: $recipeFontSize;
         font-family: $dosisFont;
     }
@@ -641,12 +645,15 @@
 
     #directions {
         display: flex;
+        font-size: 5vw;
+        white-space: pre;
     }
 
     #directionsWrapper textarea {
         margin: 0px;
         height: 80%;
         width: 95%;
+        $recipeFontSize: 4.5vw;
     }
 
     footer {
@@ -823,7 +830,7 @@
     }
 
     #ratePopup {
-        width: 50vw;
+        width: 90vw;
     }
 
     #rateForm .input-field {
@@ -832,9 +839,17 @@
     }
 
     #deletePopup {
-        width: 44vw;
+        width: 80vw;
         background-color: $deletePopup-bgcolor;
         padding-bottom: 1vw;
+    }
+
+    #deletePopupMessage {
+
+        padding: {
+            top: 5vw;
+            bottom: 2vw;
+        }
 
     }
 
@@ -944,7 +959,7 @@
     #closeCheckForValidFieldsBtn,
     #deleteRecipeConfirmBtn,
     #deleteRecipePopupCancelBtn {
-        width: 10vw;
+        width: 20vw;
         border-radius: 10px;
         // height: 2vw;
     }
@@ -956,7 +971,7 @@
 
     #loginWrapper,
     #registerWrapper {
-        width: 70vw;
+        width: 80vw;
         flex-wrap: wrap;
     }
 

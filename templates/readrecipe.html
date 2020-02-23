@@ -135,7 +135,7 @@
         <div id="outerDirectionsWrapper">
             <div id="directionsHeadline">Directions</div>
             <div id="directionsWrapper">
-                <textarea id="directions" name="directions" data-length="1000" disabled>{{recipe.directions}}</textarea>
+                <div id="directions" name="directions">{{recipe.directions}}</div>
             </div>
         </div>
     </div>
@@ -232,7 +232,7 @@
 
 <div id="deletePopup">
     <div id="deletePopupWrapper">
-        <div class="div">
+        <div id="deletePopupMessage">
             Are you sure to delete this recipe ?
         </div>
         <div class="buttonWrapper">
