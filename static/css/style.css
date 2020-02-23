@@ -867,7 +867,7 @@
     height: 10vw;
   }
   #menulistMobile #logoMobileListItem a img {
-    height: 10vw;
+    height: 13vw;
   }
   #sideMobileMenu {
     width: 60vw;
@@ -1525,7 +1525,7 @@
   .recipeTileAddedBy,
   .recipeTileReviewCount,
   .recipeTileViewCount {
-    font-size: 3.5vw;
+    font-size: 4vw;
     font-family: "Dosis", sans-serif;
   }
   .recipeTileName {
