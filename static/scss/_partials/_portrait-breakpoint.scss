@@ -17,14 +17,14 @@
     }
 
 
-    $recipeFontSize: 2.8vw;
+    $recipeFontSize: 3.5vw;
     $readRecipeTitleFontSize: 6.5vw;
-    $headlineFontSize: 3.8vw;
+    $headlineFontSize: 4.8vw;
     $menuheaderFont: 1.4vw;
     $dosisFont: 'Dosis',
     sans-serif;
     $dishTypeFontSize: 4.5vw;
-    $footerFontSize: 2.0vw;
+    $footerFontSize: 3.5vw;
 
     body {
         background-color: $body-bgcolor;
@@ -42,7 +42,7 @@
         background-color: $header-bgcolor;
         position: fixed;
         z-index: 99;
-        width: 83vw;
+        width: 98%;
         flex-wrap: wrap;
     }
 
@@ -55,10 +55,15 @@
         align-items: center;
         //z-index: 500;
         height: 10vw;
+    
     }
 
+    #menulistMobileShowBtn {
+        padding-left: 10px;
+    }
     #menulistMobileCloseBtn {
         width: 10%;
+        padding-left: 17px;
     }
 
     #menulistMobile #logoMobileListItem {
@@ -75,12 +80,12 @@
     #sideMobileMenu {
         width: 60vw;
         transform: translateX(-76vw);
-        transition: transform .6s ease-in-out;
+        transition: transform .4s ease-in-out;
         display: flex;
         flex-wrap: wrap;
         justify-content: left;
         position: absolute;
-        top: 7px;
+        top: 0px;
         left: -27px;
         z-index: 1000;
         background-color: rgba($color: darkgray, $alpha: 0.9);
@@ -225,7 +230,7 @@
     #deleteRecipeConfirmBtn,
     #deleteRecipePopupCancelBtn,
     .wrapperLogoBig,
-    .searchformOuterWrapper {
+    .searchformOuterWrapper, #chooseDishtype, #chooseOrigin {
         display: flex;
         justify-content: center;
     }
@@ -273,11 +278,11 @@
     #baseWrapper {
         border: 2px solid grey;
         flex-wrap: wrap;
-        width: 80vw;
+        width: 97vw;
         transform: translateY(4vw);
 
         margin: {
-            top: 60px;
+            top: 70px;
             bottom: 1vw;
         }
 
@@ -285,7 +290,7 @@
     }
 
     .recipeWrapper {
-        width: 75vw;
+        width: 94vw;
         flex-wrap: wrap;
         margin-top: 1vw;
     }
@@ -321,9 +326,11 @@
             top: 2px;
             bottom: 2px;
         }
-
-        height: 10vw;
     }
+
+    .recipeHeaderItem, .statsWrapper, .timesWrapper {
+        height: 18vw;
+    } 
 
     .recipeButtonWrapper {
         border-radius: 10px;
@@ -345,13 +352,14 @@
 
     #chooseDishtype,
     #chooseOrigin {
-        width: 49.7%;
+        width: 49.6%;
     }
 
     #chooseDishtype .input-field,
     #chooseOrigin .input-field,
     .recipeHeaderItem .input-field {
         margin-top: 0px;
+        width: 90%;
     }
 
 
@@ -403,8 +411,7 @@
         background-color: $recipefields-bgcolor;
         align-content: center;
         flex-wrap: wrap;
-        width: 33%;
-        height: 10vw;
+        width: 32.85%;
 
         margin: {
             top: 2px;
@@ -445,14 +452,12 @@
         background-color: $recipefields-bgcolor;
         align-content: center;
         flex-wrap: wrap;
-        width: 33.03%;
+        width: 32.85%;
 
         margin: {
             top: 2px;
             bottom: 2px;
         }
-
-        height: 10vw;
     }
 
     .timesWrapper .input-field {
@@ -497,8 +502,28 @@
         height: 20%;
     }
 
+    .fileselctor #fileselectorInputField {
+        display: flex;
+        justify-content: center;
+        height: 20%;
+        width: 50%;
+    }
+
+    .fileselector {
+        height: 18vw;
+        display: flex;
+        word-wrap: flex;
+        align-items: center;
+    }
+
     #fileinputfield {
         width: 80%;
+        display: flex;
+        align-items: center;
+        padding: {
+            top: 10px;
+            bottom: 10px;
+        }
     }
 
     #dishImageWrapper label {
@@ -520,12 +545,12 @@
         display: flex;
         flex-wrap: wrap;
         margin-top: 2px;
-        padding-bottom: 6vw;
+        padding-bottom: 15vw;
         background-color: $recipefields-bgcolor;
         border-radius: 10px;
     }
 
-    #outerInstructionsWrapper div,
+    #outerInstructionsWrapper,
     #ingredientWrapper input {
         font-size: $recipeFontSize;
         font-family: $dosisFont;
@@ -537,6 +562,10 @@
         margin-top: 10px;
     }
 
+    #ingredientsHeadline, #directionsHeadline {
+        font-size: 6vw;
+    }
+
 
     .AddIngredientButtonWrapper {
         display: flex;
@@ -545,14 +574,13 @@
 
     .addIngredientField,
     .removeIngredientField {
-        width: 40%;
+        width: 45%;
         margin-left: 3.1vw;
     }
 
     #ingredientWrapper {
         flex-wrap: wrap;
         width: 100%;
-        padding-left: 20px;
     }
 
     .outerIngredientContainer {
@@ -565,7 +593,7 @@
     .amountContainer {
         display: flex;
         align-items: center;
-        width: 50%;
+        width: 25%;
     }
 
     .amountContainer i {
@@ -575,7 +603,7 @@
     .ingredientContainer {
         display: flex;
         align-items: center;
-        width: 50%;
+        width: 75%;
     }
 
     .ingredientfield {
@@ -592,7 +620,7 @@
 
     .warning-icon {
         color: red;
-        font-size: 1.1vw;
+        font-size: 4.1vw;
 
     }
 
@@ -600,8 +628,7 @@
         margin-top: 0px;
     }
 
-    .amountContainer .input-field,
-    .ingredientContainer .input-field {
+    .amountContainer .input-field, .ingredientContainer .input-field {
         width: 90%;
         margin-right: 10px;
     }
@@ -622,8 +649,14 @@
         width: 95%;
     }
 
+    footer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
     .footerWrapper {
-        width: 75vw;
+        width: 95%;
         height: 10vw;
         flex-wrap: wrap;
 
@@ -646,12 +679,15 @@
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
+        height: 11vw;
     }
 
     .created,
     .contact,
     .github {
-        height: 3vw;
+        display: flex;
+        align-items: center;
+        height: 10vw;
         font-size: $footerFontSize;
     }
 
@@ -675,13 +711,13 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        width: 95%;
+        width: 100%;
         margin-bottom: 1vw;
-        height: 20vw;
+        height: 30vw;
     }
 
     .recipeTileStatsWrapper {
-        width: 40%;
+        width: 58%;
         border-radius: 10px;
         display: flex;
         justify-content: center;
@@ -692,19 +728,21 @@
     }
 
     .recipeTileStats {
-        width: 50%;
+        width: 90%;
     }
 
     .recipeTileDishType,
     .recipeTileAddedBy,
     .recipeTileReviewCount,
     .recipeTileViewCount {
-        font-size: 1vw;
+        font-size: 3.5vw;
+        font-family: $dosisFont;
+
     }
 
     .recipeTileName {
         display: flex;
-        font-size: 1.5vw;
+        font-size: 4.5vw;
         font-family: "Dosis", sans serif;
         width: 100%;
 
@@ -714,7 +752,7 @@
         border: 2px solid grey;
         border-radius: 10px;
         flex-wrap: wrap;
-        width: 70%;
+        width: 100%;
         margin: 10px;
 
         padding: {
@@ -738,6 +776,7 @@
         font-size: $recipeFontSize;
         background-color: lightgrey;
         height: 100%;
+        width: 38%;
 
         margin: {
             left: 5px;
@@ -746,7 +785,7 @@
     }
 
     .recipeTile #dishImageWrapper a img {
-        //width: 100%;
+        width: 100%;
         height: 100%;
         object-fit: cover;
     }
@@ -844,7 +883,7 @@
 
     .outerReviewsWrapper,
     .outerRecipesWrapper {
-        width: 80vw;
+        width: 90vw;
     }
 
     .innerReviewsWrapper,
@@ -853,7 +892,6 @@
             top: 20px;
         }
 
-        width: 80vw;
         flex-wrap: wrap;
     }
 
@@ -890,6 +928,10 @@
 
     .buttonWrapper div {
         font-size: $recipeFontSize;
+        margin: {
+            left: 10px;
+            right: 10px;
+        }
     }
 
     .buttonWrapper a {

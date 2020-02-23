@@ -9,14 +9,12 @@
         <div class="recipeHeader">
             <div id="readRecipeTitle" class="recipeHeaderItem">
                 <div class="input-field" id="">
-                    <i class="material-icons prefix">playlist_add</i>
                     <input id="recipetitle" name="recipe_title" type="text" class="validate" value="{{recipe.title}}"
                         data-length="30">
                 </div>
             </div>
             <div id="chooseDishtype" class="recipeHeaderItem">
                 <div class="input-field">
-                    <i class="material-icons prefix">playlist_add</i>
                     <select id="dishType" name="dish_type">
                         <option value="" disabled selected>Choose Dish Type</option>
                         <optgroup label="Starters">
@@ -180,9 +178,8 @@
                 <div class="outerTimesWrapper">    
                     <div class="timesWrapper">
                         <div class="innerTimesWrapper">
-                            <div class="directionsLabel">Preparation Time [mins]:</div>
+                            <div class="directionsLabel">Prep. Time [mins]:</div>
                             <div class="input-field col s12">
-                                <i class="material-icons prefix">playlist_add</i>
                                 <input id="prepTime" name="prep_time" type="text" class="validate"
                                     onchange="calcTotalTime()" value="{{recipe.prep_time}}">
                             </div>
@@ -192,7 +189,6 @@
                         <div class="innerTimesWrapper">
                             <div class="directionsLabel">Cooking Time [mins]:</div>
                             <div class="input-field col s12">
-                                <i class="material-icons prefix">playlist_add</i>
                                 <input id="cookingTime" name="cooking_time" type="text" class="validate"
                                     onchange="calcTotalTime()" value="{{recipe.cooking_time}}">
                             </div>
@@ -206,7 +202,7 @@
                     </div>
                 </div>
             </div>
-            <div id="dishImageWrapper">
+            <div id="dishImageWrapper" class="fileselector">
                 <div id="fileselectorInputField" class="input-field">
                     <input id="fileinputfield" type="file" name="file" onchange="validateImageName(this)"
                         enctype="multipart/form-data">
@@ -222,9 +218,9 @@
                 <div id="ingredientsHeadline">Ingredients</div>
                 <div class="AddIngredientButtonWrapper">
                     <div class="addIngredientField btn waves-effect waves-light" onclick="addIngredientField()">add
-                        ingredient field</div>
+                        ingredient</div>
                     <div class="removeIngredientField btn waves-effect waves-light" onclick="removeIngredientField()">
-                        remove ingredient field
+                        remove ingredient
                     </div>
                 </div>
 
@@ -274,7 +270,6 @@
             <div id="outerDirectionsWrapper">
                 <div id="directionsHeadline">Directions</div>
                 <div id="directionsWrapper">
-                    <i class="material-icons prefix">playlist_add</i>
                     <textarea id="directions" name="directions" data-length="1000">{{recipe.directions}}</textarea>
                 </div>
             </div>

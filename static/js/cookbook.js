@@ -19,7 +19,7 @@ function addIngredientField() {
     var allergensCheckFieldId = "allergensCheck" + fieldcount;
     var labelAllergensCheckFieldId = "labelAllergensCheck" + fieldcount;
 
-    $("#ingredientWrapper").append("<div class='outerIngredientContainer'><div class='amountContainer'><div class='input-field'><i class='material-icons prefix'>playlist_add</i><input id='amount' name='amount' type='text' class='validate amounts' data-length='30'><label for='labelAmount'>Amount</label></div></div><div class='ingredientContainer'><div class='input-field'><i class='material-icons prefix'>playlist_add</i><input id='ingredient' name='ingredient' type='text' class='validate ingredients' data-length='30'><label for='labelIngredient'>Ingredient</label></div><input type='checkbox' class='filled-in allergens' id='allergensCheck' /><label id='labelAllergensCheck' for='allergensCheck'>Allergen?</label></div></div>");
+    $("#ingredientWrapper").append("<div class='outerIngredientContainer'><div class='amountContainer'><div class='input-field'><i class='material-icons prefix'>playlist_add</i><input id='amount' name='amount' type='text' class='validate amounts' data-length='30'><label for='labelAmount'>Amount</label></div></div><div class='ingredientContainer'><div class='input-field'><input id='ingredient' name='ingredient' type='text' class='validate ingredients' data-length='30'><label for='labelIngredient'>Ingredient</label></div><input type='checkbox' class='filled-in allergens' id='allergensCheck' /><label id='labelAllergensCheck' for='allergensCheck'>Allergen?</label></div></div>");
     $('#amount').attr('name', amountFieldId).attr('id', amountFieldId);
     $('#labelAmount').attr('for', amountFieldId).attr('id', labelAmountFieldId);
     $('#ingredient').attr('name', ingredientFieldId).attr('id', ingredientFieldId);
@@ -363,8 +363,7 @@ function setWidthBtnDesktop() {
 }
 
 function setWidthBtnLandscapeMobile() {
-    var width25 = "24.7%";
-    var width33 = "32%";
+    var width33 = "32.85%";
     var width50 = "49.52%";
     //check if logged in by checking existence of popup button and set width for 2 buttons to fillup space
     if (!$('#showRatePopupBtn').length) {
@@ -382,14 +381,13 @@ function setWidthBtnLandscapeMobile() {
         $('#dishType').css("width", width33)
         $('#showReviewsPopupBtn').css("width", width33)
         $('#showRatePopupBtn').css("width", width33)
-        $('#editRecipeBtn').css("width", width25)
-        $('#deleteRecipePopupBtn').css("width", width25)
+        $('#editRecipeBtn').css("width", width50)
+        $('#deleteRecipePopupBtn').css("width", width50)
     }
 }
 
 function setWidthBtnPortrait() {
     //check if logged in by checking existence of popup button and set width for 2 buttons to fillup space
-    var width25 = "24.7%";
     var width33 = "32.85%";
     var width50 = "49.52%";
     if (!$('#showRatePopupBtn').length) {
@@ -407,8 +405,8 @@ function setWidthBtnPortrait() {
         $('#dishType').css("width", width33)
         $('#showReviewsPopupBtn').css("width", width33)
         $('#showRatePopupBtn').css("width", width33)
-        $('#editRecipeBtn').css("width", width25)
-        $('#deleteRecipePopupBtn').css("width", width25)
+        $('#editRecipeBtn').css("width", width50)
+        $('#deleteRecipePopupBtn').css("width", width50)
     }
 }
 

@@ -5,7 +5,7 @@
         <div class="innerRecipesWrapper">
             {% if category=="dish_type" %}
             <div class="headline">
-                <h3>The following recipes by category {{value}} have been found:</h3>
+                The following recipes in category {{value}} have been found:
             </div>
             {% for recipe in all_recipes_by_category %}
             <div class="recipeTile">
@@ -34,7 +34,7 @@
 
             {% if category=="user" %}
             <div class="headline">
-                <h3>The following recipes by user {{value}} have been found:</h3>
+                The following recipes by user {{value}} have been found:
             </div>
             {% for recipe in all_recipes_by_user %}
             <div class="recipeTile">
@@ -66,7 +66,7 @@
 
             {% if recipes_by_title!=None %}
             <div class="headline">
-                <h3>{{count_title}} recipes with title {{form.get("search_title")}} have been found:</h3>
+                {{count_title}} recipes with title {{form.get("search_title")}} have been found:
             </div>
             {% for recipe in recipes_by_title %}
             <div class="recipeTile">
@@ -95,7 +95,7 @@
 
             {% if recipes_by_dish_type!=None %}
             <div class="headline">
-                <h3>{{count_dish_type}} recipes by category {{form.get("dish_type")}} have been found:</h3>
+                {{count_dish_type}} recipes by category {{form.get("dish_type")}} have been found:
             </div>
             {% for recipe in recipes_by_dish_type %}
             <div class="recipeTile">
@@ -124,7 +124,7 @@
 
             {% if recipes_by_user!=None %}
             <div class="headline">
-                <h3>{{count_added_by}} recipes by user {{form.get("searchfield_added_by")}} have been found:</h3>
+            {{count_added_by}} recipes by user {{form.get("searchfield_added_by")}} have been found:
             </div>
             {% for recipe in recipes_by_user %}
             <div class="recipeTile">
@@ -153,7 +153,7 @@
 
             {% if recipes_by_difficulty!=None %}
             <div class="headline">
-                <h3>{{count_level}} recipes with level {{form.get("level")}} have been found:</h3>
+                {{count_level}} recipes with level {{form.get("level")}} have been found:
             </div>
             {% for recipe in recipes_by_difficulty %}
             <div class="recipeTile">
@@ -182,8 +182,8 @@
 
             {% if recipes_by_ingredients!=None %}
             <div class="headline">
-                <h3>{{count_ingredients}} recipes with ingredient {{form.get("searchfield_ingredients")}} have been
-                    found:</h3>
+                {{count_ingredients}} recipes with ingredient {{form.get("searchfield_ingredients")}} have been
+                    found:
             </div>
             {% for recipe in recipes_by_ingredients %}
             <div class="recipeTile">
@@ -212,7 +212,7 @@
 
             {% if recipes_by_country_name!=None %}
             <div class="headline">
-                <h3>{{count_country_name}} recipes from country '{{form.get("country_name")}}' have been found:</h3>
+                {{count_country_name}} recipes from country '{{form.get("country_name")}}' have been found:
             </div>
             {% for recipe in recipes_by_country_name %}
             <div class="recipeTile">
@@ -241,7 +241,7 @@
 
             {% if reviews_by_rating!=None %}
             <div class="headline">
-                <h3>{{count_rating}} recipes with rating {{form.get("searchfield_rating")}} have been found:</h3>
+                {{count_rating}} recipes with rating {{form.get("searchfield_rating")}} have been found:
             </div>
             <div class="outerReviewsWrapper">
                 <div class="innerReviewsWrapper">
