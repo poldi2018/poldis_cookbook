@@ -318,24 +318,26 @@ function checkCurrentBreakpoint() {
             setWidthBtnLandscapeMobile();
         }
         // landscape desktop and pad
-        else if ($(window).width() <= 1366 && $(window).height() <= 1024) {
-            setWidthBtnDesktop();
-        } else {
+       // else if ($(window).width() <= 1366 && $(window).height() <= 1024) {
+         //   setWidthBtnDesktop();
+        //} 
+        else {
             setWidthBtnDesktop();
         }
     }
 
     // if in portrait mode
     else if ($(window).width() < $(window).height()) {
+        setWidthBtnPortrait();
 
         // portrait mobile
-        if ($(window).width() <= 414 && $(window).height() <= 823) {
-            setWidthBtnPortrait();
-        }
+       // if ($(window).width() <= 414 && $(window).height() <= 823) {
+         //   setWidthBtnPortrait();
+       // }
         // portrait, pad
-        else if ($(window).width() <= 1024 && $(window).height() <= 1366) {
-            setWidthBtnPortrait();
-        }
+       // else if ($(window).width() <= 1024 && $(window).height() <= 1366) {
+        //    setWidthBtnPortrait();
+       // }
     }
 }
 

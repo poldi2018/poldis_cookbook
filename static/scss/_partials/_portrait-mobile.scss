@@ -53,17 +53,26 @@
     #menulistMobile {
         display: flex;
         align-items: center;
-        //z-index: 500;
         height: 10vw;
-    
+
     }
 
     #menulistMobileShowBtn {
         padding-left: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     #menulistMobileCloseBtn {
-        width: 10%;
+        width: 16%;
+        background-color: lightgrey;
+        margin: 4px;
+        padding: 4px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     #menulistMobile #logoMobileListItem {
@@ -85,8 +94,8 @@
         flex-wrap: wrap;
         justify-content: left;
         position: absolute;
-        top: 0px;
-        left: -27px;
+        top: -4px;
+        left: -24px;
         z-index: 1000;
         background-color: rgba($color: darkgray, $alpha: 0.9);
         border-radius: 10px;
@@ -144,7 +153,8 @@
     }
 
     #search_term_mobile {
-       font-size: 7vw;
+        font-size: 7vw;
+        font-family: $dosisFont;
     }
 
     #menulistDesktop {
@@ -175,7 +185,7 @@
     }
 
     .hyperlinks i {
-        font-size: 1.5vw;
+        font-size: 8.5vw;
         color: #3399ff;
     }
 
@@ -229,7 +239,11 @@
     #deleteRecipeConfirmBtn,
     #deleteRecipePopupCancelBtn,
     .wrapperLogoBig,
-    .searchformOuterWrapper, #chooseDishtype, #chooseOrigin, #prepTimeDiv, #cookingTimeDiv {
+    .searchformOuterWrapper,
+    #chooseDishtype,
+    #chooseOrigin,
+    #prepTimeDiv,
+    #cookingTimeDiv {
         display: flex;
         justify-content: center;
     }
@@ -271,7 +285,6 @@
     .recipeHeader {
         display: flex;
         justify-content: space-between;
-
     }
 
     #baseWrapper {
@@ -327,9 +340,11 @@
         }
     }
 
-    .recipeHeaderItem, .statsWrapper, .timesWrapper {
+    .recipeHeaderItem,
+    .statsWrapper,
+    .timesWrapper {
         height: 18vw;
-    } 
+    }
 
     .recipeButtonWrapper {
         border-radius: 10px;
@@ -345,20 +360,16 @@
         font-size: $readRecipeTitleFontSize;
     }
 
-    #readRecipeTitle .input-field {
-        width: 50%;
-    }
-
     #chooseDishtype,
     #chooseOrigin {
         width: 49.6%;
     }
 
-    #chooseDishtype .input-field,
-    #chooseOrigin .input-field,
     .recipeHeaderItem .input-field {
         margin-top: 0px;
         width: 90%;
+        display: flex;
+        justify-content: center;
     }
 
 
@@ -475,7 +486,8 @@
         width: 100%;
     }
 
-    #prepTime, #cookingTime {
+    #prepTime,
+    #cookingTime {
         font-size: $recipeFontSize;
 
     }
@@ -525,6 +537,7 @@
         width: 80%;
         display: flex;
         align-items: center;
+
         padding: {
             top: 10px;
             bottom: 10px;
@@ -556,7 +569,8 @@
     }
 
     #outerInstructionsWrapper,
-    .amountContainer .input-field input, .ingredientContainer .input-field input {
+    .amountContainer .input-field input,
+    .ingredientContainer .input-field input {
         font-size: $recipeFontSize;
         font-family: $dosisFont;
     }
@@ -567,7 +581,8 @@
         margin-top: 10px;
     }
 
-    #ingredientsHeadline, #directionsHeadline {
+    #ingredientsHeadline,
+    #directionsHeadline {
         font-size: 6vw;
     }
 
@@ -581,6 +596,8 @@
     .removeIngredientField {
         width: 45%;
         margin-left: 3.1vw;
+        font-size: 2.5vw;
+
     }
 
     #ingredientWrapper {
@@ -633,13 +650,14 @@
         margin-top: 0px;
     }
 
-    .amountContainer .input-field, .ingredientContainer .input-field {
+    .amountContainer .input-field,
+    .ingredientContainer .input-field {
         width: 90%;
         margin-right: 10px;
     }
 
     #directionsWrapper {
-        height: 100%;
+        height: 50vw;
         width: 98%;
         margin-left: 10px;
     }
@@ -652,7 +670,7 @@
 
     #directionsWrapper textarea {
         margin: 0px;
-        height: 80%;
+        height: 50vw;
         width: 95%;
         $recipeFontSize: 4.5vw;
     }
@@ -944,6 +962,7 @@
 
     .buttonWrapper div {
         font-size: $recipeFontSize;
+
         margin: {
             left: 10px;
             right: 10px;
@@ -1074,5 +1093,3 @@
 
 // special breakpoint for 1.33 ratio ipad pro
 @media screen and (width: 1366px) and (height: 1024px) {}
-
-

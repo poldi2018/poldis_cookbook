@@ -352,27 +352,19 @@
          font-size: $readRecipeTitleFontSize;
      }
  
-     #readRecipeTitle .input-field {
-         width: 50%;
-     }
- 
      #chooseDishtype,
      #chooseOrigin {
          width: 49.6%;
      }
  
-     #chooseDishtype .input-field,
-     #chooseOrigin .input-field,
      .recipeHeaderItem .input-field {
          margin-top: 0px;
          width: 90%;
      }
  
- 
      #dishType {
          font-size: $dishTypeFontSize;
      }
- 
  
      #dishType,
      #showReviewsPopupBtn,
