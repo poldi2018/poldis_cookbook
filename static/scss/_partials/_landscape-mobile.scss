@@ -289,7 +289,7 @@
  
          margin: {
              top: 70px;
-             bottom: 4vw;
+             bottom: 6vw;
          }
  
          border-radius: 1vw;
@@ -841,6 +841,7 @@
          width: 80vw;
          background-color: $deletePopup-bgcolor;
          padding-bottom: 1vw;
+         margin: 50% 0%;
      }
  
      #deletePopupMessage {

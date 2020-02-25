@@ -227,7 +227,7 @@
     .recipeWrapper {
         width: 90vw;
         flex-wrap: wrap;
-        margin-top: 1vw;
+        margin-top: 2vw;
     }
 
     .headline {
@@ -247,6 +247,7 @@
         width: 100%;
         font-size: .9vw;
         font-family: $dosisFont;
+        flex-wrap: wrap;
     }
 
     .recipeHeaderItem {
@@ -269,7 +270,7 @@
     }
 
     #readRecipeTitle {
-        width: 50%;
+        width: 100%;
         font-family: $dosisFont;
         font-size: $readRecipeTitleFontSize;
     }
@@ -719,6 +720,7 @@
         width: 44vw;
         background-color: $deletePopup-bgcolor;
         padding-bottom: 1vw;
+        margin: 50% 0%;
 
     }
 

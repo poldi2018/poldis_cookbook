@@ -294,7 +294,7 @@
         transform: translateY(4vw);
 
         margin: {
-            top: 70px;
+            top: 14vw;
             bottom: 6vw;
         }
 
@@ -875,6 +875,7 @@
         width: 80vw;
         background-color: $deletePopup-bgcolor;
         padding-bottom: 1vw;
+        margin: 50% 0%;
     }
 
     #deletePopupMessage {
@@ -890,6 +891,7 @@
     #flashesPopup {
         z-index: 1000;
         background-color: $popup-bgcolor;
+        margin: 50% 0%;
     }
 
     #reviewsPopup,

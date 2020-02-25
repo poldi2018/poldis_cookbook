@@ -635,6 +635,7 @@
     width: 44vw;
     background-color: #E85A4F;
     padding-bottom: 1vw;
+    margin: 50% 0%;
   }
   #popupCheckForValidFields,
   #flashesPopup {
@@ -1110,7 +1111,7 @@
     -webkit-transform: translateY(4vw);
             transform: translateY(4vw);
     margin-top: 70px;
-    margin-bottom: 4vw;
+    margin-bottom: 6vw;
     border-radius: 1vw;
   }
   .recipeWrapper {
@@ -1631,6 +1632,7 @@
     width: 80vw;
     background-color: #E85A4F;
     padding-bottom: 1vw;
+    margin: 50% 0%;
   }
   #deletePopupMessage {
     padding-top: 5vw;
@@ -2130,7 +2132,7 @@
     width: 97vw;
     -webkit-transform: translateY(4vw);
             transform: translateY(4vw);
-    margin-top: 70px;
+    margin-top: 14vw;
     margin-bottom: 6vw;
     border-radius: 1vw;
   }
@@ -2674,6 +2676,7 @@
     width: 80vw;
     background-color: #E85A4F;
     padding-bottom: 1vw;
+    margin: 50% 0%;
   }
   #deletePopupMessage {
     padding-top: 5vw;
@@ -2683,6 +2686,7 @@
   #flashesPopup {
     z-index: 1000;
     background-color: #E98074;
+    margin: 50% 0%;
   }
   #reviewsPopup,
   #ratePopup,
@@ -3519,6 +3523,7 @@
     width: 44vw;
     background-color: #E85A4F;
     padding-bottom: 1vw;
+    margin: 50% 0%;
   }
   #popupCheckForValidFields,
   #flashesPopup {
@@ -3928,7 +3933,7 @@
     width: 90vw;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    margin-top: 1vw;
+    margin-top: 2vw;
   }
   .headline {
     margin-bottom: 10px;
@@ -3942,6 +3947,8 @@
     width: 100%;
     font-size: .9vw;
     font-family: "Dosis", sans-serif;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
   .recipeHeaderItem {
     border: 2px solid none;
@@ -3958,7 +3965,7 @@
     font-size: 1.6vw;
   }
   #readRecipeTitle {
-    width: 50%;
+    width: 100%;
     font-family: "Dosis", sans-serif;
     font-size: 2.5vw;
   }
@@ -4366,6 +4373,7 @@
     width: 44vw;
     background-color: #E85A4F;
     padding-bottom: 1vw;
+    margin: 50% 0%;
   }
   #popupCheckForValidFields,
   #flashesPopup {
