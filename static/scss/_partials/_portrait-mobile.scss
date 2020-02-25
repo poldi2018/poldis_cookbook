@@ -295,7 +295,7 @@
 
         margin: {
             top: 70px;
-            bottom: 4vw;
+            bottom: 6vw;
         }
 
         border-radius: 1vw;
@@ -662,6 +662,12 @@
         margin-left: 10px;
     }
 
+    #directionsWrapperRead {
+        // height: 50vw;
+        width: 98%;
+        margin-left: 10px;
+    }
+
     #directions {
         display: flex;
         font-size: 5vw;
@@ -674,6 +680,14 @@
         width: 95%;
         $recipeFontSize: 4.5vw;
     }
+
+    #directionsWrapper div #directions {
+        margin: 0px;
+        // height: 50vw;
+        width: 95%;
+        $recipeFontSize: 4.5vw;
+    }
+
 
     footer {
         width: 100%;

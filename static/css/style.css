@@ -2131,7 +2131,7 @@
     -webkit-transform: translateY(4vw);
             transform: translateY(4vw);
     margin-top: 70px;
-    margin-bottom: 4vw;
+    margin-bottom: 6vw;
     border-radius: 1vw;
   }
   .recipeWrapper {
@@ -2475,6 +2475,10 @@
     width: 98%;
     margin-left: 10px;
   }
+  #directionsWrapperRead {
+    width: 98%;
+    margin-left: 10px;
+  }
   #directions {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2485,6 +2489,10 @@
   #directionsWrapper textarea {
     margin: 0px;
     height: 50vw;
+    width: 95%;
+  }
+  #directionsWrapper div #directions {
+    margin: 0px;
     width: 95%;
   }
   footer {
