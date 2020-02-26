@@ -1,4 +1,4 @@
-@media screen and (min-width: 1367px) and (min-height: 900px) {
+@media screen and (min-width: 1024px) and (min-height: 768px) {
 
     // color definitions
     $body-bgcolor: #EAE7DC;
@@ -44,7 +44,7 @@
         background-color: $header-bgcolor;
         position: fixed;
         z-index: 99;
-        width: 83vw;
+        width: 95vw;
         flex-wrap: wrap;
         color: red;
     }
@@ -212,7 +212,7 @@
     #baseWrapper {
         border: 2px solid grey;
         flex-wrap: wrap;
-        width: 80vw;
+        width: 95vw;
         transform: translateY(4vw);
 
         margin: {
@@ -268,6 +268,12 @@
     }
 
     #readRecipeTitle {
+        width: 50%;
+        font-family: $dosisFont;
+        font-size: $readRecipeTitleFontSize;
+    }
+
+    #addRecipeTitle, #editRecipeTitle {
         width: 50%;
         font-family: $dosisFont;
         font-size: $readRecipeTitleFontSize;
@@ -549,6 +555,7 @@
 
     #directions {
         display: flex;
+        white-space: pre;
     }
 
     #directionsWrapper textarea {
@@ -599,7 +606,11 @@
     .recipeTile {
         display: flex;
         flex-wrap: wrap;
-        margin-bottom: 1vw;
+        margin: {
+            left: 10px;
+            right: 10px; 
+            bottom: 1vw;
+        }
         height: 15vw;
     }
 
@@ -701,7 +712,7 @@
     // Popups
 
     #reviewsPopup {
-        width: 80vw;
+        width: 95vw;
         padding-bottom: 2vw;
         margin-bottom: 4vw;
     }
@@ -719,8 +730,6 @@
         width: 44vw;
         background-color: $deletePopup-bgcolor;
         padding-bottom: 1vw;
-        margin: 50% 0%;
-
     }
 
     #popupCheckForValidFields,
@@ -769,7 +778,7 @@
 
     .outerReviewsWrapper,
     .outerRecipesWrapper {
-        width: 80vw;
+        width: 95vw;
     }
 
     .innerReviewsWrapper,
@@ -779,7 +788,6 @@
             bottom: 20px;
         }
 
-        width: 80vw;
         flex-wrap: wrap;
     }
 

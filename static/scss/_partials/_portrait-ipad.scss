@@ -1,4 +1,4 @@
-@media screen and (min-width: 768px) and (min-height: 1024px) {
+@media screen and (min-width: 768px) and (min-height: 1024px) and (orientation: portrait) {
 
 
     // color definitions
@@ -19,7 +19,7 @@
 
 
     $recipeFontSize: 1.6vw;
-    $readRecipeTitleFontSize: 2.5vw;
+    $readRecipeTitleFontSize: 6.5vw;
     $headlineFontSize: 2vw;
     $menuheaderFont: 1.8vw;
     $dosisFont: 'Dosis',
@@ -274,6 +274,13 @@
         font-family: $dosisFont;
         font-size: $readRecipeTitleFontSize;
     }
+
+    #addRecipeTitle, #editRecipeTitle {
+        width: 50%;
+        font-family: $dosisFont;
+        font-size: $readRecipeTitleFontSize;
+    }
+
 
     #chooseDishtype,
     #chooseOrigin {
@@ -550,6 +557,7 @@
 
     #directions {
         display: flex;
+        white-space: pre;
     }
 
     #directionsWrapper textarea {
@@ -720,8 +728,6 @@
         width: 44vw;
         background-color: $deletePopup-bgcolor;
         padding-bottom: 1vw;
-        margin: 50% 0%;
-
     }
 
     #popupCheckForValidFields,
@@ -770,7 +776,7 @@
 
     .outerReviewsWrapper,
     .outerRecipesWrapper {
-        width: 80vw;
+        width: 95vw;
     }
 
     .innerReviewsWrapper,
@@ -780,7 +786,6 @@
             bottom: 20px;
         }
 
-        width: 80vw;
         flex-wrap: wrap;
     }
 

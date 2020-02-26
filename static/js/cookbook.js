@@ -318,9 +318,10 @@ function checkCurrentBreakpoint() {
             setWidthBtnLandscapeMobile();
         }
         // landscape desktop and pad
-        else if ($(window).width() <= 1366 && $(window).height() <= 1024) {
-            setWidthBtnDesktop();
-        } else {
+        // else if ($(window).width() <= 1366 && $(window).height() <= 1024) {
+        //    setWidthBtnDesktop();
+        //
+        else {
             setWidthBtnDesktop();
         }
     }
@@ -330,13 +331,13 @@ function checkCurrentBreakpoint() {
         setWidthBtnPortrait();
 
         // portrait mobile
-        if ($(window).width() <= 414 && $(window).height() <= 823) {
-            setWidthBtnPortrait();
-        }
+        //  if ($(window).width() <= 414 && $(window).height() <= 823) {
+        //     setWidthBtnPortrait();
+        // }
         // portrait, pad
-        else if ($(window).width() <= 1024 && $(window).height() <= 1366) {
-            setWidthBtnPortrait();
-        }
+        //  else if ($(window).width() <= 1024 && $(window).height() <= 1366) {
+        //     setWidthBtnPortraitTablet();
+        // }
     }
 }
 
@@ -365,7 +366,7 @@ function setWidthBtnDesktop() {
 
 function setWidthBtnLandscapeMobile() {
     var width33 = "32.85%";
-    var width50 = "49.52%";
+    var width50 = "49.65%";
     //check if logged in by checking existence of popup button and set width for 2 buttons to fillup space
     if (!$('#showRatePopupBtn').length) {
         $('#dishType').css("width", width50);
@@ -390,7 +391,7 @@ function setWidthBtnLandscapeMobile() {
 function setWidthBtnPortrait() {
     //check if logged in by checking existence of popup button and set width for 2 buttons to fillup space
     var width33 = "32.85%";
-    var width50 = "49.52%";
+    var width50 = "49.65%";
     if (!$('#showRatePopupBtn').length) {
         $('#dishType').css("width", width50);
         $('#showReviewsPopupBtn').css("width", width50);

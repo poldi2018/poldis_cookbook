@@ -243,7 +243,7 @@ def home():
 
 @app.route('/reviews_today')
 def reviews_today():
-    today = datetime.datetime.now().strftime("%d/%-d/%Y")
+    today = datetime.datetime.now().strftime("%d/%m/%Y")
     reviews=mongo.db.reviews
     # check if 5 star ratings from today is available
     reviews_count = reviews.count_documents({ "$and": [ { "added_on_date": today }, { "rating": 5 } ] })
@@ -372,7 +372,7 @@ def add_recipe():
 @app.route('/insert_recipe', methods=["POST"])
 def insert_recipe():
     recipes = mongo.db.recipes
-    today = datetime.datetime.now().strftime("%d/%-d/%Y")
+    today = datetime.datetime.now().strftime("%d/%m/%Y")
     now = datetime.datetime.now().strftime("%H:%M:%S")
     ingredients = make_ingredient_list(request.form.get("amounts_string"),
                                        request.form.get("ingredients_string"))
@@ -423,7 +423,7 @@ def edit_recipe(recipe_id):
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
 def update_recipe(recipe_id):
     recipes = mongo.db.recipes
-    today = datetime.datetime.now().strftime("%d/%-d/%Y")
+    today = datetime.datetime.now().strftime("%d/%m/%Y")
     now = datetime.datetime.now().strftime("%H:%M:%S")
     ingredients = make_ingredient_list(request.form.get("amounts_string"),
                                        request.form.get("ingredients_string"))
@@ -501,7 +501,7 @@ def delete_recipe(recipe_id):
 
 @app.route('/insert_rating/<recipe_id>/<recipe_title>', methods=["POST"])
 def insert_rating(recipe_id, recipe_title):
-    today = datetime.datetime.now().strftime("%d/%-d/%Y")
+    today = datetime.datetime.now().strftime("%d/%m/%Y")
     now = datetime.datetime.now().strftime("%H:%M:%S")
     reviews = mongo.db.reviews
     review_id=reviews.insert_one(

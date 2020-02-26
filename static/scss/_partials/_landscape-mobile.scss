@@ -42,7 +42,7 @@
          background-color: $header-bgcolor;
          position: fixed;
          z-index: 99;
-         width: 98%;
+         width: 95vw;
          flex-wrap: wrap;
      }
 
@@ -284,7 +284,7 @@
      #baseWrapper {
          border: 2px solid grey;
          flex-wrap: wrap;
-         width: 97vw;
+         width: 95vw;
          transform: translateY(4vw);
  
          margin: {
@@ -352,6 +352,12 @@
          font-size: $readRecipeTitleFontSize;
      }
  
+     #addRecipeTitle, #editRecipeTitle {
+        width: 100%;
+        font-family: $dosisFont;
+        font-size: $readRecipeTitleFontSize;
+    }
+
      #chooseDishtype,
      #chooseOrigin {
          width: 49.6%;
@@ -718,7 +724,11 @@
          justify-content: center;
          flex-wrap: wrap;
          width: 100%;
-         margin-bottom: 1vw;
+         margin: {
+            left: 10px;
+            right: 10px; 
+            bottom: 1vw;
+        }
          height: 33vw;
      }
  
@@ -841,7 +851,6 @@
          width: 80vw;
          background-color: $deletePopup-bgcolor;
          padding-bottom: 1vw;
-         margin: 50% 0%;
      }
  
      #deletePopupMessage {
@@ -898,7 +907,7 @@
  
      .outerReviewsWrapper,
      .outerRecipesWrapper {
-         width: 90vw;
+         width: 95vw;
      }
  
      .innerReviewsWrapper,

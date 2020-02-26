@@ -1,5 +1,5 @@
 @media screen and (max-width: 414px) and (max-height: 823px) {
-
+// @media screen and (max-width: 414px) and (max-height: 823px) {
     // color definitions
     $body-bgcolor: #EAE7DC;
     $header-bgcolor: #EAE7DC;
@@ -360,6 +360,12 @@
         font-size: $readRecipeTitleFontSize;
     }
 
+    #addRecipeTitle, #editRecipeTitle {
+        width: 100%;
+        font-family: $dosisFont;
+        font-size: $readRecipeTitleFontSize;
+    }
+
     #chooseDishtype,
     #chooseOrigin {
         width: 49.6%;
@@ -385,7 +391,7 @@
     }
 
     .select-wrapper input.select-dropdown {
-        font-size: $recipeFontSize;
+        font-size: 3.5vw;
         width: 90%;
     }
 
@@ -875,7 +881,6 @@
         width: 80vw;
         background-color: $deletePopup-bgcolor;
         padding-bottom: 1vw;
-        margin: 50% 0%;
     }
 
     #deletePopupMessage {
@@ -891,7 +896,6 @@
     #flashesPopup {
         z-index: 1000;
         background-color: $popup-bgcolor;
-        margin: 50% 0%;
     }
 
     #reviewsPopup,
@@ -933,7 +937,7 @@
 
     .outerReviewsWrapper,
     .outerRecipesWrapper {
-        width: 90vw;
+        width: 95vw;
     }
 
     .innerReviewsWrapper,
