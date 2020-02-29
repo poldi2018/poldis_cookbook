@@ -38,6 +38,7 @@ function removeIngredientField() {
 }
 
 //function for onchange event of file input field to convert selected file into base64
+//taken from https://www.tutsmake.com/convert-image-to-base64-string-jquery/
 function encodeImgtoBase64(element) {
     var file = element.files[0];
     var reader = new FileReader();

@@ -29,6 +29,8 @@ imgbb_upload_url = "https://api.imgbb.com/1/upload?key=" + os.getenv(
 # creating instance of Pymongo with app object to connect to MongoDB
 mongo = PyMongo(app)
 
+"""
+
 mongo.db.recipes.create_index([("title", "text"), ("dish_type", "text"),
                                 ("added_by", "text"),
                                 ("level", "text"), ("directions", "text"),
@@ -38,7 +40,7 @@ mongo.db.recipes.create_index([("title", "text"), ("dish_type", "text"),
 mongo.db.reviews.create_index([
                               ("review_title", "text"), ("review_for", "text"),
                               ("comment", "text"), ("rated_by", "text")])
-
+"""
 
 #methods
 
@@ -539,4 +541,4 @@ def insert_rating(recipe_id, recipe_title):
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT', 5000)),
-            debug=True)
+            debug=False)
