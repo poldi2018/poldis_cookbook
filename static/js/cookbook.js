@@ -272,6 +272,7 @@ function cancelDeleteRecipe() {
 }
 
 function checkRegistrationForm() {
+    // mailformat string has been taken from https://www.w3resource.com/javascript/form/email-validation.php
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     var emailToCheck = $('#email_address').val();
     if ($('#username').val() == "" || $('#email_address').val() == "" || $('#password').val() == "" || $('#password2').val() == "") {
@@ -350,18 +351,18 @@ function setWidthBtnDesktop() {
     }
     // if logged in but user is not author
     else if ($('#showRatePopupBtn').length && !$('#editRecipeBtn').length) {
-        $('#dishType').css("width", "16.43%")
-        $('#showReviewsPopupBtn').css("width", "16.43%")
-        $('#showRatePopupBtn').css("width", "16.43%")
+        $('#dishType').css("width", "16.43%");
+        $('#showReviewsPopupBtn').css("width", "16.43%");
+        $('#showRatePopupBtn').css("width", "16.43%");
 
     }
     // for author
     else if ($('#editRecipeBtn').length) {
-        $('#dishType').css("width", "9.7%")
-        $('#showReviewsPopupBtn').css("width", "9.7%")
-        $('#showRatePopupBtn').css("width", "9.7%")
-        $('#editRecipeBtn').css("width", "9.7%")
-        $('#deleteRecipePopupBtn').css("width", "9.7%")
+        $('#dishType').css("width", "9.7%");
+        $('#showReviewsPopupBtn').css("width", "9.7%");
+        $('#showRatePopupBtn').css("width", "9.7%");
+        $('#editRecipeBtn').css("width", "9.7%");
+        $('#deleteRecipePopupBtn').css("width", "9.7%");
     }
 }
 
@@ -375,17 +376,17 @@ function setWidthBtnLandscapeMobile() {
     }
     // if logged in but user is not author
     else if ($('#showRatePopupBtn').length && !$('#editRecipeBtn').length) {
-        $('#dishType').css("width", width33)
-        $('#showReviewsPopupBtn').css("width", width33)
-        $('#showRatePopupBtn').css("width", width33)
+        $('#dishType').css("width", width33);
+        $('#showReviewsPopupBtn').css("width", width33);
+        $('#showRatePopupBtn').css("width", width33);
     }
     // for author
     else if ($('#editRecipeBtn').length) {
-        $('#dishType').css("width", width33)
-        $('#showReviewsPopupBtn').css("width", width33)
-        $('#showRatePopupBtn').css("width", width33)
-        $('#editRecipeBtn').css("width", width50)
-        $('#deleteRecipePopupBtn').css("width", width50)
+        $('#dishType').css("width", width33);
+        $('#showReviewsPopupBtn').css("width", width33);
+        $('#showRatePopupBtn').css("width", width33);
+        $('#editRecipeBtn').css("width", width50);
+        $('#deleteRecipePopupBtn').css("width", width50);
     }
 }
 
@@ -399,17 +400,17 @@ function setWidthBtnPortrait() {
     }
     // if logged in but user is not author
     else if ($('#showRatePopupBtn').length && !$('#editRecipeBtn').length) {
-        $('#dishType').css("width", width33)
-        $('#showReviewsPopupBtn').css("width", width33)
-        $('#showRatePopupBtn').css("width", width33)
+        $('#dishType').css("width", width33);
+        $('#showReviewsPopupBtn').css("width", width33);
+        $('#showRatePopupBtn').css("width", width33);
     }
     // for author
     else if ($('#editRecipeBtn').length) {
-        $('#dishType').css("width", width33)
-        $('#showReviewsPopupBtn').css("width", width33)
-        $('#showRatePopupBtn').css("width", width33)
-        $('#editRecipeBtn').css("width", width50)
-        $('#deleteRecipePopupBtn').css("width", width50)
+        $('#dishType').css("width", width33);
+        $('#showReviewsPopupBtn').css("width", width33);
+        $('#showRatePopupBtn').css("width", width33);
+        $('#editRecipeBtn').css("width", width50);
+        $('#deleteRecipePopupBtn').css("width", width50);
     }
 }
 

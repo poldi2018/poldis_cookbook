@@ -34,7 +34,8 @@ mongo = PyMongo(app)
 mongo.db.recipes.create_index([("title", "text"), ("dish_type", "text"),
                                 ("added_by", "text"),
                                 ("level", "text"), ("directions", "text"),
-                                ("allergens", "text"), ("ingredients.ingredient", "text"),
+                                ("allergens", "text"),
+                                ("ingredients.ingredient", "text"),
                                 ("origin", "text")])
 
 mongo.db.reviews.create_index([
@@ -42,7 +43,7 @@ mongo.db.reviews.create_index([
                               ("comment", "text"), ("rated_by", "text")])
 """
 
-#methods
+# methods
 
 
 def upload_image(base64file):
@@ -87,9 +88,11 @@ def make_ingredient_list(amounts_string, ingredients_string):
     ingredient_iter = iter(ingredients_list)
     ingredients = []
     for amount in amounts_list:
-        ingredients.append({'amount': amount, 'ingredient': next(ingredient_iter)})
+        ingredients.append({'amount': amount, 'ingredient': next(
+                            ingredient_iter)})
 
     return ingredients
+
 
 def make_allergens_list(allergens_string):
     allergens_list = allergens_string.split('#')
@@ -120,20 +123,18 @@ def index():
 
 @app.route('/welcome')
 def welcome():
-    all_recipes= mongo.db.recipes.find()
-    all_recipes_json=dumps(all_recipes)
+    all_recipes = mongo.db.recipes.find()
+    all_recipes_json = dumps(all_recipes)
     with open("static/data/all_recipes.json", "w") as filename:
         filename.write(all_recipes_json)
 
     return render_template("welcome.html")
 
 
-
 @app.route('/register')
 def register():
     return render_template('register.html',
                            message='Please fill in the registration form.')
-
 
 # check on registration request
 
@@ -156,20 +157,21 @@ def insert_user():
     elif user_email_to_check:
         message = "Provided email has already been registered. \
         Please choose a different one."
-        return render_template('register.html', message=message, form=request.form)
+        return render_template('register.html', message=message,
+                               form=request.form)
 
     elif username_to_check:
         message = "Provided username has already been registered. \
         Please choose a different one."
-        return render_template('register.html', message=message, form=request.form)
+        return render_template('register.html', message=message,
+                               form=request.form)
 
     elif user_email_to_check and username_to_check:
         message = "Provided email and username already have been registered."
-        return render_template('register.html', message=message, form=request.form)
+        return render_template('register.html', message=message,
+                               form=request.form)
 
-
-
-# login page 
+# login page
 
 
 @app.route('/login_page')
@@ -218,27 +220,25 @@ def logout():
     return render_template("loginpage.html", message=message)
 
 
-
 @app.route('/home')
 def home():
-    recipes=mongo.db.recipes
-    reviews=mongo.db.reviews
+    recipes = mongo.db.recipes
+    reviews = mongo.db.reviews
 
     recipes_count = recipes.count_documents({"user_email_hash":
-                                    session["email_address"]})          
-    
+                                            session["email_address"]})
+
     recipes = mongo.db.recipes.find({"user_email_hash":
                                     session["email_address"]})
 
-    
     reviews_count = reviews.count_documents({"user_email_hash":
-                                    session["email_address"]})                      
+                                            session["email_address"]})
     reviews = mongo.db.reviews.find({"user_email_hash":
                                     session["email_address"]})
 
-    return render_template('user.html', recipes=recipes, recipes_count=recipes_count, reviews=reviews, reviews_count=reviews_count)
-
-
+    return render_template('user.html', recipes=recipes,
+                           recipes_count=recipes_count, reviews=reviews,
+                           reviews_count=reviews_count)
 
 # top reviews from today
 
@@ -246,42 +246,52 @@ def home():
 @app.route('/reviews_today')
 def reviews_today():
     today = datetime.datetime.now().strftime("%d/%m/%Y")
-    reviews=mongo.db.reviews
+    reviews = mongo.db.reviews
     # check if 5 star ratings from today is available
-    reviews_count = reviews.count_documents({ "$and": [ { "added_on_date": today }, { "rating": 5 } ] })
+    reviews_count = reviews.count_documents({"$and": [{"added_on_date": today},
+                                            {"rating": 5}]})
     if reviews_count == 0:
-        message="No recipes with 5 stars have been rated today"
+        message = "No recipes with 5 stars have been rated today"
         return render_template("topreviews.html", message=message)
     else:
-        reviews_from_today = mongo.db.reviews.find( { "$and": [ { "added_on_date": today }, { "rating": 5 } ] } )
-        return render_template("topreviews.html", reviews_from_today=reviews_from_today, reviews_count=reviews_count)
-
-
+        reviews_from_today = mongo.db.reviews.find({"$and": [{"added_on_date":
+                                                    today}, {"rating": 5}]})
+        return render_template("topreviews.html",
+                               reviews_from_today=reviews_from_today,
+                               reviews_count=reviews_count)
 
 # quick search results
 
 
 @app.route('/quick_results', methods=["POST"])
 def quick_results():
-    recipes=mongo.db.recipes
-    reviews=mongo.db.reviews
+    recipes = mongo.db.recipes
+    reviews = mongo.db.reviews
     search_term = request.form.get("search_term")
     if search_term == "":
         recipes_by_searchterm = mongo.db.recipes.find()
-        recipes_count = recipes.count_documents({"$text": {"$search": search_term}})        
+        recipes_count = recipes.count_documents({"$text": {"$search":
+                                                search_term}})
         reviews_by_searchterm = mongo.db.reviews.find()
-        reviews_count = reviews.count_documents({"$text": {"$search": search_term}})
+        reviews_count = reviews.count_documents({"$text": {"$search":
+                                                search_term}})
     else:
-        recipes_by_searchterm = mongo.db.recipes.find({"$text": {"$search": search_term}})
-        recipes_count = recipes.count_documents({"$text": {"$search": search_term}})        
-        reviews_by_searchterm = mongo.db.reviews.find({"$text": {"$search": search_term}})
-        reviews_count = reviews.count_documents({"$text": {"$search": search_term}})
-    return render_template("quickresults.html", recipes_by_searchterm=recipes_by_searchterm, reviews_by_searchterm=reviews_by_searchterm,
-                           search_term=search_term, recipes_count=recipes_count, reviews_count=reviews_count)
+        recipes_by_searchterm = mongo.db.recipes.find({"$text": {"$search":
+                                                      search_term}})
+        recipes_count = recipes.count_documents({"$text": {"$search":
+                                                search_term}})
+        reviews_by_searchterm = mongo.db.reviews.find({"$text": {"$search":
+                                                      search_term}})
+        reviews_count = reviews.count_documents({"$text": {"$search":
+                                                search_term}})
+    return render_template("quickresults.html",
+                           recipes_by_searchterm=recipes_by_searchterm,
+                           reviews_by_searchterm=reviews_by_searchterm,
+                           search_term=search_term,
+                           recipes_count=recipes_count,
+                           reviews_count=reviews_count)
 
-
-
-# Search dialog
+# Search
 
 
 @app.route('/advanced_search')
@@ -289,72 +299,130 @@ def advanced_search():
     return render_template("advancedsearch.html", countries=get_countries())
 
 
-
 @app.route('/advanced_results/<category>/<value>', methods=["POST", "GET"])
 def advanced_results(category, value):
-    recipes=mongo.db.recipes
-    reviews=mongo.db.reviews
-    if request.method=="GET":
-        if category=="dish_type":
-            all_recipes_by_category = mongo.db.recipes.find({"dish_type": value})
-            return render_template("advancedresults.html", category=category, value=value, all_recipes_by_category=all_recipes_by_category, form=request.form)
-        elif category=="user":
-            all_recipes_by_user = mongo.db.recipes.find({"added_by": value})
-            return render_template("advancedresults.html", category=category, value=value, all_recipes_by_user=all_recipes_by_user, form=request.form)
+    recipes = mongo.db.recipes
+    reviews = mongo.db.reviews
+    if request.method == "GET":
+        if category == "dish_type":
+            by_category = mongo.db.recipes.find({"dish_type": value})
+            return render_template("advancedresults.html", category=category,
+                                   value=value, by_category=by_category,
+                                   form=request.form)
+        elif category == "user":
+            recipes_by_user = mongo.db.recipes.find({"added_by": value})
+            return render_template("advancedresults.html", category=category,
+                                   value=value,
+                                   recipes_by_user=recipes_by_user,
+                                   form=request.form)
 
-    if request.method=="POST":
-        if request.form.get("search_title")!="":
-            recipes_by_title = mongo.db.recipes.find({ '$or': [{"title": request.form.get("search_title")}, {"title": request.form.get("search_title").casefold()}, {"title": request.form.get("search_title").capitalize()}]})
-            count_title = recipes.count_documents({ '$or': [{"title": request.form.get("search_title")}, {"title": request.form.get("search_title").casefold()}, {"title": request.form.get("search_title").capitalize()}]})
+    if request.method == "POST":
+        if request.form.get("search_title") != "":
+            title = request.form.get("search_title")
+            by_title = mongo.db.recipes.find({'$or':
+                                              [{"title": title},
+                                               {"title": title.casefold()},
+                                               {"title": title.capitalize()}]})
+            count_title = recipes.count_documents({'$or': [{"title": title},
+                                                  {"title": title.casefold()},
+                                                  {"title": title.capitalize()}
+                                                  ]})
         else:
-            recipes_by_title=None
-            count_title=None        
+            by_title = None
+            count_title = None
 
-        if request.form.get("dish_type")!=None:
-            recipes_by_dish_type = mongo.db.recipes.find({"dish_type": request.form.get("dish_type")})
-            count_dish_type = recipes.count_documents({"dish_type": request.form.get("dish_type")})
+        if request.form.get("dish_type") is not None:
+            dish_type = request.form.get("dish_type")
+            by_dish_type = mongo.db.recipes.find({"dish_type": dish_type})
+            count_dish_type = recipes.count_documents({"dish_type": dish_type})
         else:
-            recipes_by_dish_type=None
-            count_dish_type=None
+            by_dish_type = None
+            count_dish_type = None
 
-        if request.form.get("searchfield_added_by")!="":
-            recipes_by_user = mongo.db.recipes.find({ '$or': [{"added_by": request.form.get("searchfield_added_by")}, {"added_by": request.form.get("searchfield_added_by").casefold()}, {"added_by": request.form.get("searchfield_added_by").capitalize()}]})
-            count_added_by = recipes.count_documents({ '$or': [{"added_by": request.form.get("searchfield_added_by")}, {"added_by": request.form.get("searchfield_added_by").casefold()}, {"added_by": request.form.get("searchfield_added_by").capitalize()}]})
+        if request.form.get("searchfield_added_by") != "":
+            added_by = request.form.get("searchfield_added_by")
+            added_by_user = mongo.db.recipes.find({'$or':
+                                                  [{"added_by": added_by},
+                                                   {"added_by": added_by
+                                                    .casefold()},
+                                                   {"added_by": added_by
+                                                   .capitalize()}]})
+            count_added_by = recipes.count_documents({'$or':
+                                                     [{"added_by": added_by},
+                                                      {"added_by": added_by
+                                                      .casefold()},
+                                                      {"added_by": added_by
+                                                      .capitalize()}]})
         else:
-            recipes_by_user=None
-            count_added_by=None  
+            added_by_user = None
+            count_added_by = None
 
-        if request.form.get("level")!=None:
-            recipes_by_difficulty = mongo.db.recipes.find({"level": request.form.get("level")})
-            count_level = recipes.count_documents({"level": request.form.get("level")})        
+        if request.form.get("level") is not None:
+            level = request.form.get("level")
+            by_difficulty = mongo.db.recipes.find({"level": level})
+            count_level = recipes.count_documents({"level": level})
         else:
-            recipes_by_difficulty=None
-            count_level=None 
+            by_difficulty = None
+            count_level = None
 
-        if request.form.get("searchfield_ingredients")!="":
-            recipes_by_ingredients = mongo.db.recipes.find({ '$or': [{"ingredients.ingredient":request.form.get("searchfield_ingredients")}, {"ingredients.ingredient":request.form.get("searchfield_ingredients").casefold()}, {"ingredients.ingredient":request.form.get("searchfield_ingredients").capitalize()}]})
-            count_ingredients = recipes.count_documents({ '$or': [{"ingredients.ingredient":request.form.get("searchfield_ingredients")}, {"ingredients.ingredient":request.form.get("searchfield_ingredients").casefold()}, {"ingredients.ingredient":request.form.get("searchfield_ingredients").capitalize()}]}) 
+        if request.form.get("searchfield_ingredients") != "":
+            ingredients = request.form.get("searchfield_ingredients")
+            by_ingredients = mongo.db.recipes.find({'$or':
+                                                    [{"ingredients.ingredient":
+                                                      ingredients},
+                                                     {"ingredients.ingredient":
+                                                      ingredients.casefold()},
+                                                     {"ingredients.ingredient":
+                                                      ingredients.capitalize()}
+                                                     ]})
+            count_ing = recipes.count_documents({'$or':
+                                                 [{"ingredients.ingredient":
+                                                   ingredients},
+                                                  {"ingredients.ingredient":
+                                                   ingredients.casefold()},
+                                                  {"ingredients.ingredient":
+                                                   ingredients.capitalize()}
+                                                  ]})
         else:
-            recipes_by_ingredients=None 
-            count_ingredients=None
+            by_ingredients = None
+            count_ing = None
 
-        if request.form.get("country_name")!=None:
-            recipes_by_country_name = mongo.db.recipes.find({"country_name": request.form.get("country_name")})
-            count_country_name = recipes.count_documents({"country_name": request.form.get("country_name")})        
+        if request.form.get("country_name") is not None:
+            by_country_name = mongo.db.recipes.find({"country_name": request
+                                                    .form.get("country_name")})
+            count_country_name = recipes.count_documents({"country_name":
+                                                          request.form.get
+                                                          ("country_name")})
         else:
-            recipes_by_country_name=None
-            count_country_name=None
+            by_country_name = None
+            count_country_name = None
 
-        if request.form.get("searchfield_rating")!=None:   
-            reviews_by_rating = mongo.db.reviews.find({"rating": int(request.form.get("searchfield_rating"))})
-            count_rating = reviews.count_documents({"rating": int(request.form.get("searchfield_rating"))})        
+        if request.form.get("searchfield_rating") is not None:
+            by_rating = mongo.db.reviews.find({"rating":
+                                              int(request.form.get
+                                                  ("searchfield_rating"))})
+            count_rating = reviews.count_documents({"rating":
+                                                    int(request.form.get
+                                                        ("searchfield_rating"))
+                                                    })
         else:
-            reviews_by_rating=None
-            count_rating=None
+            by_rating = None
+            count_rating = None
 
-    return render_template("advancedresults.html", mode="post", recipes_by_title=recipes_by_title, count_title=count_title, recipes_by_dish_type=recipes_by_dish_type, count_dish_type=count_dish_type, recipes_by_user=recipes_by_user, count_added_by=count_added_by, recipes_by_difficulty=recipes_by_difficulty, count_level=count_level, recipes_by_ingredients=recipes_by_ingredients, count_ingredients=count_ingredients, recipes_by_country_name=recipes_by_country_name, count_country_name=count_country_name, reviews_by_rating=reviews_by_rating, count_rating=count_rating, form=request.form)
-
-
+    return render_template("advancedresults.html", mode="form",
+                           by_title=by_title, count_title=count_title,
+                           by_dish_type=by_dish_type,
+                           count_dish_type=count_dish_type,
+                           added_by_user=added_by_user,
+                           count_added_by=count_added_by,
+                           by_difficulty=by_difficulty,
+                           count_level=count_level,
+                           by_ingredients=by_ingredients,
+                           count_ing=count_ing,
+                           by_country_name=by_country_name,
+                           count_country_name=count_country_name,
+                           by_rating=by_rating, count_rating=count_rating,
+                           form=request.form)
 
 # Add A Recipe
 
@@ -379,7 +447,7 @@ def insert_recipe():
     ingredients = make_ingredient_list(request.form.get("amounts_string"),
                                        request.form.get("ingredients_string"))
     allergens = make_allergens_list(request.form.get("allergens_string"))
-    if request.form.get("checkbox_upload_file_later")=="checked":
+    if request.form.get("checkbox_upload_file_later") == "checked":
         url_img_src = "/static/images/question_mark.jpg"
     else:
         url_img_src = upload_image(request.form.get("base64file"))
@@ -410,14 +478,11 @@ def insert_recipe():
     return redirect(url_for('read_recipe', recipe_id=recipe_id))
 
 
-
-
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template('editrecipe.html', recipe=recipe,
                            countries=get_countries())
-
 
 # update recipe in database
 
@@ -430,9 +495,9 @@ def update_recipe(recipe_id):
     ingredients = make_ingredient_list(request.form.get("amounts_string"),
                                        request.form.get("ingredients_string"))
     allergens = make_allergens_list(request.form.get("allergens_string"))
-    if request.form.get("checkbox_use_current_file")=="checked":
+    if request.form.get("checkbox_use_current_file") == "checked":
         url_img_src = request.form.get("image_url")
-    else: 
+    else:
         url_img_src = upload_image(request.form.get("base64file"))
     recipes.update_one(
         {"_id": ObjectId(recipe_id)},
@@ -471,18 +536,19 @@ def read_recipe(recipe_id):
         {
             "$inc": {"view_count": 1}
         }
-    )    
+    )
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     reviews_of_recipe = mongo.db.reviews.find({"recipe_id": recipe_id})
-    reviews=mongo.db.reviews
+    reviews = mongo.db.reviews
     reviews_count = reviews.count_documents({"recipe_id": recipe_id})
     if reviews_count == 0:
-        message="This recipe has not been rated yet."
+        message = "This recipe has not been rated yet."
         return render_template('readrecipe.html', recipe=recipe,
-                           reviews_of_recipe=reviews_of_recipe, message=message)
+                               reviews_of_recipe=reviews_of_recipe,
+                               message=message)
     else:
         return render_template('readrecipe.html', recipe=recipe,
-                           reviews_of_recipe=reviews_of_recipe)
+                               reviews_of_recipe=reviews_of_recipe)
 
 
 # Delete recipe in database
@@ -506,7 +572,7 @@ def insert_rating(recipe_id, recipe_title):
     today = datetime.datetime.now().strftime("%d/%m/%Y")
     now = datetime.datetime.now().strftime("%H:%M:%S")
     reviews = mongo.db.reviews
-    review_id=reviews.insert_one(
+    review_id = reviews.insert_one(
         {
             "review_title": request.form.get('review_title'),
             "review_for": recipe_title,
@@ -520,21 +586,18 @@ def insert_rating(recipe_id, recipe_title):
         }
     ).inserted_id
     if review_id:
-        flash("Your review has been saved and can be found back under recipe's reviews")
-    
+        flash("Your review has been saved and can be found back under recipe's \
+        reviews")
+
     # incrementing review counter and add user to the user list who reviewed
     recipes = mongo.db.recipes
     recipes.update_one(
         {"_id": ObjectId(recipe_id)},
         {
             "$inc": {"review_count": 1},
-            "$addToSet":
-            {"rated_by_users": session['username']
-            }
-        }
-    )
+            "$addToSet": {"rated_by_users": session['username']}
+        })
     return redirect(url_for('read_recipe', recipe_id=recipe_id))
-
 
 
 # run app
