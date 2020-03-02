@@ -535,7 +535,7 @@
     .fileselector {
         height: 18vw;
         display: flex;
-        word-wrap: flex;
+        flex-wrap: wrap;
         align-items: center;
     }
 

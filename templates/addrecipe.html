@@ -1,4 +1,4 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% block content %}
 <form id="recipeForm" action="{{ url_for('insert_recipe')}}" method="POST" class="addRecipeForm"
     enctype="multipart/form-data">
@@ -186,8 +186,7 @@
         </div>
         <div class="buttonWrapper">
             <div onclick="fieldvalidation()" class="btn waves-effect waves-light">Save recipe</div>
-            <div id="cancelAddEditRecipeBtn" class="btn waves-effect waves-light"><a
-                    href="{{url_for('home')}}">Cancel</a></div>
+            <div id="cancelAddEditRecipeBtn" class="btn waves-effect waves-light"><a href="{{url_for('home')}}">Cancel</a></div>
         </div>
     </div>
 </form>
