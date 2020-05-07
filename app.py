@@ -11,6 +11,9 @@ import base64
 import requests
 from werkzeug.security import check_password_hash, generate_password_hash
 
+if os.path.exists('env.py'):
+    import env
+
 # creating instance of Flask app object
 app = Flask(__name__)
 
@@ -23,8 +26,7 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI_COOKBOOK',
 app.secret_key = os.getenv("COOKBOOK_SECRET_KEY")
 
 # building upload url for imgbb with base url and API key
-imgbb_upload_url = "https://api.imgbb.com/1/upload?key=" + os.getenv(
-                                                        'IMGBB_CLIENT_API_KEY')
+imgbb_upload_url = "https://api.imgbb.com/1/upload?key=" + os.getenv('IMGBB_CLIENT_API_KEY')
 
 # creating instance of Pymongo with app object to connect to MongoDB
 mongo = PyMongo(app)
