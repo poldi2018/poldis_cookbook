@@ -14,6 +14,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 if os.path.exists('env.py'):
     import env
 
+
 # creating instance of Flask app object
 app = Flask(__name__)
 
@@ -606,4 +607,4 @@ def insert_rating(recipe_id, recipe_title):
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT', 5000)),
-            debug=False)
+            debug=True)
