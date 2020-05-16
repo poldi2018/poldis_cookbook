@@ -24,7 +24,7 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI_COOKBOOK',
                                     'mongodb://localhost')
 
 # app secretkey
-app.secret_key = os.getenv("COOKBOOK_SECRET_KEY")
+app.secret_key = os.getenv("SECRET_KEY")
 
 # building upload url for imgbb with base url and API key
 imgbb_upload_url = "https://api.imgbb.com/1/upload?key=" + os.getenv('IMGBB_CLIENT_API_KEY')
