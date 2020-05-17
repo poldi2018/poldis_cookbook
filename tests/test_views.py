@@ -22,7 +22,8 @@ class test_views(unittest.TestCase):
         #self.assertEqual(request.session["username"], "")
 
     def test_response_welcome_view(self):
-        response = self.app.get("/welcome", content_type="html/text")
+        #recipes = mongo.db.find()
+        response = self.app.get("/welcome", content_type="html/text", follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
 
