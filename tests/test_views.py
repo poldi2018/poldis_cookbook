@@ -3,7 +3,7 @@ import unittest
 from app import app
 from flask import Flask, render_template, redirect, request, url_for, \
                   session, json, flash
-
+from app import mongo
 
 
 class test_is_this_working(unittest.TestCase):
@@ -22,7 +22,7 @@ class test_views(unittest.TestCase):
         #self.assertEqual(request.session["username"], "")
 
     def test_response_welcome_view(self):
-        response = self.app.get("/welcome", content_type="html/text", follow_redirects=True)
+        response = self.app.get("/welcome", content_type="html/text")
         self.assertEqual(response.status_code, 200)
 
 
