@@ -23,7 +23,7 @@ class test_views(unittest.TestCase):
 
     def test_get_all_recipes(self):
         all_recipes = mongo.db.recipes.find()
-        self.assertNotEqual(all_recipes, None)
+        self.assertIsNotNone(all_recipes)
 
     def test_response_welcome_view(self):
         response = self.app.get("/welcome", content_type="html/text", follow_redirects=True)

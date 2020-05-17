@@ -13,7 +13,6 @@ from werkzeug.security import check_password_hash, generate_password_hash
 if os.path.exists('env.py'):
     import env
 
-
 # creating instance of Flask app object
 app = Flask(__name__)
 
@@ -82,7 +81,7 @@ def create_new_user(form):
     return new_user
 
 
-def make_ingredient_list(amounts_string, ingredients_string):
+def make_ingredient_dict(amounts_string, ingredients_string):
     amounts_list = amounts_string.split('#')
     amounts_list.pop(len(amounts_list)-1)
     ingredients_list = ingredients_string.split('#')
@@ -445,7 +444,7 @@ def insert_recipe():
     recipes = mongo.db.recipes
     today = datetime.datetime.now().strftime("%d/%m/%Y")
     now = datetime.datetime.now().strftime("%H:%M:%S")
-    ingredients = make_ingredient_list(request.form.get("amounts_string"),
+    ingredients = make_ingredient_dict(request.form.get("amounts_string"),
                                        request.form.get("ingredients_string"))
     allergens = make_allergens_list(request.form.get("allergens_string"))
     if request.form.get("checkbox_upload_file_later") == "checked":
@@ -493,7 +492,7 @@ def update_recipe(recipe_id):
     recipes = mongo.db.recipes
     today = datetime.datetime.now().strftime("%d/%m/%Y")
     now = datetime.datetime.now().strftime("%H:%M:%S")
-    ingredients = make_ingredient_list(request.form.get("amounts_string"),
+    ingredients = make_ingredient_dict(request.form.get("amounts_string"),
                                        request.form.get("ingredients_string"))
     allergens = make_allergens_list(request.form.get("allergens_string"))
     if request.form.get("checkbox_use_current_file") == "checked":
