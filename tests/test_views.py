@@ -21,11 +21,13 @@ class test_views(unittest.TestCase):
         #self.assert_template_used('index.html')
         #self.assertEqual(request.session["username"], "")
 
+    def test_get_all_recipes(self):
+        all_recipes = mongo.db.recipes.find()
+        self.assertNotEqual(all_recipes, None)
+
     def test_response_welcome_view(self):
-        #recipes = mongo.db.find()
         response = self.app.get("/welcome", content_type="html/text", follow_redirects=True)
         self.assertEqual(response.status_code, 200)
-
 
     def test_response_register_view(self):
         response = self.app.get("/register", content_type="html/text", follow_redirects=True)
