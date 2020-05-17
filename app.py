@@ -3,8 +3,7 @@ from flask import Flask, render_template, redirect, request, url_for, \
                   session, json, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from bson.json_util import loads
-from bson.json_util import dumps, default
+from bson.json_util import loads, dumps, default
 from bson import Binary, Code
 import datetime
 import base64
@@ -93,7 +92,6 @@ def make_ingredient_list(amounts_string, ingredients_string):
     for amount in amounts_list:
         ingredients.append({'amount': amount, 'ingredient': next(
                             ingredient_iter)})
-
     return ingredients
 
 
