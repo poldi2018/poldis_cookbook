@@ -21,6 +21,7 @@ class test_is_this_working(unittest.TestCase):
 class test_views(unittest.TestCase):
     def setUp(self):
         DEBUG=True
+        app = Flask(__name__)
         #self.app = app.test_client(use_cookies=True)
         self.client = app.test_client(use_cookies=True)
         app.config["MONGO_DBNAME"] = 'cookbook'
