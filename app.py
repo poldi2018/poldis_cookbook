@@ -141,7 +141,7 @@ def register():
 
 @app.route('/insert_user', methods=["POST"])
 def insert_user():
-    users = mongo.db.users
+    #users = mongo.db.users
     user_email_to_check = mongo.db.users.find_one(
         {"email_address": request.form.get('email_address')})
     username_to_check = mongo.db.users.find_one({"username":
