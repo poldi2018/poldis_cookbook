@@ -17,10 +17,11 @@ class test_is_this_working(unittest.TestCase):
 
 class test_views(unittest.TestCase):
     def setUp(self):
-        self.app = app.test_client(use_cookies=True)
+        #self.app = app.test_client(use_cookies=True)
+        self.client = app.test_client(use_cookies=True)
 
     def test_response_index_view(self):
-        response = self.app.get("/", content_type="html/text", follow_redirects=True)
+        response = self.client.get("/", content_type="html/text", follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
     def test_clear_session_on_index_page(self):
@@ -38,19 +39,19 @@ class test_views(unittest.TestCase):
     #         self.assertIsNotNone(all_recipes_json)
 
     def test_response_welcome_view(self):
-        response = self.app.get("/welcome", content_type="html/text", follow_redirects=True)
+        response = self.client.get("/welcome", content_type="html/text", follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
     def test_response_register_view(self):
-        response = self.app.get("/register", content_type="html/text", follow_redirects=True)
+        response = self.client.get("/register", content_type="html/text", follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
     def test_response_loginpage_view(self):
-        response = self.app.get("/login_page", content_type="html/text", follow_redirects=True)
+        response = self.client.get("/login_page", content_type="html/text", follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
     def test_response_logoutpage_view(self):
-        response = self.app.get("/logout", content_type="html/text", follow_redirects=True)
+        response = self.client.get("/logout", content_type="html/text", follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
     def test_clear_session_on_logoutpage(self):
@@ -60,16 +61,27 @@ class test_views(unittest.TestCase):
             assert session['user'] == ""
             assert session['email_address'] == ""
     
-    def test_insert_user(self):
+    def test_response_insert_user_view(self):
         #users = mongo.db.users
         message=""
         with app.test_client() as client:
             form = dict([('username', 'dude2'), ('email_address', 'dude2@domain.com'), ('password', 'dude2'), ('password2', 'dude2')])
-            response= self.app.post('/insert_user', data=form)
+            response= self.client.post('/insert_user', data=form)
+            self.assertEqual(response.status_code, 200)
+            
+    def test_insert_user_view(self):
+        #users = mongo.db.users
+        message=""
+        with app.test_client() as client:
+            form = dict([('username', 'dude2'), ('email_address', 'dude2@domain.com'), ('password', 'dude2'), ('password2', 'dude2')])
+            response= self.client.post('/insert_user', data=form)
+            self.assertEqual(response.status_code, 200)
             #assert message=="Provided email and username already have been registered."
             #self.assertEqual(message, "Provided email and username already have been registered.")
             #user_name_to_check = mongo.db.users.find_one({"username": 'dude2'})
             #self.assertIsNotNone(user_name_to_check)
+
+
 
 if __name__ == '__main__':
     unittest.main()
