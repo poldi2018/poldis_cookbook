@@ -4,7 +4,6 @@ import unittest
 from app import app
 from flask import Flask, render_template, redirect, request, url_for, \
                   session, json, flash
-from app import mongo
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from bson.json_util import loads, dumps, default
@@ -13,21 +12,28 @@ from bson import Binary, Code
 if os.path.exists('env.py'):
     import env
 
+
+mongo = PyMongo(app)
+app.config["MONGO_DBNAME"] = 'cookbook'
+app.config["MONGO_URI"] = os.getenv('MONGO_URI_COOKBOOK',
+                                    'mongodb://localhost')
+
+
+
 class test_is_this_working(unittest.TestCase):
     """ Checking working test kit """
     def test_is_this_thing_on(self):
         self.assertEqual(1,1)
 
-class test_views(unittest.TestCase):
+class TestOfViewMethods(unittest.TestCase):
     def setUp(self):
-        DEBUG=True
         #self.app = app.test_client(use_cookies=True)
         self.client = app.test_client(use_cookies=True)
-        app.config["MONGO_DBNAME"] = 'cookbook'
-        app.config["MONGO_URI"] = os.getenv('MONGO_URI_COOKBOOK',
-                                    'mongodb://localhost')
-        mongo = PyMongo(app)
-
+        with app.app_context():
+            users = mongo.db.users
+            recipes = mongo.db.recipes
+            reviews = mongo.db.reviews
+        
 
     def test_response_index_view(self):
         response = self.client.get("/", content_type="html/text", follow_redirects=True)

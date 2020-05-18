@@ -570,6 +570,7 @@ def delete_recipe(recipe_id):
 def insert_rating(recipe_id, recipe_title):
     today = datetime.datetime.now().strftime("%d/%m/%Y")
     now = datetime.datetime.now().strftime("%H:%M:%S")
+    recipes = mongo.db.recipes
     reviews = mongo.db.reviews
     review_id = reviews.insert_one(
         {
@@ -589,7 +590,6 @@ def insert_rating(recipe_id, recipe_title):
         reviews")
 
     # incrementing review counter and add user to the user list who reviewed
-    recipes = mongo.db.recipes
     recipes.update_one(
         {"_id": ObjectId(recipe_id)},
         {

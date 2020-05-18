@@ -13,5 +13,4 @@ before_script:
 
 script:
 #- SECRET_KEY="whatever"
-  #python3 -m unittest tests/*.py
-  python3 -m unittest
+  python3 -m unittest tests/*.py
