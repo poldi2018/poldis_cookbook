@@ -123,10 +123,10 @@ def index():
 
 @app.route('/welcome')
 def welcome():
-    #all_recipes = mongo.db.recipes.find()
-    #all_recipes_json = dumps(all_recipes)
-    #with open("static/data/all_recipes.json", "w") as filename:
-    #    filename.write(all_recipes_json)
+    all_recipes = mongo.db.recipes.find()
+    all_recipes_json = dumps(all_recipes)
+    with open("static/data/all_recipes.json", "w") as filename:
+        filename.write(all_recipes_json)
 
     return render_template("welcome.html")
 
@@ -141,7 +141,7 @@ def register():
 
 @app.route('/insert_user', methods=["POST"])
 def insert_user():
-    #users = mongo.db.users
+    users = mongo.db.users
     user_email_to_check = mongo.db.users.find_one(
         {"email_address": request.form.get('email_address')})
     username_to_check = mongo.db.users.find_one({"username":
