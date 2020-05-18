@@ -20,6 +20,7 @@ class test_is_this_working(unittest.TestCase):
 
 class test_views(unittest.TestCase):
     def setUp(self):
+        DEBUG=True
         #self.app = app.test_client(use_cookies=True)
         self.client = app.test_client(use_cookies=True)
         app.config["MONGO_DBNAME"] = 'cookbook'
@@ -45,10 +46,11 @@ class test_views(unittest.TestCase):
 
     def test_get_all_recipes(self):
         with app.test_client() as client:
-            resonse = client.get('/welcome')
-            all_recipes = mongo.db.recipes.find()
-            all_recipes_json = dumps(all_recipes)
-            self.assertIsNotNone(all_recipes)        
+            with app.app_context():
+                resonse = client.get('/welcome')
+                all_recipes = mongo.db.recipes.find()
+                all_recipes_json = dumps(all_recipes)
+                self.assertIsNotNone(all_recipes)        
 
     def test_response_register_view(self):
         response = self.client.get("/register", content_type="html/text", follow_redirects=True)
