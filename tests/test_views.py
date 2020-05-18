@@ -4,6 +4,10 @@ from app import app
 from flask import Flask, render_template, redirect, request, url_for, \
                   session, json, flash
 from app import mongo
+from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
+from bson.json_util import loads, dumps, default
+from bson import Binary, Code
 
 
 class test_is_this_working(unittest.TestCase):
@@ -30,7 +34,8 @@ class test_views(unittest.TestCase):
         with app.test_client() as client:
             resonse = client.get('/welcome')
             all_recipes = mongo.db.recipes.find()
-            self.assertIsNotNone(all_recipes)
+            all_recipes_json = dumps(all_recipes)
+            self.assertIsNotNone(all_recipes_json)
 
     def test_response_welcome_view(self):
         response = self.app.get("/welcome", content_type="html/text", follow_redirects=True)
