@@ -19,7 +19,7 @@ class test_views(unittest.TestCase):
     def setUp(self):
         #self.app = app.test_client(use_cookies=True)
         self.client = app.test_client(use_cookies=True)
-        #mongo = PyMongo(app)
+        mongo = PyMongo(app)
 
 
     def test_response_index_view(self):
