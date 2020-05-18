@@ -1,7 +1,7 @@
 import os
 from flask_testing import TestCase
 import unittest
-from app import app
+import app as app_module
 from flask import Flask, render_template, redirect, request, url_for, \
                   session, json, flash
 from flask_pymongo import PyMongo
@@ -17,6 +17,9 @@ if os.path.exists('env.py'):
 
 # setting name of db, parse and assign system env variable
 
+app = app_module.app
+mongo = PyMongo(app)
+app_module.mongo = mongo
 
 # app secretkey
 app.config["TESTING"] = True
@@ -24,7 +27,7 @@ app.secret_key = os.getenv("SECRET_KEY")
 app.config["MONGO_DBNAME"] = 'cookbook'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI_COOKBOOK',
                                     'mongodb://localhost')
-mongo = PyMongo(app)
+
 
 
 class test_is_this_working(unittest.TestCase):
