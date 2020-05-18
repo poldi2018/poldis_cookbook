@@ -123,7 +123,6 @@ def index():
 
 @app.route('/welcome')
 def welcome():
-    recipes = mongo.db.recipes
     all_recipes = mongo.db.recipes.find()
     all_recipes_json = dumps(all_recipes)
     with open("static/data/all_recipes.json", "w") as filename:
