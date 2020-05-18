@@ -1,3 +1,4 @@
+import os
 from flask_testing import TestCase
 import unittest
 from app import app
@@ -9,6 +10,8 @@ from bson.objectid import ObjectId
 from bson.json_util import loads, dumps, default
 from bson import Binary, Code
 
+if os.path.exists('env.py'):
+    import env
 
 class test_is_this_working(unittest.TestCase):
     """ Checking working test kit """
@@ -19,6 +22,9 @@ class test_views(unittest.TestCase):
     def setUp(self):
         #self.app = app.test_client(use_cookies=True)
         self.client = app.test_client(use_cookies=True)
+        app.config["MONGO_DBNAME"] = 'cookbook'
+        app.config["MONGO_URI"] = os.getenv('MONGO_URI_COOKBOOK',
+                                    'mongodb://localhost')
         mongo = PyMongo(app)
 
 

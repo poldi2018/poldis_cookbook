@@ -1,3 +1,4 @@
+import os
 from flask_testing import TestCase
 import unittest
 from app import app
@@ -8,6 +9,8 @@ from app import upload_image, logout_user, set_session, build_origin_filepath, c
 from app import imgbb_upload_url
 from werkzeug.security import check_password_hash, generate_password_hash
 
+if os.path.exists('env.py'):
+    import env
 
 class test_Methods(unittest.TestCase):
     def setUp(self):
