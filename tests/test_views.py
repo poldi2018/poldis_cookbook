@@ -30,12 +30,12 @@ class test_views(unittest.TestCase):
             assert session['user'] == ""
             assert session['email_address'] == ""
 
-    def test_get_all_recipes(self):
-        with app.test_client() as client:
-            resonse = client.get('/welcome')
-            all_recipes = mongo.db.recipes.find()
-            all_recipes_json = dumps(all_recipes)
-            self.assertIsNotNone(all_recipes_json)
+    # def test_get_all_recipes(self):
+    #     with app.test_client() as client:
+    #         resonse = client.get('/welcome')
+    #         all_recipes = mongo.db.recipes.find()
+    #         all_recipes_json = dumps(all_recipes)
+    #         self.assertIsNotNone(all_recipes_json)
 
     def test_response_welcome_view(self):
         response = self.app.get("/welcome", content_type="html/text", follow_redirects=True)
