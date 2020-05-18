@@ -18,8 +18,13 @@ class test_views(unittest.TestCase):
     def test_response_index_view(self):
         response = self.app.get("/", content_type="html/text", follow_redirects=True)
         self.assertEqual(response.status_code, 200)
-        #self.assert_template_used('index.html')
-        #self.assertEqual(request.session["username"], "")
+
+    def test_clear_session_on_index_page(self):
+        with app.test_client() as client:
+            resonse = client.get('/')
+            assert session['username'] == ""
+            assert session['user'] == ""
+            assert session['email_address'] == ""
 
     def test_get_all_recipes(self):
         all_recipes = mongo.db.recipes.find()
@@ -33,18 +38,31 @@ class test_views(unittest.TestCase):
         response = self.app.get("/register", content_type="html/text", follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
-"""
-        with c.session_transaction() as sess:
-        sess['a_key'] = 'a value'
+    def test_response_loginpage_view(self):
+        response = self.app.get("/login_page", content_type="html/text", follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
 
-        with app.test_client() as c:
-    rv = c.get('/')
-    assert flask.session['foo'] == 42
+    def test_response_logoutpage_view(self):
+        response = self.app.get("/logout", content_type="html/text", follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
 
-     session["username"] = ""
-    session["user"] = ""
-    session["email_address"] = ""
-"""
+    def test_clear_session_on_logoutpage(self):
+        with app.test_client() as client:
+            resonse = client.get('/logout')
+            assert session['username'] == ""
+            assert session['user'] == ""
+            assert session['email_address'] == ""
+    
+    def test_insert_user(self):
+        #users = mongo.db.users
+        message=""
+        with app.test_client() as client:
+            form = dict([('username', 'dude2'), ('email_address', 'dude2@domain.com'), ('password', 'dude2'), ('password2', 'dude2')])
+            response= self.app.post('/insert_user', data=form)
+            #assert message=="Provided email and username already have been registered."
+            #self.assertEqual(message, "Provided email and username already have been registered.")
+            #user_name_to_check = mongo.db.users.find_one({"username": 'dude2'})
+            #self.assertIsNotNone(user_name_to_check)
 
 if __name__ == '__main__':
     unittest.main()

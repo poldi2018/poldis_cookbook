@@ -6,6 +6,7 @@ from flask import Flask, render_template, redirect, request, url_for, \
 from app import upload_image, logout_user, set_session, build_origin_filepath, create_new_user, \
                 make_ingredient_dict, make_allergens_list, get_countries
 from app import imgbb_upload_url
+from werkzeug.security import check_password_hash, generate_password_hash
 
 
 class test_Methods(unittest.TestCase):
@@ -43,5 +44,17 @@ class test_Methods(unittest.TestCase):
         allergens_string ="Eggs#Fish#Nuts#"
         expected = ["Eggs", "Fish", "Nuts"]
         self.assertEqual(make_allergens_list(allergens_string), expected)
+
+    def test_set_session_after_logon(self):
+        new_user = {
+            "username": 'username',
+            "email_address": 'user@domain.com',
+            "user_email_hash": generate_password_hash('user@domain.com'),
+        }
+        with app.test_client() as client:
+            resonse = client.get('/')
+            set_session(new_user)
+            assert session["username"]=="username"
+            assert session["email_address"]==new_user['user_email_hash']
 
         
