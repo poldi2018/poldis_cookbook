@@ -27,7 +27,7 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI_COOKBOOK',
                                     'mongodb://localhost')
 app.config["TESTING"] = True
 
-recipes = mongo.db.recipes
+#recipes = mongo.db.recipes
 
 class test_is_this_working(unittest.TestCase):
     """ Checking working test kit """
