@@ -30,8 +30,7 @@ imgbb_upload_url = "https://api.imgbb.com/1/upload?key=" + os.getenv('IMGBB_CLIE
 # creating instance of Pymongo with app object to connect to MongoDB
 mongo = PyMongo(app)
 
-"""
-
+# Create indices to make 
 mongo.db.recipes.create_index([("title", "text"), ("dish_type", "text"),
                                 ("added_by", "text"),
                                 ("level", "text"), ("directions", "text"),
@@ -42,7 +41,7 @@ mongo.db.recipes.create_index([("title", "text"), ("dish_type", "text"),
 mongo.db.reviews.create_index([
                               ("review_title", "text"), ("review_for", "text"),
                               ("comment", "text"), ("rated_by", "text")])
-"""
+
 
 # methods
 
@@ -141,9 +140,9 @@ def register():
 @app.route('/insert_user', methods=["POST"])
 def insert_user():
     users = mongo.db.users
-    user_email_to_check = mongo.db.users.find_one(
+    user_email_to_check = users.find_one(
         {"email_address": request.form.get('email_address')})
-    username_to_check = mongo.db.users.find_one({"username":
+    username_to_check = users.find_one({"username":
                                                 request.form.get('username')})
 
     if not user_email_to_check and not username_to_check:
@@ -156,18 +155,19 @@ def insert_user():
     elif user_email_to_check:
         message = "Provided email has already been registered. \
         Please choose a different one."
-        return render_template('register.html', message=message,
-                               form=request.form)
-
+        
     elif username_to_check:
         message = "Provided username has already been registered. \
         Please choose a different one."
-        return render_template('register.html', message=message,
-                               form=request.form)
+        # return render_template('register.html', message=message,
+        #                        form=request.form)
 
     elif user_email_to_check and username_to_check:
         message = "Provided email and username already have been registered."
-        return render_template('register.html', message=message,
+        # return render_template('register.html', message=message,
+        #                        form=request.form)
+
+    return render_template('register.html', message=message,
                                form=request.form)
 
 # login page
@@ -227,16 +227,16 @@ def home():
     recipes_count = recipes.count_documents({"user_email_hash":
                                             session["email_address"]})
 
-    recipes = mongo.db.recipes.find({"user_email_hash":
+    recipes_by_owner = recipes.find({"user_email_hash":
                                     session["email_address"]})
 
     reviews_count = reviews.count_documents({"user_email_hash":
                                             session["email_address"]})
-    reviews = mongo.db.reviews.find({"user_email_hash":
+    reviews_by_owner = reviews.find({"user_email_hash":
                                     session["email_address"]})
 
-    return render_template('user.html', recipes=recipes,
-                           recipes_count=recipes_count, reviews=reviews,
+    return render_template('user.html', recipes_by_owner=recipes_by_owner,
+                           recipes_count=recipes_count, reviews_by_owner=reviews_by_owner,
                            reviews_count=reviews_count)
 
 # top reviews from today
@@ -269,19 +269,16 @@ def quick_results():
     search_term = request.form.get("search_term")
     if search_term == "":
         recipes_by_searchterm = mongo.db.recipes.find()
-        recipes_count = recipes.count_documents({"$text": {"$search":
-                                                search_term}})
-        reviews_by_searchterm = mongo.db.reviews.find()
-        reviews_count = reviews.count_documents({"$text": {"$search":
-                                                search_term}})
+        reviews_by_searchterm = mongo.db.reviews.find()   
     else:
         recipes_by_searchterm = mongo.db.recipes.find({"$text": {"$search":
-                                                      search_term}})
-        recipes_count = recipes.count_documents({"$text": {"$search":
-                                                search_term}})
+                                                      search_term}})     
         reviews_by_searchterm = mongo.db.reviews.find({"$text": {"$search":
-                                                      search_term}})
-        reviews_count = reviews.count_documents({"$text": {"$search":
+                                                      search_term}})   
+
+    recipes_count = recipes.count_documents({"$text": {"$search":
+                                                search_term}})
+    reviews_count = reviews.count_documents({"$text": {"$search":
                                                 search_term}})
     return render_template("quickresults.html",
                            recipes_by_searchterm=recipes_by_searchterm,
@@ -528,17 +525,16 @@ def update_recipe(recipe_id):
 
 @app.route('/read_recipe/<recipe_id>')
 def read_recipe(recipe_id):
-    # increment view counter
     recipes = mongo.db.recipes
+    reviews = mongo.db.reviews
     recipes.update_one(
         {"_id": ObjectId(recipe_id)},
         {
             "$inc": {"view_count": 1}
         }
     )
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    reviews_of_recipe = mongo.db.reviews.find({"recipe_id": recipe_id})
-    reviews = mongo.db.reviews
+    recipe = recipes.find_one({"_id": ObjectId(recipe_id)})
+    reviews_of_recipe = reviews.find({"recipe_id": recipe_id})
     reviews_count = reviews.count_documents({"recipe_id": recipe_id})
     if reviews_count == 0:
         message = "This recipe has not been rated yet."

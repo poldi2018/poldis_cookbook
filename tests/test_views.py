@@ -37,9 +37,7 @@ class test_is_this_working(unittest.TestCase):
 class TestOfViewMethods(unittest.TestCase):
     def setUp(self):
         #self.app = app.test_client(use_cookies=True)
-        self.client = app.test_client(use_cookies=True)
-        #with app.app_context():
-           
+        self.client = app.test_client(use_cookies=True)           
 
     def test_response_index_view(self):
         response = self.client.get("/", content_type="html/text", follow_redirects=True)
@@ -57,11 +55,11 @@ class TestOfViewMethods(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_get_all_recipes(self):
-        with app.test_client() as client:
-            resonse = self.client.get('/welcome', content_type="html/text", follow_redirects=True)
-            all_recipes = mongo.db.recipes.find()
-            all_recipes_json = dumps(all_recipes)
-            self.assertIsNotNone(all_recipes)        
+        #with app.test_client() as client:
+        resonse = self.client.get('/welcome', content_type="html/text", follow_redirects=True)
+        all_recipes = mongo.db.recipes.find()
+        all_recipes_json = dumps(all_recipes)
+        self.assertIsNotNone(all_recipes)        
 
     def test_response_register_view(self):
         response = self.client.get("/register", content_type="html/text", follow_redirects=True)

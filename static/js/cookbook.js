@@ -65,7 +65,6 @@ function calcTotalTime() {
     } else {
         $("#totalTimeDiv").html("-");
         $("#totalTime").html("-");
-
     }
 }
 
@@ -317,7 +316,9 @@ function checkCurrentBreakpoint() {
     if ($(window).width() > $(window).height()) {
         // landscape mobile
         if ($(window).width() <= 823 && $(window).height() <= 414) {
-            setWidthBtnLandscapeMobile();
+            // setWidthBtnPortrait();
+
+            setWidthBtnMobile();
         }
         // landscape desktop and pad
         // else if ($(window).width() <= 1366 && $(window).height() <= 1024) {
@@ -330,7 +331,8 @@ function checkCurrentBreakpoint() {
 
     // if in portrait mode
     else if ($(window).width() < $(window).height()) {
-        setWidthBtnPortrait();
+        // setWidthBtnPortrait();
+        setWidthBtnMobile();
 
         // portrait mobile
         //  if ($(window).width() <= 414 && $(window).height() <= 823) {
@@ -364,6 +366,32 @@ function setWidthBtnDesktop() {
         $('#editRecipeBtn').css("width", "9.7%");
         $('#deleteRecipePopupBtn').css("width", "9.7%");
     }
+}
+
+function setWidthBtnMobile() {
+    //check if logged in by checking existence of popup button and set width for 2 buttons to fillup space
+    var width33 = "32.85%";
+    var width50 = "49.65%";
+    if (!$('#showRatePopupBtn').length) {
+        $('#dishType').css("width", width50);
+        $('#showReviewsPopupBtn').css("width", width50);
+    }
+    // if logged in but user is not author
+    else if ($('#showRatePopupBtn').length && !$('#editRecipeBtn').length) {
+        $('#dishType').css("width", width33);
+        $('#showReviewsPopupBtn').css("width", width33);
+        $('#showRatePopupBtn').css("width", width33);
+    }
+    // for author
+    else if ($('#editRecipeBtn').length) {
+        $('#dishType').css("width", width33);
+        $('#showReviewsPopupBtn').css("width", width33);
+        $('#showRatePopupBtn').css("width", width33);
+        $('#editRecipeBtn').css("width", width50);
+        $('#deleteRecipePopupBtn').css("width", width50);
+    }
+
+
 }
 
 function setWidthBtnLandscapeMobile() {

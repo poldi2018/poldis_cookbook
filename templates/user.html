@@ -7,7 +7,7 @@
             <div class="headline">No recipes by you have been found.</div>
             {% else %}
             <div class="headline">Recipes entered by {{session["username"]}}</div>
-            {% for recipe in recipes %}
+            {% for recipe in recipes_by_owner %}
             <div class="recipeTile">
                 <div class="recipeTileStatsWrapper">
                     <div class="recipeTileStats">
@@ -40,7 +40,7 @@
             <div class="headline">No reviews by you have been found.</div>
             {% else %}
             <div class="headline">Reviews entered by {{session["username"]}}</div>
-            {% for review in reviews %}
+            {% for review in reviews_by_owner %}
             <div class="reviewTile">
                 <div class="reviewKey">Review Title</div>
                 <div class="reviewValue">{{review.review_title}}</div>
