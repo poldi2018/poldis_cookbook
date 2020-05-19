@@ -58,7 +58,7 @@ class TestOfViewMethods(unittest.TestCase):
 
     def test_get_all_recipes(self):
         with app.test_client() as client:
-            resonse = self.client.get('/welcome')
+            resonse = self.client.get('/welcome', content_type="html/text", follow_redirects=True)
             all_recipes = mongo.db.recipes.find()
             all_recipes_json = dumps(all_recipes)
             self.assertIsNotNone(all_recipes)        
