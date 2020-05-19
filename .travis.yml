@@ -8,14 +8,10 @@ services:
 install: "pip install -r requirements.txt"
 
 before_script:
-  - sleep 15
   - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
   # - mongo mydb_test --eval 'db.createCollection("users");'
   # - mongo mydb_test --eval 'db.createCollection("recipes");'
   # - mongo mydb_test --eval 'db.createCollection("reviews");'
-
-
-
 
 
 script:
