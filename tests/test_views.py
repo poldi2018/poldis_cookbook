@@ -83,7 +83,7 @@ class TestOfViewMethods(unittest.TestCase):
             assert session['email_address'] == ""
     
     def test_response_insert_user_view(self):
-        #users = mongo.db.users
+        users = mongo.db.users
         message=""
         with app.test_client() as client:
             form = dict([('username', 'dude2'), ('email_address', 'dude2@domain.com'), ('password', 'dude2'), ('password2', 'dude2')])
