@@ -1,0 +1,124 @@
+Worker information
+0.14s0.00s0.01s0.00s0.00s
+system_info
+Build system information
+0.01s0.75s0.00s0.08s6.03s0.00s2.50s0.00sNaNs
+docker_mtu
+resolvconf
+services
+3.02s$ sudo systemctl start mongod
+git.checkout
+1.09s$ git clone --depth=50 --branch=master https://github.com/poldi2018/poldis_cookbook.git poldi2018/poldis_cookbook
+0.01s
+Setting environment variables from repository settings
+$ export IMGBB_CLIENT_API_KEY=[secure]
+$ export SECRET_KEY=[secure]
+$ export MONGO_URI_COOKBOOK=[secure]
+0.01s$ source ~/virtualenv/python3.6/bin/activate
+$ python --version
+Python 3.6.7
+$ pip --version
+pip 19.0.3 from /home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/pip (python 3.6)
+install
+4.20s$ pip install -r requirements.txt
+before_script
+0.27s$ mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
+1.44s$ python3 -m unittest tests/*.py
+.........EE.E...E.
+======================================================================
+ERROR: test_get_all_recipes (tests.test_views.TestOfViewMethods)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/poldi2018/poldis_cookbook/tests/test_views.py", line 61, in test_get_all_recipes
+    resonse = self.client.get('/welcome', content_type="html/text", follow_redirects=True)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/werkzeug/test.py", line 1006, in get
+    return self.open(*args, **kw)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/flask/testing.py", line 227, in open
+    follow_redirects=follow_redirects,
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/werkzeug/test.py", line 970, in open
+    response = self.run_wsgi_app(environ.copy(), buffered=buffered)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/werkzeug/test.py", line 861, in run_wsgi_app
+    rv = run_wsgi_app(self.application, environ, buffered=buffered)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/werkzeug/test.py", line 1096, in run_wsgi_app
+    app_rv = app(environ, start_response)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/travis/build/poldi2018/poldis_cookbook/app.py", line 126, in welcome
+    all_recipes = mongo.db.recipes.find()
+AttributeError: 'NoneType' object has no attribute 'recipes'
+======================================================================
+ERROR: test_insert_user_view (tests.test_views.TestOfViewMethods)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/poldi2018/poldis_cookbook/tests/test_views.py", line 94, in test_insert_user_view
+    users = mongo.db.users
+AttributeError: 'NoneType' object has no attribute 'users'
+======================================================================
+ERROR: test_response_insert_user_view (tests.test_views.TestOfViewMethods)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/poldi2018/poldis_cookbook/tests/test_views.py", line 86, in test_response_insert_user_view
+    users = mongo.db.users
+AttributeError: 'NoneType' object has no attribute 'users'
+======================================================================
+ERROR: test_response_welcome_view (tests.test_views.TestOfViewMethods)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/build/poldi2018/poldis_cookbook/tests/test_views.py", line 56, in test_response_welcome_view
+    response = self.client.get("/welcome", content_type="html/text", follow_redirects=True)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/werkzeug/test.py", line 1006, in get
+    return self.open(*args, **kw)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/flask/testing.py", line 227, in open
+    follow_redirects=follow_redirects,
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/werkzeug/test.py", line 970, in open
+    response = self.run_wsgi_app(environ.copy(), buffered=buffered)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/werkzeug/test.py", line 861, in run_wsgi_app
+    rv = run_wsgi_app(self.application, environ, buffered=buffered)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/werkzeug/test.py", line 1096, in run_wsgi_app
+    app_rv = app(environ, start_response)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/travis/build/poldi2018/poldis_cookbook/app.py", line 126, in welcome
+    all_recipes = mongo.db.recipes.find()
+AttributeError: 'NoneType' object has no attribute 'recipes'
+----------------------------------------------------------------------
+Ran 18 tests in 0.550s
+FAILED (errors=4)
+The command "python3 -m unittest tests/*.py" exited with 1.
+Done. Your build exited with 1.
