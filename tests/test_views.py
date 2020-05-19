@@ -58,7 +58,7 @@ class TestOfViewMethods(unittest.TestCase):
 
     def test_get_all_recipes(self):
         with app.test_client() as client:
-            resonse = client.get('/welcome')
+            resonse = self.client.get('/welcome')
             all_recipes = mongo.db.recipes.find()
             all_recipes_json = dumps(all_recipes)
             self.assertIsNotNone(all_recipes)        
@@ -91,8 +91,7 @@ class TestOfViewMethods(unittest.TestCase):
             self.assertEqual(response.status_code, 200)
             
     def test_insert_user_view(self):
-        #users = mongo.db.users
-        message=""
+        users = mongo.db.users
         with app.test_client() as client:
             form = dict([('username', 'dude2'), ('email_address', 'dude2@domain.com'), ('password', 'dude2'), ('password2', 'dude2')])
             response= self.client.post('/insert_user', data=form)
