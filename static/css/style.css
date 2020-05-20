@@ -487,6 +487,7 @@
     display: -ms-flexbox;
     display: flex;
     white-space: pre;
+    padding-left: 10px;
   }
   #directionsWrapper textarea {
     margin: 0px;
@@ -1459,6 +1460,7 @@
     display: flex;
     font-size: 5vw;
     white-space: pre;
+    padding-left: 10px;
   }
   #directionsWrapper textarea {
     margin: 0px;
@@ -2506,6 +2508,7 @@
     display: flex;
     font-size: 5vw;
     white-space: pre;
+    padding-left: 10px;
   }
   #directionsWrapper textarea {
     margin: 0px;
@@ -3394,6 +3397,7 @@
     display: -ms-flexbox;
     display: flex;
     white-space: pre;
+    padding-left: 10px;
   }
   #directionsWrapper textarea {
     margin: 0px;

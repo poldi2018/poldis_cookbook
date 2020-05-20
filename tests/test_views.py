@@ -9,15 +9,16 @@ from bson.objectid import ObjectId
 from bson.json_util import loads, dumps, default
 from bson import Binary, Code
 
-
 if os.path.exists('env.py'):
     import env
-
-#MISSING???
 
 # setting name of db, parse and assign system env variable
 
 mongo = PyMongo(app)
+
+users = mongo.db.users
+recipes = mongo.db.recipes
+reviews = mongo.db.reviews
 
 # app secretkey
 
@@ -27,8 +28,6 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI_COOKBOOK',
                                     'mongodb://localhost')
 app.config["TESTING"] = True
 
-#recipes = mongo.db.recipes
-
 class test_is_this_working(unittest.TestCase):
     """ Checking working test kit """
     def test_is_this_thing_on(self):
@@ -37,7 +36,8 @@ class test_is_this_working(unittest.TestCase):
 class TestOfViewMethods(unittest.TestCase):
     def setUp(self):
         #self.app = app.test_client(use_cookies=True)
-        self.client = app.test_client(use_cookies=True)           
+        self.client = app.test_client(use_cookies=True)
+         
 
     def test_response_index_view(self):
         response = self.client.get("/", content_type="html/text", follow_redirects=True)
@@ -79,27 +79,32 @@ class TestOfViewMethods(unittest.TestCase):
             assert session['username'] == ""
             assert session['user'] == ""
             assert session['email_address'] == ""
-    
-    def test_response_insert_user_view(self):
-        users = mongo.db.users
-        message=""
-        with app.test_client() as client:
-            form = dict([('username', 'dude2'), ('email_address', 'dude2@domain.com'), ('password', 'dude2'), ('password2', 'dude2')])
-            response= self.client.post('/insert_user', data=form)
-            self.assertEqual(response.status_code, 200)
             
-    def test_insert_user_view(self):
-        users = mongo.db.users
-        with app.test_client() as client:
-            form = dict([('username', 'dude2'), ('email_address', 'dude2@domain.com'), ('password', 'dude2'), ('password2', 'dude2')])
-            response= self.client.post('/insert_user', data=form)
-            self.assertEqual(response.status_code, 200)
-            #assert message=="Provided email and username already have been registered."
-            #self.assertEqual(message, "Provided email and username already have been registered.")
-            #user_name_to_check = mongo.db.users.find_one({"username": 'dude2'})
-            #self.assertIsNotNone(user_name_to_check)
+    def test_insert_new_user(self):
+        user = dict([('username', 'dude55'), ('email_address', 'dude55@domain.com'), ('password', 'dude55'), ('password55', 'dude55')])
+        users.delete_one({"username": "dude55"})  
+        response= self.client.post('/insert_user', data=user)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Account created!', response.data)
+  
+    def test_insert_email_already_registered(self):
+        email_already_registered = dict([('username', 'kim'), ('email_address', 'dude55@domain.com'), ('password', 'dude55'), ('password55', 'dude55')])
+        response = self.client.post('/insert_user', data=email_already_registered)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Provided email has already been registered.', response.data)
 
-
+    def test_insert_username_already_registered(self):
+        username_already_registered = dict([('username', 'dude55'), ('email_address', 'kim@domain.com'), ('password', 'dude55'), ('password55', 'dude55')])
+        response = self.client.post('/insert_user', data=username_already_registered)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Provided username has already been registered.', response.data)
+              
+    def test_insert_username_and_email_already_registered(self):
+        username_and_email_already_registered = dict([('username', 'dude55'), ('email_address', 'dude55@domain.com'), ('password', 'dude55'), ('password55', 'dude55')])
+        response= self.client.post('/insert_user', data=username_and_email_already_registered)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Provided email and username already have been registered.', response.data)
+        
 
 if __name__ == '__main__':
     unittest.main()

@@ -273,7 +273,6 @@ function cancelDeleteRecipe() {
 function checkRegistrationForm() {
     // mailformat string has been taken from https://www.w3resource.com/javascript/form/email-validation.php
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    var emailToCheck = $('#email_address').val();
     if ($('#username').val() == "" || $('#email_address').val() == "" || $('#password').val() == "" || $('#password2').val() == "") {
         $('#resultCheckForValidFields').html("Please fill in all fields");
         popupCheckForValidFields();
@@ -316,14 +315,8 @@ function checkCurrentBreakpoint() {
     if ($(window).width() > $(window).height()) {
         // landscape mobile
         if ($(window).width() <= 823 && $(window).height() <= 414) {
-            // setWidthBtnPortrait();
-
             setWidthBtnMobile();
         }
-        // landscape desktop and pad
-        // else if ($(window).width() <= 1366 && $(window).height() <= 1024) {
-        //    setWidthBtnDesktop();
-        //
         else {
             setWidthBtnDesktop();
         }
@@ -331,17 +324,7 @@ function checkCurrentBreakpoint() {
 
     // if in portrait mode
     else if ($(window).width() < $(window).height()) {
-        // setWidthBtnPortrait();
         setWidthBtnMobile();
-
-        // portrait mobile
-        //  if ($(window).width() <= 414 && $(window).height() <= 823) {
-        //     setWidthBtnPortrait();
-        // }
-        // portrait, pad
-        //  else if ($(window).width() <= 1024 && $(window).height() <= 1366) {
-        //     setWidthBtnPortraitTablet();
-        // }
     }
 }
 
@@ -392,54 +375,6 @@ function setWidthBtnMobile() {
     }
 
 
-}
-
-function setWidthBtnLandscapeMobile() {
-    var width33 = "32.85%";
-    var width50 = "49.65%";
-    //check if logged in by checking existence of popup button and set width for 2 buttons to fillup space
-    if (!$('#showRatePopupBtn').length) {
-        $('#dishType').css("width", width50);
-        $('#showReviewsPopupBtn').css("width", width50);
-    }
-    // if logged in but user is not author
-    else if ($('#showRatePopupBtn').length && !$('#editRecipeBtn').length) {
-        $('#dishType').css("width", width33);
-        $('#showReviewsPopupBtn').css("width", width33);
-        $('#showRatePopupBtn').css("width", width33);
-    }
-    // for author
-    else if ($('#editRecipeBtn').length) {
-        $('#dishType').css("width", width33);
-        $('#showReviewsPopupBtn').css("width", width33);
-        $('#showRatePopupBtn').css("width", width33);
-        $('#editRecipeBtn').css("width", width50);
-        $('#deleteRecipePopupBtn').css("width", width50);
-    }
-}
-
-function setWidthBtnPortrait() {
-    //check if logged in by checking existence of popup button and set width for 2 buttons to fillup space
-    var width33 = "32.85%";
-    var width50 = "49.65%";
-    if (!$('#showRatePopupBtn').length) {
-        $('#dishType').css("width", width50);
-        $('#showReviewsPopupBtn').css("width", width50);
-    }
-    // if logged in but user is not author
-    else if ($('#showRatePopupBtn').length && !$('#editRecipeBtn').length) {
-        $('#dishType').css("width", width33);
-        $('#showReviewsPopupBtn').css("width", width33);
-        $('#showRatePopupBtn').css("width", width33);
-    }
-    // for author
-    else if ($('#editRecipeBtn').length) {
-        $('#dishType').css("width", width33);
-        $('#showReviewsPopupBtn').css("width", width33);
-        $('#showRatePopupBtn').css("width", width33);
-        $('#editRecipeBtn').css("width", width50);
-        $('#deleteRecipePopupBtn').css("width", width50);
-    }
 }
 
 function showMobileMenu() {
