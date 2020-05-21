@@ -61,14 +61,11 @@
             {% endfor %}
             {% endif %}
 
-
-            {% if mode=="form" %}
-
-            {% if by_title!=None %}
+            {% if results[0][1] %}
             <div class="headline">
-                {{count_title}} recipes with title {{form.get("search_title")}} have been found:
+                {{results[0][0]}} recipes with title {{form.get("search_title")}} have been found:
             </div>
-            {% for recipe in by_title %}
+            {% for recipe in results[0][1] %}
             <div class="recipeTile">
                 <div class="recipeTileStatsWrapper">
                     <div class="recipeTileStats">
@@ -93,11 +90,11 @@
             {% endfor %}
             {% endif %}
 
-            {% if by_dish_type!=None %}
+            {% if results[1][1] %}
             <div class="headline">
-                {{count_dish_type}} recipes by category {{form.get("dish_type")}} have been found:
+                {{results[1][0]}} recipes by category {{form.get("dish_type")}} have been found:
             </div>
-            {% for recipe in by_dish_type %}
+            {% for recipe in results[1][1] %}
             <div class="recipeTile">
                 <div class="recipeTileStatsWrapper">
                     <div class="recipeTileStats">
@@ -122,11 +119,11 @@
             {% endfor %}
             {% endif %}
 
-            {% if added_by_user!=None %}
+            {% if results[2][1] %}
             <div class="headline">
-            {{count_added_by}} recipes by user {{form.get("searchfield_added_by")}} have been found:
+            {{results[2][0]}} recipes by user {{form.get("searchfield_added_by")}} have been found:
             </div>
-            {% for recipe in added_by_user %}
+            {% for recipe in results[2][1] %}
             <div class="recipeTile">
                 <div class="recipeTileStatsWrapper">
                     <div class="recipeTileStats">
@@ -151,11 +148,11 @@
             {% endfor %}
             {% endif %}
 
-            {% if by_difficulty!=None %}
+            {% if results[3][1] %}
             <div class="headline">
-                {{count_level}} recipes with level {{form.get("level")}} have been found:
+                {{results[3][0]}} recipes with level {{form.get("level")}} have been found:
             </div>
-            {% for recipe in by_difficulty %}
+            {% for recipe in results[3][1] %}
             <div class="recipeTile">
                 <div class="recipeTileStatsWrapper">
                     <div class="recipeTileStats">
@@ -180,12 +177,12 @@
             {% endfor %}
             {% endif %}
 
-            {% if by_ingredients!=None %}
+            {% if results[4][1] %}
             <div class="headline">
-                {{count_ing}} recipes with ingredient {{form.get("searchfield_ingredients")}} have been
+                {{results[4][0]}} recipes with ingredient {{form.get("searchfield_ingredients")}} have been
                     found:
             </div>
-            {% for recipe in by_ingredients %}
+            {% for recipe in results[4][1] %}
             <div class="recipeTile">
                 <div class="recipeTileStatsWrapper">
                     <div class="recipeTileStats">
@@ -210,11 +207,11 @@
             {% endfor %}
             {% endif %}
 
-            {% if by_country_name!=None %}
+            {% if results[5][1] %}
             <div class="headline">
-                {{count_country_name}} recipes from country '{{form.get("country_name")}}' have been found:
+                {{results[5][0]}} recipes from country '{{form.get("country_name")}}' have been found:
             </div>
-            {% for recipe in by_country_name %}
+            {% for recipe in results[5][1] %}
             <div class="recipeTile">
                 <div class="recipeTileStatsWrapper">
                     <div class="recipeTileStats">
@@ -239,13 +236,13 @@
             {% endfor %}
             {% endif %}
 
-            {% if by_rating!=None %}
+            {% if results[6][1] %}
             <div class="headline">
-                {{count_rating}} recipes with rating {{form.get("searchfield_rating")}} have been found:
+                {{results[6][0]}} recipes with rating {{form.get("searchfield_rating")}} have been found:
             </div>
             <div class="outerReviewsWrapper">
                 <div class="innerReviewsWrapper">
-                    {% for review in by_rating %}
+                    {% for review in results[6][1] %}
                     <div class="reviewTile">
                         <div class="reviewKey">Review Title</div>
                         <div class="reviewValue">{{review.review_title}}</div>
@@ -272,7 +269,6 @@
                 </div>
             </div>
             {% endif %}
-            {% endif %}      
         </div>
     </div>
 </div>

@@ -65,8 +65,6 @@ class TestOfViewMethods(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Please fill in the registration form.', response.data)
 
-
-    
     def test_insert_new_user(self):
         user = dict([('username', 'dude55'), ('email_address', 'dude55@domain.com'), ('password', 'dude55'), ('password55', 'dude55')])
         users.delete_one({"username": "dude55"})  
@@ -177,8 +175,6 @@ class TestOfViewMethods(unittest.TestCase):
         with app.test_client() as client:
             response = client.get("/reviews_today", content_type="html/text", follow_redirects=True)
             self.assertEqual(response.status_code, 200)
-
-            #self.assertIn(b'Reviews from today with 5 Star rating:', response.data)
             testuser = dict([('username', 'dude55'), ('password', 'dude55')])
             client.post('/check_credentials', data=testuser, follow_redirects=True)
             form = dict([('review_title','TESTREVIEW'), ('review_for','Title'), ('recipe_id', ObjectId('5ec46165c82c6eda95042a3b')),('rating','5'),('comment','test comment')])
@@ -203,6 +199,11 @@ class TestOfViewMethods(unittest.TestCase):
     def test_response_advanced_search_view(self):
         response = self.client.get("/advanced_search", content_type="html/text", follow_redirects=True)
         self.assertEqual(response.status_code, 200)
+
+    def test_advance_searchresults_view(self):
+        form = dict([('search_title','stew'), ('dish_type','soup'), ('searchfield_added_by','snoes'), ('level','Easy'),  ('searchfield_ingredients',''),  ('country_name','nl'),  ('searchfield_rating','5')])
+        response=self.client.post('/advanced_results', data=form, follow_redirects=True)
+
 
     def test_add_recipe_view(self):
         with app.test_client() as client:
@@ -245,9 +246,9 @@ class TestOfViewMethods(unittest.TestCase):
             base64file = "/9j/4AAQSkZJRgABAQEAAQABAAD/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/2wBDAQMDAwQDBAgEBAgQCwkLEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD/wAARCAAQABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABwQF/8QAJBAAAQQBBAICAwAAAAAAAAAAAQIDBAYFBwgSExEiABQJMTL/xAAVAQEBAAAAAAAAAAAAAAAAAAAABv/EACMRAAECBQMFAAAAAAAAAAAAAAECEQMEBQYhABIxFRZhgeH/2gAMAwEAAhEDEQA/ABSm0mobc8HmExLUlRzzEWPkJWW+ulrsaUVAseUgslSlH9LKuPryIKuWPZdskzXmm3fX5m2nF4GlVxx/HOpx4ks51+MiU/Iaad7UcUo4tILoS4kqcWkezS0hO/HvuRp0rO6hWnWO1UisZVuFi4GFeyEpmGepa5S5SWVPuciFKRFLgSrwetnyPIB+Vb4N9mKhQMzo5po9XLdDs9d6ZVix2VEhiL9kuNPxw2gEKcDQ/rs8AuA8VAe0vdl7VOYn+27flGAUgmITjbhSmCg3BYlyeWDkMolvw4KOp1KM6iCNvngZHwetf//Z"
             testuser = dict([('username', 'dude22'), ('password', 'dude22')])
             client.post('/check_credentials', data=testuser, follow_redirects=True)   
-            testrecipe = dict([('amounts_string','100g#200g#300g#'),('ingredients_string','carrots#Lemons#Apples#'),('allergens_string','Lemons#'),('base64file', base64file),('recipe_title','TESTMEAL_UPDATED'),('dish_type','Salade'),('level','Easy'),('prep_time','10'),('cooking_time','40'),('directions','cut the apples'),('origin','nl')])
-            response = client.post('/update_recipe/5ec5d4cb59505b523dfdff9d', data=testrecipe, follow_redirects=True)   
-            self.assertIn(b'TESTMEAL_UPDATED', response.data)
+            testrecipe = dict([('amounts_string','100g#200g#300g#'),('ingredients_string','carrots#Lemons#Apples#'),('allergens_string','Lemons#'),('base64file', base64file),('recipe_title','Lemonjuice'),('dish_type','Juice'),('level','Easy'),('prep_time','10'),('cooking_time','40'),('directions','cut the lemons. UPDATED'),('origin','nl')])
+            response = client.post('/update_recipe/5ec46165c82c6eda95042a3b', data=testrecipe, follow_redirects=True)   
+            self.assertIn(b'UPDATED', response.data)
 
     def test_update_recipe_with_option_use_current_image(self):
         with app.test_client() as client:
@@ -255,22 +256,20 @@ class TestOfViewMethods(unittest.TestCase):
             testuser = dict([('username', 'dude22'), ('password', 'dude22')])
             client.post('/check_credentials', data=testuser, follow_redirects=True)   
             testrecipe = dict([('amounts_string','100g#200g#300g#'),('ingredients_string','carrots#Lemons#Apples#'),('allergens_string','Lemons#'), ("checkbox_use_current_file", "checked"), ('base64file', base64file),('recipe_title','TESTMEAL_UPDATED'),('dish_type','Salade'),('level','Easy'),('prep_time','10'),('cooking_time','40'),('directions','cut the apples'),('origin','nl')])
-            response = client.post('/update_recipe/5ec5d4cb59505b523dfdff9d', data=testrecipe, follow_redirects=True)   
-            self.assertIn(b'TESTMEAL_UPDATED', response.data)
+            response = client.post('/update_recipe/5ec46165c82c6eda95042a3b', data=testrecipe, follow_redirects=True)   
+            self.assertIn(b'UPDATED', response.data)
 
     def test_edit_recipe(self):
         with app.test_client() as client:
             testuser = dict([('username', 'dude22'), ('password', 'dude22')])
             client.post('/check_credentials', data=testuser, follow_redirects=True)   
-            response = client.get('/edit_recipe/5ec5d4cb59505b523dfdff9d', content_type="html/text", follow_redirects=True)   
+            response = client.get('/edit_recipe/5ec46165c82c6eda95042a3b', content_type="html/text", follow_redirects=True)   
             self.assertIn(b'gb', response.data)
             self.assertIn(b'nl', response.data)
             self.assertIn(b'de', response.data)
             self.assertIn(b'ca', response.data)
             self.assertIn(b'nz', response.data)
-            self.assertIn(b'TESTMEAL_UPDATED', response.data)
-
-
+            self.assertIn(b'UPDATED', response.data)
 
 if __name__ == '__main__':
     unittest.main()

@@ -287,7 +287,7 @@ def quick_results():
 def advanced_search():
     return render_template("advancedsearch.html", countries=get_countries())
 
-"""
+
 @app.route('/advanced_results/<category>/<value>', methods=["POST", "GET"])
 def advanced_results(category, value):
     if request.method == "GET":
@@ -304,9 +304,7 @@ def advanced_results(category, value):
                                    form=request.form)
 
     if request.method == "POST":
-
-        for field in request.form.items():
-            print(field)
+        results = []
         if request.form.get("search_title") != "":
             title = request.form.get("search_title")
             by_title = recipes.find({'$or':
@@ -317,17 +315,17 @@ def advanced_results(category, value):
                                                   {"title": title.casefold()},
                                                   {"title": title.capitalize()}
                                                   ]})
+            results.append((count_title, by_title))
         else:
-            by_title = None
-            count_title = None
+            results.append((0, None))
 
         if request.form.get("dish_type") is not None:
             dish_type = request.form.get("dish_type")
             by_dish_type = recipes.find({"dish_type": dish_type})
             count_dish_type = recipes.count_documents({"dish_type": dish_type})
+            results.append((count_dish_type, by_dish_type))
         else:
-            by_dish_type = None
-            count_dish_type = None
+            results.append((0, None))
 
         if request.form.get("searchfield_added_by") != "":
             added_by = request.form.get("searchfield_added_by")
@@ -343,136 +341,17 @@ def advanced_results(category, value):
                                                       .casefold()},
                                                       {"added_by": added_by
                                                       .capitalize()}]})
+            results.append((count_added_by, added_by_user))
         else:
-            added_by_user = None
-            count_added_by = None
+            results.append((0, None))
 
         if request.form.get("level") is not None:
             level = request.form.get("level")
             by_difficulty = recipes.find({"level": level})
             count_level = recipes.count_documents({"level": level})
+            results.append((count_level, by_difficulty))
         else:
-            by_difficulty = None
-            count_level = None
-
-        if request.form.get("searchfield_ingredients") != "":
-            ingredients = request.form.get("searchfield_ingredients")
-            by_ingredients = mongo.db.recipes.find({'$or':
-                                                    [{"ingredients.ingredient":
-                                                      ingredients},
-                                                     {"ingredients.ingredient":
-                                                      ingredients.casefold()},
-                                                     {"ingredients.ingredient":
-                                                      ingredients.capitalize()}
-                                                     ]})
-            count_ing = recipes.count_documents({'$or':
-                                                 [{"ingredients.ingredient":
-                                                   ingredients},
-                                                  {"ingredients.ingredient":
-                                                   ingredients.casefold()},
-                                                  {"ingredients.ingredient":
-                                                   ingredients.capitalize()}
-                                                  ]})
-        else:
-            by_ingredients = None
-            count_ing = None
-
-        if request.form.get("country_name") is not None:
-            by_country_name = recipes.find({"country_name": request
-                                            .form.get("country_name")})
-            count_country_name = recipes.count_documents({"country_name":
-                                                          request.form.get
-                                                          ("country_name")})
-        else:
-            by_country_name = None
-            count_country_name = None
-
-        if request.form.get("searchfield_rating") is not None:
-            by_rating = reviews.find({"rating":
-                                     int(request.form.get
-                                        ("searchfield_rating"))})
-            count_rating = reviews.count_documents({"rating":
-                                                    int(request.form.get
-                                                        ("searchfield_rating"))
-                                                    })
-        else:
-            by_rating = None
-            count_rating = None
-
-    return render_template("advancedresults.html", mode="form",
-                           by_title=by_title, count_title=count_title,
-                           by_dish_type=by_dish_type,
-                           count_dish_type=count_dish_type,
-                           added_by_user=added_by_user,
-                           count_added_by=count_added_by,
-                           by_difficulty=by_difficulty,
-                           count_level=count_level,
-                           by_ingredients=by_ingredients,
-                           count_ing=count_ing,
-                           by_country_name=by_country_name,
-                           count_country_name=count_country_name,
-                           by_rating=by_rating, count_rating=count_rating,
-                           form=request.form)
-"""
-
-
-#REFACTOR
-@app.route('/advanced_results/<category>/<value>', methods=["POST", "GET"])
-def advanced_results(category, value):
-    if request.method == "GET":
-        if category == "dish_type":
-            by_category = recipes.find({"dish_type": value})
-            return render_template("advancedresults.html", category=category,
-                                   value=value, by_category=by_category,
-                                   form=request.form)
-        elif category == "user":
-            recipes_by_user = recipes.find({"added_by": value})
-            return render_template("advancedresults.html", category=category,
-                                   value=value,
-                                   recipes_by_user=recipes_by_user,
-                                   form=request.form)
-
-    if request.method == "POST":
-        search_results = []
-        if request.form.get("search_title") != "":
-            title = request.form.get("search_title")
-            by_title = recipes.find({'$or':
-                                    [{"title": title},
-                                     {"title": title.casefold()},
-                                     {"title": title.capitalize()}]})
-            count_title = recipes.count_documents({'$or': [{"title": title},
-                                                  {"title": title.casefold()},
-                                                  {"title": title.capitalize()}
-                                                  ]})
-            search_results.append({count_title, by_title})
-            print(search_results)
-        if request.form.get("dish_type") is not None:
-            dish_type = request.form.get("dish_type")
-            by_dish_type = recipes.find({"dish_type": dish_type})
-            count_dish_type = recipes.count_documents({"dish_type": dish_type})
-            search_results.append({count_dish_type, by_dish_type})
-
-        if request.form.get("searchfield_added_by") != "":
-            added_by = request.form.get("searchfield_added_by")
-            added_by_user = recipes.find({'$or':
-                                                  [{"added_by": added_by},
-                                                   {"added_by": added_by
-                                                    .casefold()},
-                                                   {"added_by": added_by
-                                                   .capitalize()}]})
-            count_added_by = recipes.count_documents({'$or':
-                                                     [{"added_by": added_by},
-                                                      {"added_by": added_by
-                                                      .casefold()},
-                                                      {"added_by": added_by
-                                                      .capitalize()}]})
-            search_results.append({count_added_by, added_by_user})
-
-        if request.form.get("level") is not None:
-            level = request.form.get("level")
-            by_difficulty = recipes.find({"level": level})
-            count_level = recipes.count_documents({"level": level})
-            search_results.append({count_level, by_difficulty})
+            results.append((0, None))
 
 
         if request.form.get("searchfield_ingredients") != "":
@@ -493,17 +372,19 @@ def advanced_results(category, value):
                                                   {"ingredients.ingredient":
                                                    ingredients.capitalize()}
                                                   ]})
-            search_results.append({count_ing, by_ingredients})
+            results.append((count_ing, by_ingredients))
+        else:
+            results.append((0, None))
     
-
         if request.form.get("country_name") is not None:
             by_country_name = recipes.find({"country_name": request
                                             .form.get("country_name")})
             count_country_name = recipes.count_documents({"country_name":
                                                           request.form.get
                                                           ("country_name")})
-            search_results.append({count_country_name, by_country_name})
-        
+            results.append((count_country_name, by_country_name))
+        else:
+            results.append((0, None))
 
         if request.form.get("searchfield_rating") is not None:
             by_rating = reviews.find({"rating":
@@ -513,25 +394,13 @@ def advanced_results(category, value):
                                                     int(request.form.get
                                                         ("searchfield_rating"))
                                                     })
-            search_results.append({count_rating, by_rating})
-
-    return render_template("advancedresults.html", mode="form",
-                           by_title=by_title, count_title=count_title,
-                           by_dish_type=by_dish_type,
-                           count_dish_type=count_dish_type,
-                           added_by_user=added_by_user,
-                           count_added_by=count_added_by,
-                           by_difficulty=by_difficulty,
-                           count_level=count_level,
-                           by_ingredients=by_ingredients,
-                           count_ing=count_ing,
-                           by_country_name=by_country_name,
-                           count_country_name=count_country_name,
-                           by_rating=by_rating, count_rating=count_rating,
+            results.append((count_rating, by_rating))
+        else:
+            results.append((0, None))
+   
+    return render_template("advancedresults.html", results=results,
                            form=request.form)
-
-
-
+    
 # Add A Recipe
 
 
