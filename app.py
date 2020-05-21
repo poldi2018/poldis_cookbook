@@ -162,7 +162,6 @@ def insert_user():
     if username_to_check:
         message = "Provided username has already been registered. \
         Please choose a different one."
-        #print('USERNAME')
 
     if user_email_to_check and username_to_check:
         message = "Provided email and username already have been registered."
@@ -286,8 +285,8 @@ def quick_results():
 @app.route('/advanced_search')
 def advanced_search():
     return render_template("advancedsearch.html", countries=get_countries())
-
-
+    
+# Add A Recipe
 @app.route('/advanced_results/<category>/<value>', methods=["POST", "GET"])
 def advanced_results(category, value):
     if request.method == "GET":
@@ -400,8 +399,7 @@ def advanced_results(category, value):
    
     return render_template("advancedresults.html", results=results,
                            form=request.form)
-    
-# Add A Recipe
+  
 
 
 @app.route('/add_recipe')
@@ -574,3 +572,4 @@ if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT', 5000)),
             debug=True)
+
