@@ -285,8 +285,8 @@ def quick_results():
 @app.route('/advanced_search')
 def advanced_search():
     return render_template("advancedsearch.html", countries=get_countries())
-    
-# Add A Recipe
+
+
 @app.route('/advanced_results/<category>/<value>', methods=["POST", "GET"])
 def advanced_results(category, value):
     if request.method == "GET":
@@ -305,64 +305,51 @@ def advanced_results(category, value):
     if request.method == "POST":
         results = []
         if request.form.get("search_title") != "":
-            title = request.form.get("search_title")
-            by_title = recipes.find({'$or':
-                                    [{"title": title},
-                                     {"title": title.casefold()},
-                                     {"title": title.capitalize()}]})
+            title = request.form.get("search_title")      
             count_title = recipes.count_documents({'$or': [{"title": title},
                                                   {"title": title.casefold()},
                                                   {"title": title.capitalize()}
                                                   ]})
-            results.append((count_title, by_title))
-        else:
-            results.append((0, None))
+            category = "with title"
+            by_title = recipes.find({'$or':
+                                    [{"title": title},
+                                     {"title": title.casefold()},
+                                     {"title": title.capitalize()}]})
+            results.append((count_title, category, title, by_title))
 
         if request.form.get("dish_type") is not None:
             dish_type = request.form.get("dish_type")
-            by_dish_type = recipes.find({"dish_type": dish_type})
             count_dish_type = recipes.count_documents({"dish_type": dish_type})
-            results.append((count_dish_type, by_dish_type))
-        else:
-            results.append((0, None))
+            category = "in category"
+            by_dish_type = recipes.find({"dish_type": dish_type})
+            results.append((count_dish_type, category, dish_type, by_dish_type))
 
         if request.form.get("searchfield_added_by") != "":
             added_by = request.form.get("searchfield_added_by")
-            added_by_user = recipes.find({'$or':
-                                                  [{"added_by": added_by},
-                                                   {"added_by": added_by
-                                                    .casefold()},
-                                                   {"added_by": added_by
-                                                   .capitalize()}]})
             count_added_by = recipes.count_documents({'$or':
                                                      [{"added_by": added_by},
                                                       {"added_by": added_by
                                                       .casefold()},
                                                       {"added_by": added_by
                                                       .capitalize()}]})
-            results.append((count_added_by, added_by_user))
-        else:
-            results.append((0, None))
+            category = "entered by user"
+            added_by_user = recipes.find({'$or':
+                                                  [{"added_by": added_by},
+                                                   {"added_by": added_by
+                                                    .casefold()},
+                                                   {"added_by": added_by
+                                                   .capitalize()}]})
+            results.append((count_added_by, category, added_by, added_by_user))
 
         if request.form.get("level") is not None:
             level = request.form.get("level")
-            by_difficulty = recipes.find({"level": level})
             count_level = recipes.count_documents({"level": level})
-            results.append((count_level, by_difficulty))
-        else:
-            results.append((0, None))
-
+            category = "with level"
+            by_difficulty = recipes.find({"level": level})
+            results.append((count_level, category, level, by_difficulty))
 
         if request.form.get("searchfield_ingredients") != "":
-            ingredients = request.form.get("searchfield_ingredients")
-            by_ingredients = mongo.db.recipes.find({'$or':
-                                                    [{"ingredients.ingredient":
-                                                      ingredients},
-                                                     {"ingredients.ingredient":
-                                                      ingredients.casefold()},
-                                                     {"ingredients.ingredient":
-                                                      ingredients.capitalize()}
-                                                     ]})
+            ingredients = request.form.get("searchfield_ingredients")      
             count_ing = recipes.count_documents({'$or':
                                                  [{"ingredients.ingredient":
                                                    ingredients},
@@ -371,36 +358,43 @@ def advanced_results(category, value):
                                                   {"ingredients.ingredient":
                                                    ingredients.capitalize()}
                                                   ]})
-            results.append((count_ing, by_ingredients))
-        else:
-            results.append((0, None))
+            category = "with ingredients"
+            by_ingredients = mongo.db.recipes.find({'$or':
+                                                    [{"ingredients.ingredient":
+                                                      ingredients},
+                                                     {"ingredients.ingredient":
+                                                      ingredients.casefold()},
+                                                     {"ingredients.ingredient":
+                                                      ingredients.capitalize()}
+                                                     ]})
+
+            results.append((count_ing, category, ingredients, by_ingredients))
     
         if request.form.get("country_name") is not None:
-            by_country_name = recipes.find({"country_name": request
-                                            .form.get("country_name")})
+            country_name = request.form.get("country_name")
             count_country_name = recipes.count_documents({"country_name":
                                                           request.form.get
                                                           ("country_name")})
-            results.append((count_country_name, by_country_name))
-        else:
-            results.append((0, None))
-
+            category = "from country"
+            by_country_name = recipes.find({"country_name": request
+                                            .form.get("country_name")})
+            results.append((count_country_name, category, country_name, by_country_name))
+        
         if request.form.get("searchfield_rating") is not None:
-            by_rating = reviews.find({"rating":
-                                     int(request.form.get
-                                        ("searchfield_rating"))})
+            rating = int(request.form.get("searchfield_rating"))
             count_rating = reviews.count_documents({"rating":
                                                     int(request.form.get
                                                         ("searchfield_rating"))
                                                     })
-            results.append((count_rating, by_rating))
-        else:
-            results.append((0, None))
-   
-    return render_template("advancedresults.html", results=results,
-                           form=request.form)
+            category = "with a rating of"
+            by_rating = reviews.find({"rating":
+                                     int(request.form.get
+                                        ("searchfield_rating"))})
+            results.append((count_rating, category, rating, by_rating))
+    return render_template("advancedresults.html", results=results, form=request.form)
   
 
+# Add A Recipe
 
 @app.route('/add_recipe')
 def add_recipe():
@@ -571,5 +565,4 @@ def insert_rating(recipe_id, recipe_title):
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT', 5000)),
-            debug=True)
-
+            debug=False)
