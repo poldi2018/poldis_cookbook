@@ -66,9 +66,10 @@ For now, the user can select from following dish-type categories
 * Shake
 * Cocktail
 
-The mockups / wireframes can be found in this folder:
 
-(static/data/mockups/)
+# The mockups / wireframes can be found in this folder:
+
+(https://github.com/poldi2018/poldis_cookbook/tree/master/static/data/mockups)
 
 
 ## Color scheme
@@ -156,6 +157,10 @@ os.environ.setdefault("MONGO_URI_COOKBOOK", "The URL provided by MongoDB")
 
 * !! Add the env.py file to .gitignore file !!
 
+* The next step is to install the resources from requirements.txt file by using the command
+
+pip install -r requirements.txt
+
 
 ## DEPLOYMENT ON HEROKU
 
@@ -169,7 +174,16 @@ On settings tab, click on 'Reveal Config Vars' and add the following variables.
 * IP = 0.0.0.0
 * PORT = 5000
 
- 
+Please copy the url in deploy section on Heroku. The command 
+to add the heroku site as a remote to push to should look like this:
+
+heroku git:remote -a YOURPROJECT-URL.git.
+
+Finally, the project need to be pushed to Heroku platform by executing
+
+git push heroku master
+
+
 # CURRENT ISSUES
 
 * addressing an album in imgbb database is not possible. Passing a key-value pair like {“album”: “test”} inside the data dictionary did not succeed, nor throwed an error.
