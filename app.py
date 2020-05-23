@@ -31,7 +31,7 @@ imgbb_upload_url = "https://api.imgbb.com/1/upload?key=" + \
 # creating instance of Pymongo with app object to connect to MongoDB
 mongo = PyMongo(app)
 
-# Create indices to make
+# Create indices to make full text search working
 mongo.db.recipes.create_index([("title", "text"), ("dish_type", "text"),
                                ("added_by", "text"),
                                ("level", "text"), ("directions", "text"),
@@ -53,6 +53,11 @@ users = mongo.db.users
 # methods
 
 
+"""
+upload_image(base64file): Uploads a base64file representing the chosen image on harddisk to imgbb hoster.
+http url is then extracted from response text and returned.
+"""
+
 def upload_image(base64file):
     response = requests.post(imgbb_upload_url, data={"image": base64file})
     url_img_src_json = response.json()
@@ -60,22 +65,35 @@ def upload_image(base64file):
     return url_img_src
 
 
+"""
+logout_user(session): The session is cleared when user is logging off.
+"""
 def logout_user(session):
     session["username"] = ""
     session["email_address"] = ""
 
 
+"""
+set_session(user): When user is logging on, the session is set to the user's name and hashed email is assigned.
+"""
 def set_session(user):
     session['username'] = user['username']
     session['email_address'] = user['user_email_hash']
     return session
 
 
+"""
+build_origin_filepath(selection): based on the countries shortname contained in argument 'selection' the local filename path is built and returned.
+
+"""
 def build_origin_filepath(selection):
     filename = "/static/images/flags-mini/"+selection+".png"
     return filename
 
 
+"""
+create_new_user(form): After validation of form fields, a new_user object is created based on form field information.
+"""
 def create_new_user(form):
     new_user = {
         "username": form.get('username').casefold(),
@@ -86,6 +104,9 @@ def create_new_user(form):
     return new_user
 
 
+"""
+
+"""
 def make_ingredient_dict(amounts_string, ingredients_string):
     amounts_list = amounts_string.split('#')
     amounts_list.pop(len(amounts_list)-1)
@@ -258,9 +279,13 @@ def reviews_today():
 # quick search results
 
 
-@app.route('/quick_results', methods=["POST"])
+@app.route('/quick_results', methods=["POST", "GET"])
 def quick_results():
-    search_term = request.form.get("search_term")
+    if request.method == "GET":
+        search_term = ""
+    else:
+        search_term = request.form.get("search_term")
+
     if search_term == "":
         recipes_by_searchterm = recipes.find()
         reviews_by_searchterm = reviews.find()
@@ -269,11 +294,10 @@ def quick_results():
                                              search_term}})
         reviews_by_searchterm = reviews.find({"$text": {"$search":
                                              search_term}})
-
     recipes_count = recipes.count_documents({"$text": {"$search":
                                              search_term}})
     reviews_count = reviews.count_documents({"$text": {"$search":
-                                             search_term}})
+                                            search_term}})
     return render_template("quickresults.html",
                            recipes_by_searchterm=recipes_by_searchterm,
                            reviews_by_searchterm=reviews_by_searchterm,

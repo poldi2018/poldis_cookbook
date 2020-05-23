@@ -275,11 +275,16 @@ All methods except two have been tested by using unittest / nosetests.
 
 ![Coverage report](static/data/mockups/screens/coverage.jpg)
 
+The test files for methods and views are located here:
+
+(https://github.com/poldi2018/poldis_cookbook/tree/master/tests)
 
 
 ## A detailed coverage report is available here:
 
 (https://github.com/poldi2018/poldis_cookbook/blob/master/htmlcov/index.html)
+
+
 
 
 * Initial attempt to implement CI/CD with Travis-CI failed and has been removed. Local tests  run by unittest went fine, but failed all the time in Travis environment. The testing of MongoDB failed with below error log:
