@@ -1,8 +1,6 @@
 # Poldi's Cookbook
 
 
-
-
 * LIVELINK of final version: https://poldis-cookbook.herokuapp.com/ 
 
 * GITHUB final version: https://github.com/poldi2018/poldis_cookbook
@@ -11,6 +9,8 @@
 >> Please note, that there was a problem with versioning after moving code from my initial draft version. That draft version shows the different commits from the past which do occur in final version as one commit. It is accessible here: https://github.com/poldi2018/recipe_DRAFT<<
 
 ![Commits Draft Version](static/data/mockups/screens/commitsDRAFTversion.jpg)
+
+
 
 
 # USER STORIES / REQUIREMENTS 
@@ -78,18 +78,17 @@ The mockups / wireframes can be found in this folder:
 
 # DATABASE SCHEME
 
+The database record has the following structure
+
+![Commits Draft Version](static/data/mockups/screens/collection_users.jpg)
+
+![Commits Draft Version](static/data/mockups/screens/collection_recipes.jpg)
+
+![Commits Draft Version](static/data/mockups/screens/collection_reviews.jpg)
 
 
-![Commits Draft Version](static/data/mockups/screens/MinimalYetWarmColourScheme.jpg)
 
-![Commits Draft Version](static/data/mockups/screens/MinimalYetWarmColourScheme.jpg)
-
-![Commits Draft Version](static/data/mockups/screens/MinimalYetWarmColourScheme.jpg)
-
-
-
-
-Technologies used in this project
+# Technologies used in this project
 
 * HTML for browser presentation, https://www.w3.org/html/
 * CSS with SCSS and MATERIALIZE for styling the frontend.
@@ -154,8 +153,6 @@ os.environ.setdefault("MONGO_URI_COOKBOOK", "The URL provided by MongoDB")
 
 
 
-
-
 * !! Add the env.py file to .gitignore file !!
 
 
@@ -214,17 +211,22 @@ https://codekernel.co.uk/posts/flask-testing-unittest-and-coverage/
 # COMPLIANCE:
 Compliance reports can be found in reports folder:
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
-<LINK>
+(static/data/reports)
+
+
 * CSS DONE
 * HTML SKIPPED
 * JShint DONE
 * PEP8 DONE
 * Jasmine SKIPPED
 
-# TESTING
+
+# TESTING OF CODE
+
+
 
 ## TEST OF JAVASCRIPT CODE
+
 The automatic testing with Jasmine has been skipped, because I received inconsistent results of checks for Jquery altered DOM elements.
 But: I tested the following conditions manually:
 
@@ -251,11 +253,13 @@ But: I tested the following conditions manually:
 * Function of side menu on mobiles.
 
 
+
 ## TEST OF PYTHON CODE WITH UNITTEST / NOSE:
 
 All methods except two have been tested by using unittest / nosetests.
 
 ![Coverage report](static/data/mockups/screens/coverage.jpg)
+
 
 
 ## A detailed coverage report is available here:
@@ -265,7 +269,7 @@ All methods except two have been tested by using unittest / nosetests.
 
 * Initial attempt to implement CI/CD with Travis-CI failed and has been removed. Local tests  run by unittest went fine, but failed all the time in Travis environment. The testing of MongoDB failed with below error log:
 
-![alt text](static/data/reports/TravisCI-CD.txt)
+(static/data/reports/TravisCI-CD.txt)
 
 (static/data/reports/TravisCI-CD.txt)
 
