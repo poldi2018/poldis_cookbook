@@ -707,9 +707,6 @@
     }
 
 
-
-
-
     // Popups
 
     #reviewsPopup {
@@ -731,6 +728,21 @@
         width: 44vw;
         background-color: $deletePopup-bgcolor;
         padding-bottom: 1vw;
+    }
+
+    #deletePopupMessage {
+
+        padding: {
+            top: 5vw;
+            bottom: 2vw;
+        }
+
+    }
+
+    #deletePopupWrapper{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     #popupCheckForValidFields,
@@ -763,8 +775,20 @@
         border-radius: 10px;
         flex-wrap: wrap;
         top: 7vw;
-        font-size: $recipeFontSize;
     }
+
+    #reviewsPopup,
+    #ratePopup,
+    #popupCheckForValidFields {
+        font-size: $recipeFontSize;
+
+    }
+
+    #deletePopup {
+        font-size: 2.2vw;
+
+    }
+
 
     #reviewsWrapper,
     #rateWrapper {
@@ -825,7 +849,8 @@
 
     .buttonWrapper div {
         margin: {
-            left: 44px;
+            left: 10px;
+            right: 10px;
         }
 
         font-size: $recipeFontSize;
