@@ -269,9 +269,8 @@ All methods except two have been tested by using unittest / nosetests.
 
 * Initial attempt to implement CI/CD with Travis-CI failed and has been removed. Local tests  run by unittest went fine, but failed all the time in Travis environment. The testing of MongoDB failed with below error log:
 
-(static/data/reports/TravisCI-CD.txt)
+(https://github.com/poldi2018/poldis_cookbook/blob/master/static/data/reports/TravisCI-CD.txt)
 
-(static/data/reports/TravisCI-CD.txt)
 
 This project has been created to demonstrate learning outcomes only.
 
