@@ -16,4 +16,5 @@ static/data/jasmine/jasmine.html
 *.sqlite3
 *.pyc
 __pycache__
+.DS_Store
 env.py
