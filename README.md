@@ -148,9 +148,10 @@ git clone https://github.com/poldi2018/poldis_cookbook.git
 import os
 
 os.environ.setdefault("SECRET_KEY", "YOUR-SECRET-KEY")
-os.environ.setdefault("IMGBB_CLIENT_API_KEY", "YOUR-API-KEY")
-os.environ.setdefault("MONGO_URI_COOKBOOK", "The URL provided by MongoDB")
 
+os.environ.setdefault("IMGBB_CLIENT_API_KEY", "YOUR-API-KEY")
+
+os.environ.setdefault("MONGO_URI_COOKBOOK", "The URL provided by MongoDB")
 
 
 * !! Add the env.py file to .gitignore file !!
