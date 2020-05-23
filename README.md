@@ -3,8 +3,9 @@
 
 
 
-live link of final version: https://poldis-cookbook.herokuapp.com/ 
-GitHub final version: https://github.com/poldi2018/poldis_cookbook
+* LIVELINK of final version: https://poldis-cookbook.herokuapp.com/ 
+
+* GITHUB final version: https://github.com/poldi2018/poldis_cookbook
 
 
 >> Please note, that there was a problem with versioning after moving code from my initial draft version. That draft version shows the different commits from the past which do occur in final version as one commit. It is accessible here: https://github.com/poldi2018/recipe_DRAFT<<
@@ -76,9 +77,9 @@ Technologies used in this project
 * IMGBB for uploaded dish images, https://imgbb.com/
 * HEROKU for deploying project to the web, https://heroku.com/
 * BALSAMIQ has been used for creation of wireframes, https://balsamiq.com/
-* DC and D3 for visualisation on welcome page 
-* FONTAWESOME for icons
-* BOOTSTRAP for using layouts
+* DC and D3 for visualisation on welcome page, https://dc-js.github.io/dc.js/ 
+* FONTAWESOME for icons, https://fontawesome.com/
+* BOOTSTRAP for using layouts, https://getbootstrap.com/
 
 
 # LOCAL DEPLOYMENT
@@ -140,11 +141,11 @@ In order to deploy this project to the web, please create an account at https://
 
 On settings tab, click on 'Reveal Config Vars' and add the following variables.
 
-SECRET_KEY = A key of your choice
-IMGBB_CLIENT_API_KEY = Obtained API key from IMGBB
-MONGO_URI_COOKBOOK = The URL provided by MongoDB
-IP = 0.0.0.0
-PORT = 5000
+* SECRET_KEY = A key of your choice
+* IMGBB_CLIENT_API_KEY = Obtained API key from IMGBB
+* MONGO_URI_COOKBOOK = The URL provided by MongoDB
+* IP = 0.0.0.0
+* PORT = 5000
 
  
 # CURRENT ISSUES
