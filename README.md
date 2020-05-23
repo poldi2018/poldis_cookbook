@@ -211,7 +211,7 @@ https://codekernel.co.uk/posts/flask-testing-unittest-and-coverage/
 # COMPLIANCE:
 Compliance reports can be found in reports folder:
 
-(static/data/reports)
+(https://github.com/poldi2018/poldis_cookbook/tree/master/static/data/reports)
 
 
 * CSS DONE
@@ -264,7 +264,7 @@ All methods except two have been tested by using unittest / nosetests.
 
 ## A detailed coverage report is available here:
 
-(htmlcov/index.html)
+(https://github.com/poldi2018/poldis_cookbook/blob/master/htmlcov/index.html)
 
 
 * Initial attempt to implement CI/CD with Travis-CI failed and has been removed. Local tests  run by unittest went fine, but failed all the time in Travis environment. The testing of MongoDB failed with below error log:
