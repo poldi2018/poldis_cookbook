@@ -10,7 +10,7 @@
 
 >> Please note, that there was a problem with versioning after moving code from my initial draft version. That draft version shows the different commits from the past which do occur in final version as one commit. It is accessible here: https://github.com/poldi2018/recipe_DRAFT<<
 
-![alt tag](static/data/mockups/commits DRAFT version.jpg)
+![alt tag](static/data/mockups/commitsDRAFTversion.jpg)
 
 <SCREENIE GH DRAFTVERSION>
 
