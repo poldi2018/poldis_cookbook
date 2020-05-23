@@ -25,24 +25,26 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI_COOKBOOK',
 app.secret_key = os.getenv("SECRET_KEY")
 
 # building upload url for imgbb with base url and API key
-imgbb_upload_url = "https://api.imgbb.com/1/upload?key=" + os.getenv('IMGBB_CLIENT_API_KEY')
+imgbb_upload_url = "https://api.imgbb.com/1/upload?key=" + \
+    os.getenv('IMGBB_CLIENT_API_KEY')
 
 # creating instance of Pymongo with app object to connect to MongoDB
 mongo = PyMongo(app)
 
-# Create indices to make 
+# Create indices to make
 mongo.db.recipes.create_index([("title", "text"), ("dish_type", "text"),
-                                ("added_by", "text"),
-                                ("level", "text"), ("directions", "text"),
-                                ("allergens", "text"),
-                                ("ingredients.ingredient", "text"),
-                                ("origin", "text")])
+                               ("added_by", "text"),
+                               ("level", "text"), ("directions", "text"),
+                               ("allergens", "text"),
+                               ("ingredients.ingredient", "text"),
+                               ("origin", "text")])
 
 mongo.db.reviews.create_index([
                               ("review_title", "text"), ("review_for", "text"),
                               ("comment", "text"), ("rated_by", "text")])
 
-#cursors to collections
+# cursors to collections
+
 recipes = mongo.db.recipes
 reviews = mongo.db.reviews
 users = mongo.db.users
@@ -145,14 +147,14 @@ def insert_user():
     user_email_to_check = users.find_one(
         {"email_address": request.form.get('email_address')})
     username_to_check = users.find_one({"username":
-                                                request.form.get('username')})
-    
+                                        request.form.get('username')})
+
     if not user_email_to_check and not username_to_check:
         new_user = create_new_user(request.form)
         users.insert_one(new_user)
         message = "Account created! Please login with your username or email \
         and password. Thanks!"
-        
+
         return render_template("loginpage.html", message=message)
 
     if user_email_to_check:
@@ -166,8 +168,7 @@ def insert_user():
     if user_email_to_check and username_to_check:
         message = "Provided email and username already have been registered."
 
-    return render_template('register.html', message=message,
-                               form=request.form)
+    return render_template('register.html', message=message, form=request.form)
 
 # login page
 
@@ -184,13 +185,12 @@ def login_page():
 @app.route('/check_credentials', methods=["POST"])
 def check_credentials():
     if request.form.get('email_address'):
-        user_email_to_check = users.find_one(
-                                        {"email_address": request.
-                                        form.get('email_address')})
+        user_email_to_check = users.find_one({"email_address": request.
+                                              form.get('email_address')})
         if user_email_to_check:
             password_response = check_password_hash(user_email_to_check
-                                                ['password'], request.form.get(
-                                                 'password'))
+                                                    ['password'], request.form
+                                                    .get('password'))
             if password_response:
                 set_session(user_email_to_check)
                 return redirect(url_for("home"))
@@ -199,14 +199,15 @@ def check_credentials():
         username_to_check = users.find_one({"username": request.form.get(
                                         'username').casefold()})
         if username_to_check:
-            password_response = check_password_hash(username_to_check['password'],
-                                                request.form.get('password'))
+            password_response = check_password_hash(username_to_check[
+                                                    'password'], request.form
+                                                    .get('password'))
             if password_response:
                 set_session(username_to_check)
                 return redirect(url_for("home"))
 
-    return render_template('loginpage.html', message=
-                           "Username or password incorrect. Please try again.")
+    return render_template('loginpage.html', message="Username or password \
+                           incorrect. Please try again.")
 
 
 # logout page
@@ -231,7 +232,8 @@ def home():
                                     session["email_address"]})
 
     return render_template('user.html', recipes_by_owner=recipes_by_owner,
-                           recipes_count=recipes_count, reviews_by_owner=reviews_by_owner,
+                           recipes_count=recipes_count,
+                           reviews_by_owner=reviews_by_owner,
                            reviews_count=reviews_count)
 
 # top reviews from today
@@ -261,12 +263,12 @@ def quick_results():
     search_term = request.form.get("search_term")
     if search_term == "":
         recipes_by_searchterm = recipes.find()
-        reviews_by_searchterm = reviews.find()   
+        reviews_by_searchterm = reviews.find()
     else:
         recipes_by_searchterm = recipes.find({"$text": {"$search":
-                                             search_term}})     
+                                             search_term}})
         reviews_by_searchterm = reviews.find({"$text": {"$search":
-                                             search_term}})   
+                                             search_term}})
 
     recipes_count = recipes.count_documents({"$text": {"$search":
                                              search_term}})
@@ -305,7 +307,7 @@ def advanced_results(category, value):
     if request.method == "POST":
         results = []
         if request.form.get("search_title") != "":
-            title = request.form.get("search_title")      
+            title = request.form.get("search_title")
             count_title = recipes.count_documents({'$or': [{"title": title},
                                                   {"title": title.casefold()},
                                                   {"title": title.capitalize()}
@@ -322,7 +324,8 @@ def advanced_results(category, value):
             count_dish_type = recipes.count_documents({"dish_type": dish_type})
             category = "in category"
             by_dish_type = recipes.find({"dish_type": dish_type})
-            results.append((count_dish_type, category, dish_type, by_dish_type))
+            results.append((count_dish_type, category, dish_type,
+                            by_dish_type))
 
         if request.form.get("searchfield_added_by") != "":
             added_by = request.form.get("searchfield_added_by")
@@ -333,12 +336,11 @@ def advanced_results(category, value):
                                                       {"added_by": added_by
                                                       .capitalize()}]})
             category = "entered by user"
-            added_by_user = recipes.find({'$or':
-                                                  [{"added_by": added_by},
-                                                   {"added_by": added_by
-                                                    .casefold()},
-                                                   {"added_by": added_by
-                                                   .capitalize()}]})
+            added_by_user = recipes.find({'$or': [{"added_by": added_by},
+                                                  {"added_by": added_by
+                                                  .casefold()},
+                                                  {"added_by": added_by
+                                                  .capitalize()}]})
             results.append((count_added_by, category, added_by, added_by_user))
 
         if request.form.get("level") is not None:
@@ -349,7 +351,7 @@ def advanced_results(category, value):
             results.append((count_level, category, level, by_difficulty))
 
         if request.form.get("searchfield_ingredients") != "":
-            ingredients = request.form.get("searchfield_ingredients")      
+            ingredients = request.form.get("searchfield_ingredients")
             count_ing = recipes.count_documents({'$or':
                                                  [{"ingredients.ingredient":
                                                    ingredients},
@@ -369,7 +371,7 @@ def advanced_results(category, value):
                                                      ]})
 
             results.append((count_ing, category, ingredients, by_ingredients))
-    
+
         if request.form.get("country_name") is not None:
             country_name = request.form.get("country_name")
             count_country_name = recipes.count_documents({"country_name":
@@ -378,8 +380,9 @@ def advanced_results(category, value):
             category = "from country"
             by_country_name = recipes.find({"country_name": request
                                             .form.get("country_name")})
-            results.append((count_country_name, category, country_name, by_country_name))
-        
+            results.append((count_country_name, category, country_name,
+                            by_country_name))
+
         if request.form.get("searchfield_rating") is not None:
             rating = int(request.form.get("searchfield_rating"))
             count_rating = reviews.count_documents({"rating":
@@ -387,12 +390,12 @@ def advanced_results(category, value):
                                                         ("searchfield_rating"))
                                                     })
             category = "with a rating of"
-            by_rating = reviews.find({"rating":
-                                     int(request.form.get
-                                        ("searchfield_rating"))})
+            by_rating = reviews.find({"rating": int(request.form.get
+                                     ("searchfield_rating"))})
             results.append((count_rating, category, rating, by_rating))
-    return render_template("advancedresults.html", results=results, form=request.form)
-  
+    return render_template("advancedresults.html", results=results,
+                           form=request.form)
+
 
 # Add A Recipe
 
@@ -492,6 +495,7 @@ def update_recipe(recipe_id):
     return redirect(url_for('read_recipe', recipe_id=recipe_id))
 
 # Read recipe
+
 
 @app.route('/read_recipe/<recipe_id>')
 def read_recipe(recipe_id):
