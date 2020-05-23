@@ -12,22 +12,28 @@
 
 ![Commits Draft Version](static/data/mockups/screens/commitsDRAFTversion.jpg)
 
-<SCREENIE GH DRAFTVERSION>
 
-<APPLICATION SCREENIES>
+# USER STORIES / REQUIREMENTS 
 
-USER STORIES / REQUIREMENTS 
-# As a user I would like to have the possibility to create, read, update and delete my recipes in an online platform to have access from everywhere.
-# Only the author should be able to alter the content or delete the recipe.
-# I want to be able to quickly search for names of ingredients, 
-# I want to write reviews for a recipe
-# Special allergens need to be marked with some sort of warning
-# Recipes need to be categorized. 
-# Entered data need to be checked to be database conform before save operation.
-# Userdata must be kept confidential.
+* As a user I would like to have the possibility to create, read, update and delete my recipes in an online platform to have access from everywhere.
+
+* Only the author should be able to alter the content or delete the recipe.
+
+* I want to be able to quickly search for recipes containing an ingredient
+
+* I want to write reviews for a recipe
+
+* Special allergens need to be marked with some sort of warning
+
+* Recipes need to be categorized. 
+
+* Entered data need to be checked to be database conform before save operation.
+
+* Userdata must be kept confidential.
 
 
-FEATURES:
+# FEATURES:
+
 * Creation of recipes and ratings are bound to user accounts
 * Author has the option to edit and delete the recipe.
 * full text search is available.
@@ -37,35 +43,51 @@ FEATURES:
 
 For now, the user can select from following dish-type categories
 
-STARTERS
-Soup
-Salad
-Fingerfood
+1. STARTERS
+* Soup
+* Salad
+* Fingerfood
 
-MAIN COURSE
-Chicken
-Fish
-Game
-Meet
-Vegetarian
+2. MAIN COURSE
+* Chicken
+* Fish
+* Game
+* Meet
+*Vegetarian
 
-DESSERTS
-Cake
-Dessert
-Fruit
-Ice
+3. DESSERTS
+* Cake
+* Dessert
+* Fruit
+* Ice
 
-DRINKS
-Juice
-Shake
-Cocktail
+4. DRINKS
+* Juice
+* Shake
+* Cocktail
+
+The mockups / wireframes can be found in this folder:
+
+(static/data/mockups/)
 
 
-<MOCKUPS>
+## Color scheme
 
-Color scheme
+![Commits Draft Version](static/data/mockups/screens/MinimalYetWarmColourScheme.jpg)
 
-<LINK COLOUR SCHEME>
+
+# DATABASE SCHEME
+
+
+
+![Commits Draft Version](static/data/mockups/screens/MinimalYetWarmColourScheme.jpg)
+
+![Commits Draft Version](static/data/mockups/screens/MinimalYetWarmColourScheme.jpg)
+
+![Commits Draft Version](static/data/mockups/screens/MinimalYetWarmColourScheme.jpg)
+
+
+
 
 Technologies used in this project
 
@@ -233,21 +255,19 @@ But: I tested the following conditions manually:
 
 All methods except two have been tested by using unittest / nosetests.
 
-![alt text](/static/ "coverage report")
- <SCREENIE COVERAGE>
+![Coverage report](static/data/mockups/screens/coverage.jpg)
 
 
 A detailed coverage report is available here:
-<LINK FULL COVERAGE REPORT>
 
 (/htmlcov/index.html)
 
 
-Initial attempt to implement CI/CD with Travis-CI failed and has been removed. Local tests  run by unittest went fine, but failed all the time in Travis environment. The testing of MongoDB failed with below error log:
+* Initial attempt to implement CI/CD with Travis-CI failed and has been removed. Local tests  run by unittest went fine, but failed all the time in Travis environment. The testing of MongoDB failed with below error log:
 
-![alt text](/static/ "coverage report")
+![alt text](static/data/reports/TravisCI-CD.txt)
 
-(/static/data/reports/Travis CI-CD.txt)
+(static/data/reports/TravisCI-CD.txt)
 
 This project has been created to demonstrate learning outcomes only.
 
