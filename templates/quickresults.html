@@ -7,7 +7,7 @@
     </div>
     {% else %}
     <div class="headline">
-        '{{search_term}}' has been found in {{recipes_count}} recipe(s).
+        '{{search_term}}' has been found in {{recipes_count}} {% if recipes_count == 1 %} recipe {% else %} recipes {% endif %}.
     </div>
     {% endif %}
     <div class="outerRecipesWrapper">
@@ -44,7 +44,7 @@
     </div>
     {% else %}
     <div class="headline">
-        '{{search_term}}' has been found in {{reviews_count}} review(s).
+        '{{search_term}}' has been found in {{reviews_count}} {% if reviews_count == 1 %} review {% else %} reviews {% endif %}.
     </div>
     {% endif %}
     <div class="outerReviewsWrapper">
