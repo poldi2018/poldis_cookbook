@@ -1,4 +1,4 @@
-@media screen and (min-width: 1024px) and (min-height: 768px) {
+@media screen and (min-width: 824px) and (max-width: 1024px) and (orientation: landscape) {
 
 
     // color definitions
@@ -21,7 +21,7 @@
     $recipeFontSize: 1.6vw;
     $readRecipeTitleFontSize: 2.5vw;
     $headlineFontSize: 2vw;
-    $menuheaderFont: 2.0vw;
+    $menuheaderFont: 1.9vw;
     $dosisFont: 'Dosis',
     sans-serif;
     $dishTypeFontSize: 1.5vw;
@@ -608,7 +608,12 @@
     .recipeTile {
         display: flex;
         flex-wrap: wrap;
-        margin-bottom: 1vw;
+        margin: {
+            bottom: 1vw;
+            left: 2px;
+            right: 2px;
+        }
+
         height: 15vw;
     }
 
@@ -620,7 +625,7 @@
         align-items: center;
         flex-wrap: wrap;
         background-color: $tiles-bgcolor;
-        margin-right: 5px;
+        margin-right: 2px;
     }
 
     .recipeTileStats {
@@ -676,7 +681,7 @@
         width: 22vw;
 
         margin: {
-            left: 5px;
+            left: 2px;
 
         }
     }
@@ -777,7 +782,7 @@
     }
 
     .outerRecipesWrapper {
-        width: 85vw;
+        width: 90vw;
     }
 
     .outerReviewsWrapper{
@@ -791,7 +796,7 @@
             bottom: 20px;
         }
 
-        width: 85vw;
+        width: 90vw;
         flex-wrap: wrap;
     }
 

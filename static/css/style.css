@@ -1,4 +1,4 @@
-@media screen and (min-width: 640px) and (min-height: 600px) {
+@media screen and (min-width: 1025px) and (max-width: 2500px) and (orientation: landscape) {
   h3,
   .recipeTitle,
   .headline {
@@ -867,7 +867,7 @@
   }
 }
 
-@media screen and (max-width: 823px) and (max-height: 414px) {
+@media screen and (min-width: 640px) and (max-width: 823px) and (orientation: landscape) {
   h3,
   .recipeTitle,
   .headline {
@@ -1010,7 +1010,7 @@
     text-decoration: none;
     -webkit-transition: color .6s ease-in-out;
     transition: color .6s ease-in-out;
-    font-size: 2vw;
+    font-size: 1.7vw;
     font-family: "Dosis", sans-serif;
   }
   #menulistDesktop .menulistitem:hover .hyperlinks {
@@ -1878,7 +1878,7 @@
   }
 }
 
-@media screen and (max-width: 414px) and (max-height: 823px) {
+@media screen and (min-width: 320px) and (max-width: 414px) and (orientation: portrait) {
   h3,
   .recipeTitle,
   .headline {
@@ -2928,7 +2928,864 @@
   }
 }
 
-@media screen and (min-width: 768px) and (min-height: 1024px) and (orientation: portrait) {
+@media screen and (min-width: 824px) and (max-width: 1024px) and (orientation: landscape) {
+  h3,
+  .recipeTitle,
+  .headline {
+    font-family: 'Dosis', sans-serif;
+  }
+  body {
+    background-color: #EAE7DC;
+  }
+  div a:hover,
+  a:visited,
+  a:link,
+  a:active {
+    text-decoration: none;
+    color: #4495D4;
+  }
+  header {
+    background-color: #EAE7DC;
+    position: fixed;
+    z-index: 99;
+    width: 100vw;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    color: red;
+  }
+  #home {
+    padding-top: 5px;
+  }
+  #menulistDesktop {
+    height: 4vw;
+    padding: 0;
+    margin-top: 25px;
+  }
+  #menulistMobile,
+  #sideMobileMenu {
+    display: none;
+  }
+  body,
+  .menulistitem,
+  .logoMenuListItem,
+  .headline,
+  .recipeWrapper,
+  .recipeHeaderItem,
+  .recipeButtonWrapper,
+  #readRecipeTitle,
+  #editRecipeBtn a,
+  .statsfield,
+  .levelStatsfield,
+  .timesWrapper,
+  .timesWrapperTotalTime,
+  .directionsLabel,
+  .statsWrapper,
+  .directionsLabel,
+  #dishImageWrapper,
+  #ingredientsHeadline,
+  #directionsHeadline,
+  .addIngredientField,
+  .removeIngredientField,
+  #ingredientWrapper,
+  .footerWrapper,
+  .created,
+  .contact,
+  .github,
+  .reviewTile,
+  .reviewKey,
+  .reviewValue,
+  #reviewsPopup,
+  #ratePopup,
+  #deletePopup,
+  #popupCheckForValidFields,
+  #reviewsWrapper,
+  #rateWrapper,
+  .outerReviewsWrapper,
+  .outerRecipesWrapper,
+  .innerReviewsWrapper,
+  .innerRecipesWrapper,
+  .reviewContainer,
+  .rateContainer,
+  .buttonWrapper,
+  .buttonWrapperPopup,
+  #closeReviewsPopupBtn,
+  #sendReviewPopupBtn,
+  #cancelReviewPopupBtn,
+  #closeCheckForValidFieldsBtn,
+  #deleteRecipeConfirmBtn,
+  #deleteRecipePopupCancelBtn,
+  .wrapperLogoBig,
+  .searchformOuterWrapper,
+  #chooseOrigin,
+  #prepTimeDiv,
+  #prepTimeDiv,
+  #cookingTimeDiv {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .logoMenuListItem .hyperlinks header,
+  .headline,
+  #menulistDesktop,
+  .menulistitem form,
+  .menulistitem .hyperlinks,
+  .recipeWrapper .input-field,
+  .recipeHeaderItem,
+  .recipeButtonWrapper,
+  #editRecipeBtn a,
+  .statsfield,
+  .outerTimesWrapper,
+  #totalTime,
+  .directionsLabel,
+  .directionsLabel,
+  .ingredientfield,
+  #directionsWrapper,
+  .footerWrapper,
+  .created,
+  .contact,
+  .github,
+  .wrapperLogoBig,
+  #loginWrapper,
+  #registerWrapper,
+  .searchfieldDescription {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #menulistDesktop,
+  #baseWrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  #outerStatsWrapper,
+  #innerStatsWrapper,
+  .outerTimesWrapper,
+  .recipeHeader {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .logo_small {
+    width: 8vw;
+  }
+  .menulistitem,
+  .logoMenuListItem {
+    padding-left: 1vw;
+    padding-right: 1vw;
+    font-size: 1vw;
+  }
+  .menulistitem form {
+    width: 20vw;
+    height: 1.5vw;
+    background-color: #EAE7DC;
+  }
+  #search_term {
+    background-color: transparent;
+    margin: 0;
+    height: 80%;
+  }
+  .menulistitem .hyperlinks {
+    color: #8D8D8A;
+    text-decoration: none;
+    -webkit-transition: color .6s ease-in-out;
+    transition: color .6s ease-in-out;
+    font-size: 1.9vw;
+    font-family: "Dosis", sans-serif;
+  }
+  .menulistitem:hover .hyperlinks {
+    color: red;
+  }
+  .hyperlinks i {
+    font-size: 1.5vw;
+    color: #3399ff;
+  }
+  #baseWrapper {
+    border: 2px solid grey;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 95vw;
+    -webkit-transform: translateY(4vw);
+            transform: translateY(4vw);
+    margin-top: 60px;
+    margin-bottom: 1vw;
+    border-radius: 1vw;
+  }
+  .recipeWrapper {
+    width: 92vw;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-top: 1vw;
+  }
+  .headline {
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 2vw;
+  }
+  #recipetitle {
+    font-size: 1.6vw;
+  }
+  .recipeHeader {
+    width: 100%;
+    font-size: .9vw;
+    font-family: "Dosis", sans-serif;
+  }
+  .recipeHeaderItem {
+    border: 2px solid none;
+    border-radius: 10px;
+    background-color: lightgrey;
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+  .recipeButtonWrapper {
+    border-radius: 10px;
+    padding-top: 2px;
+    width: 90%;
+    height: 50%;
+    font-size: 1.6vw;
+  }
+  #readRecipeTitle {
+    width: 50%;
+    font-family: "Dosis", sans-serif;
+    font-size: 2.5vw;
+  }
+  #addRecipeTitle, #editRecipeTitle {
+    width: 50%;
+    font-family: "Dosis", sans-serif;
+    font-size: 2.5vw;
+  }
+  #chooseDishtype,
+  #chooseOrigin {
+    width: 24.7%;
+  }
+  .recipeHeaderItem .input-field {
+    margin-top: 0px;
+  }
+  #dishType {
+    font-size: 1.5vw;
+  }
+  .select-wrapper input.select-dropdown {
+    font-size: 1.6vw;
+  }
+  .select-wrapper {
+    width: 100%;
+  }
+  .caret {
+    margin: 0;
+  }
+  #editRecipeBtn a {
+    width: 80%;
+    height: 100%;
+  }
+  #outerStatsWrapper {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100%;
+    font-family: "Dosis", sans-serif;
+  }
+  #innerStatsWrapper {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 75%;
+  }
+  .statsWrapper {
+    border: 2px solid none;
+    border-radius: 10px;
+    background-color: lightgrey;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 16.35%;
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+  .statsWrapper div {
+    font-size: 1.6vw;
+  }
+  .statsfield {
+    width: 100%;
+  }
+  .levelStatsfield {
+    width: 100%;
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+  .levelstatsinput {
+    height: 30%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-top: 0px;
+  }
+  .outerTimesWrapper {
+    width: 100%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .timesWrapper {
+    border: 2px solid none;
+    border-radius: 10px;
+    background-color: lightgrey;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 33.03%;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    height: 95%;
+  }
+  .timesWrapper .input-field {
+    margin-top: 0px;
+  }
+  .timesWrapper div {
+    font-size: 1.6vw;
+  }
+  #prepTime,
+  #cookingTime {
+    font-size: 1.6vw;
+  }
+  .directionsLabel {
+    width: 100%;
+    margin-top: 5px;
+  }
+  #outerStatsWrapper #dishImageWrapper {
+    border: 2px solid none;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 1.6vw;
+    background-color: lightgrey;
+    width: 24.7%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+  #dishImage {
+    width: 100%;
+    height: 100%;
+  }
+  #fileselectorInputField {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 20%;
+  }
+  #fileinputfield {
+    width: 80%;
+  }
+  #dishImageWrapper label {
+    font-size: 1.0rem;
+  }
+  #originFlag {
+    position: absolute;
+    width: 3vw;
+    height: 1.68vw;
+    border: 2px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  #outerInstructionsWrapper {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-top: 2px;
+    margin-bottom: 1vw;
+    padding-bottom: 4vw;
+    background-color: lightgrey;
+    border-radius: 10px;
+  }
+  #outerInstructionsWrapper div,
+  #ingredientWrapper input {
+    font-size: 1.6vw;
+    font-family: "Dosis", sans-serif;
+  }
+  #outerIngredientsWrapper {
+    width: 55%;
+  }
+  #outerDirectionsWrapper {
+    width: 45%;
+  }
+  #ingredientsHeadline,
+  #directionsHeadline {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .AddIngredientButtonWrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 25px;
+  }
+  .addIngredientField,
+  .removeIngredientField {
+    width: 40%;
+    margin-left: 3.1vw;
+  }
+  #ingredientWrapper {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100%;
+    padding-left: 20px;
+  }
+  .outerIngredientContainer {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    padding-left: 10px;
+  }
+  .amountContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 25%;
+  }
+  .amountContainer i {
+    font-size: 1.6vw;
+  }
+  .ingredientContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 75%;
+  }
+  .ingredientfield {
+    width: 90%;
+  }
+  .warning {
+    margin-left: 4px;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .warning-icon {
+    color: red;
+    font-size: 1.1vw;
+  }
+  input-field {
+    margin-top: 0px;
+  }
+  .amountContainer .input-field,
+  .ingredientContainer .input-field {
+    width: 90%;
+    margin-right: 10px;
+  }
+  #directionsWrapper {
+    height: 100%;
+    width: 98%;
+    margin-left: 10px;
+  }
+  #directions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    white-space: pre;
+    padding-left: 10px;
+  }
+  #directionsWrapper textarea {
+    margin: 0px;
+    height: 80%;
+    width: 95%;
+  }
+  .footerWrapper {
+    width: 75vw;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .innerfooterWrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    height: 4vw;
+  }
+  .divider {
+    width: 100%;
+    height: 1px;
+    border: 1px solid grey;
+    border-radius: 1px;
+  }
+  .created,
+  .contact,
+  .github {
+    width: 25%;
+    height: 3vw;
+    font-size: 1.6vw;
+  }
+  a i {
+    color: black;
+  }
+  .recipeTile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-bottom: 1vw;
+    margin-left: 2px;
+    margin-right: 2px;
+    height: 15vw;
+  }
+  .recipeTileStatsWrapper {
+    width: 22vw;
+    border-radius: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    background-color: #D8C3A5;
+    margin-right: 2px;
+  }
+  .recipeTileStats {
+    width: 90%;
+  }
+  .recipeTileDishType,
+  .recipeTileAddedBy,
+  .recipeTileReviewCount,
+  .recipeTileViewCount {
+    font-size: 1vw;
+    font-family: "Dosis", sans serif;
+  }
+  .recipeTileName {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 1.5vw;
+    font-family: "Dosis", sans serif;
+    width: 100%;
+  }
+  .reviewTile {
+    border: 2px solid grey;
+    border-radius: 10px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 30%;
+    margin: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 1.6vw;
+    font-family: "Dosis", sans-serif;
+  }
+  .reviewValue {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .recipeTile #dishImageWrapper {
+    border: 2px solid none;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 1.6vw;
+    background-color: lightgrey;
+    height: 100%;
+    width: 22vw;
+    margin-left: 2px;
+  }
+  .recipeTile #dishImageWrapper a img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .reviewKey {
+    width: 35%;
+  }
+  .reviewValue {
+    width: 65%;
+  }
+  #welcomeWrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 2vw;
+  }
+  #reviewsPopup {
+    width: 95vw;
+    padding-bottom: 2vw;
+    margin-bottom: 4vw;
+  }
+  #ratePopup {
+    width: 50vw;
+  }
+  #rateForm .input-field {
+    font-family: "Dosis", sans-serif;
+  }
+  #deletePopup {
+    width: 44vw;
+    background-color: #E85A4F;
+    padding-bottom: 1vw;
+    margin: 50% 0%;
+  }
+  #popupCheckForValidFields,
+  #flashesPopup {
+    z-index: 1000;
+    background-color: #E98074;
+  }
+  #reviewsPopup,
+  #ratePopup,
+  #deletePopup {
+    z-index: 500;
+  }
+  #reviewsPopup,
+  #ratePopup,
+  .reviewTile {
+    background-color: #D8C3A5;
+  }
+  #reviewsPopup,
+  #ratePopup,
+  #deletePopup,
+  #popupCheckForValidFields {
+    position: absolute;
+    opacity: 0.0;
+    -webkit-transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
+    -webkit-transform: translateX(-100vw);
+            transform: translateX(-100vw);
+    border: 2px white;
+    border-radius: 10px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    top: 7vw;
+    font-size: 1.6vw;
+  }
+  #reviewsWrapper,
+  #rateWrapper {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .outerRecipesWrapper {
+    width: 90vw;
+  }
+  .outerReviewsWrapper {
+    width: 92vw;
+  }
+  .innerRecipesWrapper {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 90vw;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .innerReviewsWrapper {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 92vw;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .reviewContainer,
+  .rateContainer {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100%;
+  }
+  .reviewlines,
+  .ratelines {
+    width: 100%;
+  }
+  .buttonWrapper,
+  .buttonWrapperPopup {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: "Dosis", sans-serif;
+  }
+  .buttonWrapperPopup div {
+    font-size: 1.6vw;
+  }
+  #resultCheckForValidFields {
+    margin: 2vw;
+  }
+  .buttonWrapper div {
+    margin-left: 44px;
+    font-size: 1.6vw;
+  }
+  .buttonWrapper a {
+    color: white;
+  }
+  #closeReviewsPopupBtn,
+  #sendReviewPopupBtn,
+  #cancelReviewPopupBtn,
+  #closeCheckForValidFieldsBtn,
+  #deleteRecipeConfirmBtn,
+  #deleteRecipePopupCancelBtn {
+    width: 10vw;
+    border-radius: 10px;
+  }
+  .wrapperLogoBig {
+    width: 95vw;
+    height: 95vh;
+  }
+  #logobig {
+    width: 85vh;
+    height: 63.75vh;
+  }
+  #loginWrapper,
+  #registerWrapper {
+    width: 50vw;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  #loginForm {
+    width: 15vw;
+  }
+  #flashesPopup {
+    position: absolute;
+    -webkit-transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
+    -webkit-transform: translateX(0vw);
+            transform: translateX(0vw);
+    border: 2px white;
+    border-radius: 10px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    top: 7vw;
+    font-size: 1.6vw;
+  }
+  .searchformOuterWrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-bottom: 1vw;
+  }
+  .searchformInnerWrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 30%;
+    height: 100%;
+    font-family: "Dosis", sans-serif;
+  }
+  .searchfieldDescription {
+    width: 30%;
+    font-size: 1.6vw;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .searchformInnerWrapper .input-field {
+    width: 70%;
+    height: 3vw;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #welcomeWrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 2vw;
+  }
+  .chartWrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+  }
+  .chart {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 50%;
+  }
+  #per-user-viewcount,
+  #per-user-reviewcount {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media screen and (min-width: 415px) and (max-width: 1024px) and (orientation: portrait) {
   h3,
   .recipeTitle,
   .headline {
@@ -3102,7 +3959,7 @@
     text-decoration: none;
     -webkit-transition: color .6s ease-in-out;
     transition: color .6s ease-in-out;
-    font-size: 1.8vw;
+    font-size: 1.7vw;
     font-family: "Dosis", sans-serif;
   }
   .menulistitem:hover .hyperlinks {
@@ -3470,6 +4327,8 @@
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    margin-left: 2px;
+    margin-right: 2px;
     margin-bottom: 1vw;
     height: 15vw;
   }
@@ -3488,7 +4347,7 @@
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     background-color: #D8C3A5;
-    margin-right: 5px;
+    margin-right: 2px;
   }
   .recipeTileStats {
     width: 90%;
@@ -3536,7 +4395,7 @@
     background-color: lightgrey;
     height: 100%;
     width: 22vw;
-    margin-left: 5px;
+    margin-left: 2px;
   }
   .recipeTile #dishImageWrapper a img {
     width: 100%;
