@@ -54,9 +54,11 @@ users = mongo.db.users
 
 
 """
-upload_image(base64file): Uploads a base64file representing the chosen image on harddisk to imgbb hoster.
-http url is then extracted from response text and returned.
+upload_image(base64file): Uploads a base64file representing the chosen
+image on harddisk to imgbb hoster.
+http url is returned.
 """
+
 
 def upload_image(base64file):
     response = requests.post(imgbb_upload_url, data={"image": base64file})
@@ -68,14 +70,19 @@ def upload_image(base64file):
 """
 logout_user(session): The session is cleared when user is logging off.
 """
+
+
 def logout_user(session):
     session["username"] = ""
     session["email_address"] = ""
 
 
 """
-set_session(user): When user is logging on, the session is set to the user's name and hashed email is assigned.
+set_session(user): When user is logging on, the session is set
+to the user's name and hashed email is assigned.
 """
+
+
 def set_session(user):
     session['username'] = user['username']
     session['email_address'] = user['user_email_hash']
@@ -83,17 +90,23 @@ def set_session(user):
 
 
 """
-build_origin_filepath(selection): based on the countries shortname contained in argument 'selection' the local filename path is built and returned.
-
+build_origin_filepath(selection): based on the countries shortname
+contained in argument 'selection' the local filename path
+is built and returned.
 """
+
+
 def build_origin_filepath(selection):
     filename = "/static/images/flags-mini/"+selection+".png"
     return filename
 
 
 """
-create_new_user(form): After validation of form fields, a new_user object is created based on form field information.
+create_new_user(form): After validation of form fields, a new_user object
+is created based on form field information.
 """
+
+
 def create_new_user(form):
     new_user = {
         "username": form.get('username').casefold(),
@@ -105,8 +118,12 @@ def create_new_user(form):
 
 
 """
-
+make_ingredient_dict(amounts_string, ingredients_string): Creates a list of
+dictionaries, containing the amount and ingredients from the received form
+fields when a recipe is created.
 """
+
+
 def make_ingredient_dict(amounts_string, ingredients_string):
     amounts_list = amounts_string.split('#')
     amounts_list.pop(len(amounts_list)-1)
@@ -120,10 +137,22 @@ def make_ingredient_dict(amounts_string, ingredients_string):
     return ingredients
 
 
+"""
+make_allergens_list(allergens_string): The received string with allergens is
+split into a list of strings
+"""
+
+
 def make_allergens_list(allergens_string):
     allergens_list = allergens_string.split('#')
     allergens_list.pop(len(allergens_list)-1)
     return allergens_list
+
+
+"""
+get_countries(): The Json file with countries are read from disk and
+returned on recipe creation and for advanced search view
+"""
 
 
 def get_countries():
@@ -137,6 +166,11 @@ def get_countries():
 # Indexpage
 
 
+"""
+index(): View method for index page. Session cookie is cleared.
+"""
+
+
 @app.route('/')
 def index():
     session["username"] = ""
@@ -144,6 +178,13 @@ def index():
     return render_template("index.html")
 
 # welcome page
+
+
+"""
+welcome(): View method for welcome page. Reads all recipes from database,
+converts it to json and writes it to disk. The file is needed for
+D3/DC charting.
+"""
 
 
 @app.route('/welcome')
@@ -155,12 +196,24 @@ def welcome():
     return render_template("welcome.html")
 
 
+"""
+register(): View method for register page.
+"""
+
+
 @app.route('/register')
 def register():
     return render_template('register.html',
                            message='Please fill in the registration form.')
 
 # check on registration request
+
+
+"""
+insert_user(): View method checks entered user details in registration form.
+In case the username or email address are already registered, the user is
+informed accordingly.
+"""
 
 
 @app.route('/insert_user', methods=["POST"])
@@ -194,6 +247,11 @@ def insert_user():
 # login page
 
 
+"""
+login_page(): View method return the template for login view.
+"""
+
+
 @app.route('/login_page')
 def login_page():
     message = "Please login with your account. Thanks!"
@@ -201,6 +259,11 @@ def login_page():
 
 
 # check on provided credentials
+
+"""
+check_credentials(): View method for checking entered user details on
+loginpage against database entry in users collection.
+"""
 
 
 @app.route('/check_credentials', methods=["POST"])
@@ -234,11 +297,23 @@ def check_credentials():
 # logout page
 
 
+"""
+logout(): View method to clear session cookie when user has requested to be
+logged off.
+"""
+
+
 @app.route('/logout')
 def logout():
     logout_user(session)
     message = "You have been logged out."
     return render_template("loginpage.html", message=message)
+
+
+"""
+home(): View method for displaying the entered and reviewed recipes by
+logged on user.
+"""
 
 
 @app.route('/home')
@@ -260,6 +335,12 @@ def home():
 # top reviews from today
 
 
+"""
+reviews_today(): View method to display all recipes which have been rated
+with 5 stars on today's date.
+"""
+
+
 @app.route('/reviews_today')
 def reviews_today():
     today = datetime.datetime.now().strftime("%d/%m/%Y")
@@ -277,6 +358,12 @@ def reviews_today():
                                reviews_count=reviews_count)
 
 # quick search results
+
+
+"""
+quick_results(): View method for displaying the search results depending on
+entered search string in menubar searchfield.
+"""
 
 
 @app.route('/quick_results', methods=["POST", "GET"])
@@ -308,9 +395,22 @@ def quick_results():
 # Search
 
 
+"""
+advanced_search(): Returns the template with countries object for advanced
+search dialog.
+"""
+
+
 @app.route('/advanced_search')
 def advanced_search():
     return render_template("advancedsearch.html", countries=get_countries())
+
+
+"""
+advanced_results(category, value): Method to get the search results for
+recipes of category dishtype or user (via GET) or lookup the related recipes
+and reviews as per submitted form (via POST) on advancedsearch.html
+"""
 
 
 @app.route('/advanced_results/<category>/<value>', methods=["POST", "GET"])
@@ -333,24 +433,32 @@ def advanced_results(category, value):
         if request.form.get("search_title") != "":
             search_term = request.form.get("search_title")
             count = recipes.count_documents({'$or': [{"title": search_term},
-                                                  {"title": search_term.casefold()},
-                                                  {"title": search_term.capitalize()}
-                                                  ]})
+                                            {"title": search_term.casefold()},
+                                            {"title": search_term.capitalize()}
+                                            ]})
             category = "with title"
             found_recipes = recipes.find({'$or':
-                                    [{"title": search_term},
-                                     {"title": search_term.casefold()},
-                                     {"title": search_term.capitalize()}]})
-            review_count = reviews.count_documents({'$or': [{"review_for": search_term},
-                                                   {"review_for": search_term.casefold()},
-                                                   {"review_for": search_term.capitalize()}
+                                         [{"title": search_term},
+                                          {"title": search_term.casefold()},
+                                          {"title": search_term.capitalize()}
+                                          ]})
+            review_count = reviews.count_documents({'$or': [{"review_for":
+                                                   search_term},
+                                                   {"review_for": search_term
+                                                   .casefold()},
+                                                   {"review_for": search_term
+                                                   .capitalize()}
                                                    ]})
             found_reviews = reviews.find({'$or': [{"review_for": search_term},
-                                                  {"review_for": search_term.casefold()},
-                                                  {"review_for": search_term.capitalize()}
+                                                  {"review_for": search_term
+                                                  .casefold()},
+                                                  {"review_for": search_term
+                                                  .capitalize()}
                                                   ]})
-            results.append({'count': count, 'category': category, 'search_term': search_term, 'found_recipes': found_recipes, 'review_count': review_count, 'found_reviews': found_reviews})
-            
+            results.append({'count': count, 'category': category,
+                           'search_term': search_term, 'found_recipes':
+                            found_recipes, 'review_count': review_count,
+                            'found_reviews': found_reviews})
 
         if request.form.get("dish_type") is not None:
             search_term = request.form.get("dish_type")
@@ -359,17 +467,19 @@ def advanced_results(category, value):
             found_recipes = recipes.find({"dish_type": search_term})
             review_count = reviews.count_documents({"dish_type": search_term})
             found_reviews = reviews.find({"dish_type": search_term})
-            results.append({'count': count, 'category': category, 'search_term': search_term, 'found_recipes': found_recipes, 'review_count': review_count, 'found_reviews': found_reviews})
-
+            results.append({'count': count, 'category': category,
+                           'search_term': search_term, 'found_recipes':
+                            found_recipes, 'review_count': review_count,
+                            'found_reviews': found_reviews})
 
         if request.form.get("searchfield_added_by") != "":
             search_term = request.form.get("searchfield_added_by")
             count = recipes.count_documents({'$or':
                                             [{"added_by": search_term},
-                                            {"added_by": search_term
-                                            .casefold()},
-                                            {"added_by": search_term
-                                            .capitalize()}]})
+                                             {"added_by": search_term
+                                             .casefold()},
+                                             {"added_by": search_term
+                                             .capitalize()}]})
             category = "entered by user"
             found_recipes = recipes.find({'$or': [{"added_by": search_term},
                                                   {"added_by": search_term
@@ -378,18 +488,22 @@ def advanced_results(category, value):
                                                   .capitalize()}]})
             review_count = reviews.count_documents({"rated_by": search_term})
             found_reviews = reviews.find({"rated_by": search_term})
-            results.append({'count': count, 'category': category, 'search_term': search_term, 'found_recipes': found_recipes, 'review_count': review_count, 'found_reviews': found_reviews})
-
+            results.append({'count': count, 'category': category,
+                           'search_term': search_term, 'found_recipes':
+                            found_recipes, 'review_count': review_count,
+                            'found_reviews': found_reviews})
 
         if request.form.get("level") is not None:
-            search_term = request.form.get("level")            
+            search_term = request.form.get("level")
             count = recipes.count_documents({"level": search_term})
             category = "with level"
             found_recipes = recipes.find({"level": search_term})
             review_count = None
             found_reviews = None
-            results.append({'count': count, 'category': category, 'search_term': search_term, 'found_recipes': found_recipes, 'review_count': review_count, 'found_reviews': found_reviews})
-
+            results.append({'count': count, 'category': category,
+                           'search_term': search_term, 'found_recipes':
+                            found_recipes, 'review_count': review_count,
+                            'found_reviews': found_reviews})
 
         if request.form.get("searchfield_ingredients") != "":
             search_term = request.form.get("searchfield_ingredients")
@@ -412,8 +526,10 @@ def advanced_results(category, value):
                                                    ]})
             review_count = None
             found_reviews = None
-            results.append({'count': count, 'category': category, 'search_term': search_term, 'found_recipes': found_recipes, 'review_count': review_count, 'found_reviews': found_reviews})
-
+            results.append({'count': count, 'category': category,
+                           'search_term': search_term, 'found_recipes':
+                            found_recipes, 'review_count': review_count,
+                            'found_reviews': found_reviews})
 
         if request.form.get("country_name") is not None:
             search_term = request.form.get("country_name")
@@ -425,27 +541,36 @@ def advanced_results(category, value):
                                          .form.get("country_name")})
             review_count = None
             found_reviews = None
-            results.append({'count': count, 'category': category, 'search_term': search_term, 'found_recipes': found_recipes, 'review_count': review_count, 'found_reviews': found_reviews})
-
+            results.append({'count': count, 'category': category,
+                           'search_term': search_term, 'found_recipes':
+                            found_recipes, 'review_count': review_count,
+                            'found_reviews': found_reviews})
 
         if request.form.get("searchfield_rating") is not None:
             search_term = int(request.form.get("searchfield_rating"))
             count = None
             found_recipes = None
             category = "with a rating of"
-            review_count = reviews.count_documents({"rating":
-                                                   int(request.form.get
-                                                   ("searchfield_rating"))
+            review_count = reviews.count_documents({"rating": int(request.form
+                                                   .get("searchfield_rating"))
                                                    })
             found_reviews = reviews.find({"rating": int(request.form.get
                                          ("searchfield_rating"))})
-            results.append({'count': count, 'category': category, 'search_term': search_term, 'found_recipes': found_recipes, 'review_count': review_count, 'found_reviews': found_reviews})
+            results.append({'count': count, 'category': category,
+                           'search_term': search_term, 'found_recipes':
+                            found_recipes, 'review_count': review_count,
+                            'found_reviews': found_reviews})
 
     return render_template("advancedresults.html", results=results,
                            form=request.form)
 
 
 # Add A Recipe
+"""
+add_recipe(): View method which returns the template for recipe creation
+depending on user's logged on status.
+"""
+
 
 @app.route('/add_recipe')
 def add_recipe():
@@ -457,6 +582,12 @@ def add_recipe():
 
 
 # Inserting recipe into db
+
+"""
+insert_recipe(): This method collects the today's date and timestamp, creates
+the ingredients and allergens and uploads the chosen image to IMGBB hoster.
+Finally the recipe record is sent to mongoDB to be saved.
+"""
 
 
 @app.route('/insert_recipe', methods=["POST"])
@@ -497,13 +628,25 @@ def insert_recipe():
     return redirect(url_for('read_recipe', recipe_id=recipe_id))
 
 
+"""
+edit_recipe(edit_recipe): This method receives an recipe id, looks up the
+recipe in mongodb and returns the data record with template.
+"""
+
+
 @app.route('/edit_recipe/<recipe_id>')
-def edit_recipe(recipe_id):
+def edit_recipe(edit_recipe):
     recipe = recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template('editrecipe.html', recipe=recipe,
                            countries=get_countries())
 
 # update recipe in database
+
+"""
+update_recipe(recipe_id): This method stores and overwrites the existing
+recipe record in database with edited details and redirects to
+read recipe view to display changes made.
+"""
 
 
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
@@ -545,6 +688,12 @@ def update_recipe(recipe_id):
 # Read recipe
 
 
+"""
+read_recipe(recipe_id): Looks up the recipe based on recipe id in argument
+list. The view count counter is incremented by 1.
+"""
+
+
 @app.route('/read_recipe/<recipe_id>')
 def read_recipe(recipe_id):
     recipes.update_one(
@@ -568,6 +717,11 @@ def read_recipe(recipe_id):
 
 # Delete recipe in database
 
+"""
+delete_recipe(recipe_id): Method to delete a recipe from database and
+all related entered reviews for that recipe.
+"""
+
 
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
@@ -580,6 +734,11 @@ def delete_recipe(recipe_id):
 
 
 # insert rating
+
+"""
+insert_rating(recipe_id, recipe_title): Method sends an entered review to
+database.
+"""
 
 
 @app.route('/insert_rating/<recipe_id>/<recipe_title>', methods=["POST"])
