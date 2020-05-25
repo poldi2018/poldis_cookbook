@@ -20,12 +20,15 @@
 
     $recipeFontSize: 1.6vw;
     $readRecipeTitleFontSize: 6.5vw;
-    $headlineFontSize: 2vw;
+    $headlineFontSize: 4vw;
     $menuheaderFont: 1.7vw;
     $dosisFont: 'Dosis',
     sans-serif;
     $dishTypeFontSize: 1.5vw;
 
+    .reviewValue .material-icons {
+        font-size: 2vw;
+    }
 
 
     body {

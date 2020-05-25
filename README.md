@@ -296,8 +296,3 @@ This project has been created to demonstrate learning outcomes only.
 
 
 <EOF> 
-
-
-chk breakpoints min max width
-flag size
-doc strings

@@ -867,7 +867,7 @@
   }
 }
 
-@media screen and (min-width: 640px) and (max-width: 823px) and (orientation: landscape) {
+@media screen and (min-width: 568px) and (max-width: 823px) and (orientation: landscape) {
   h3,
   .recipeTitle,
   .headline {
@@ -2169,7 +2169,7 @@
     width: 97vw;
     -webkit-transform: translateY(4vw);
             transform: translateY(4vw);
-    margin-top: 14vw;
+    margin-top: 16vw;
     margin-bottom: 6vw;
     border-radius: 1vw;
   }
@@ -2183,7 +2183,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
     width: 100%;
-    font-size: 4.8vw;
+    font-size: 7.8vw;
   }
   #recipetitle {
     font-size: 4.5vw;
@@ -3132,7 +3132,7 @@
   .headline {
     margin-bottom: 10px;
     width: 100%;
-    font-size: 2vw;
+    font-size: 4vw;
   }
   #recipetitle {
     font-size: 1.6vw;
@@ -3791,6 +3791,9 @@
   .headline {
     font-family: 'Dosis', sans-serif;
   }
+  .reviewValue .material-icons {
+    font-size: 2vw;
+  }
   body {
     background-color: #EAE7DC;
   }
@@ -3989,7 +3992,7 @@
   .headline {
     margin-bottom: 10px;
     width: 100%;
-    font-size: 2vw;
+    font-size: 4vw;
   }
   #recipetitle {
     font-size: 1.6vw;
