@@ -3471,9 +3471,9 @@
   .created,
   .contact,
   .github {
-    width: 25%;
+    width: 32%;
     height: 3vw;
-    font-size: 2.5vw;
+    font-size: 1.6vw;
   }
   a i {
     color: black;
@@ -4323,7 +4323,7 @@
   .created,
   .contact,
   .github {
-    width: 25%;
+    width: 32%;
     height: 3vw;
     font-size: 1.5vw;
   }
