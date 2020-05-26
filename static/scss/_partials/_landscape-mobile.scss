@@ -1,4 +1,4 @@
-@media screen and (min-width: 568px) and (max-width: 823px) and (orientation: landscape) {
+@media screen and (max-height: 414px) and (max-width: 823px) and (orientation: landscape) {
 
      // color definitions
      $body-bgcolor: #EAE7DC;
@@ -659,7 +659,7 @@
      #directionsWrapper textarea {
          margin: 0px;
          height: 80%;
-         width: 95%;
+         width: 99%;
          $recipeFontSize: 4.5vw;
      }
  
@@ -920,6 +920,10 @@
  
          flex-wrap: wrap;
      }
+
+     .innerRecipesWrapper .headline {
+         text-align: center;
+     }
  
      .reviewContainer,
      .rateContainer {
@@ -1022,7 +1026,7 @@
      .searchformInnerWrapper {
          display: flex;
          flex-wrap: wrap;
-         width: 90%;
+         width: 95%;
          height: 100%;
          font-family: $dosisFont;
          margin-bottom: 1vw;
@@ -1039,6 +1043,7 @@
          width: 70%;
          height: 12vw;
          align-items: center;
+         margin-top: 2rem;
  
      }
  
@@ -1049,6 +1054,10 @@
          flex-wrap: wrap;
          justify-content: center;
          margin: 2vw;
+     }
+
+     #welcomeWrapper .headline {
+         text-align: center;
      }
  
      .chartWrapper {

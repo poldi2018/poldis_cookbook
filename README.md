@@ -104,6 +104,8 @@ The database record has the following structure
 * DC and D3 for visualisation on welcome page, https://dc-js.github.io/dc.js/ 
 * FONTAWESOME for icons, https://fontawesome.com/
 * BOOTSTRAP for using layouts, https://getbootstrap.com/
+* AUTOPREFIXER was used to get the CSS vendor codes, https://autoprefixer.github.io/
+* GITHUB for code version handling
 
 
 # LOCAL DEPLOYMENT
@@ -219,6 +221,9 @@ So for now all images are being uploaded into one bucket on IMGBB.
 * Codekernel was used to get information on testing code in flask, using unittest, coverage and nose:
 https://codekernel.co.uk/posts/flask-testing-unittest-and-coverage/
 
+* https://autoprefixer.github.io/ was used to get the CSS vendor codes.
+
+* Sample recipes (instructions and pictures) have been taken from https://www.themealdb.com/
  
  ### Beside from above mentioned acknowledgements NO other code has been copied.
 
@@ -230,7 +235,7 @@ Compliance reports can be found in reports folder:
 
 
 * CSS DONE
-* HTML SKIPPED
+* HTML SKIPPED (as Jinja code is not recognized)
 * JShint DONE
 * PEP8 DONE
 * Jasmine SKIPPED
