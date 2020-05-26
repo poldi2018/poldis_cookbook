@@ -6,6 +6,9 @@ $(document).ready(function () {
     checkCurrentBreakpoint();
 });
 
+window.onresize = function() { checkCurrentBreakpoint(); };
+
+
 // global variables
 var fieldcount = $(".outerIngredientContainer").length;
 var lockSendButton = false;

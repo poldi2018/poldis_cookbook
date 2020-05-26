@@ -224,7 +224,7 @@
     }
 
     .recipeWrapper {
-        width: 75vw;
+        width: 93vw;
         flex-wrap: wrap;
         margin-top: 1vw;
     }
@@ -806,6 +806,10 @@
 
         width: 100%;
         flex-wrap: wrap;
+    }
+
+    #rateWrapper .headline {
+        text-align: center;
     }
 
     .outerReviewsWrapper,

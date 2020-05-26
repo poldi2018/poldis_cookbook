@@ -19,7 +19,7 @@ screen and (width: 1024px) and (height: 1366px) and (orientation: portrait) {
     }
 
 
-    $recipeFontSize: 2.0vw;
+    $recipeFontSize: 2.5vw;
     $readRecipeTitleFontSize: 6.5vw;
     $headlineFontSize: 4vw;
     $menuheaderFont: 1.7vw;
@@ -789,6 +789,10 @@ screen and (width: 1024px) and (height: 1366px) and (orientation: portrait) {
 
         width: 100%;
         flex-wrap: wrap;
+    }
+
+    #rateWrapper .headline {
+        text-align: center;
     }
 
     .outerReviewsWrapper,

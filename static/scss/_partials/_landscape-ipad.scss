@@ -19,13 +19,13 @@ screen and (width: 1366px) and (height: 1024px) and (orientation: landscape) {
     }
 
 
-    $recipeFontSize: 1.6vw;
+    $recipeFontSize: 1.8vw;
     $readRecipeTitleFontSize: 2.5vw;
     $headlineFontSize: 3.5vw;
     $menuheaderFont: 1.9vw;
     $dosisFont: 'Dosis',
     sans-serif;
-    $dishTypeFontSize: 2.5vw;
+    $dishTypeFontSize: 2.0vw;
 
 
 
@@ -782,6 +782,10 @@ screen and (width: 1366px) and (height: 1024px) and (orientation: landscape) {
 
         width: 100%;
         flex-wrap: wrap;
+    }
+
+    #rateWrapper .headline {
+        text-align: center;
     }
 
     .outerRecipesWrapper {
