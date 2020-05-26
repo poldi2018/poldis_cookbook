@@ -635,7 +635,7 @@ recipe in mongodb and returns the data record with template.
 
 
 @app.route('/edit_recipe/<recipe_id>')
-def edit_recipe(edit_recipe):
+def edit_recipe(recipe_id):
     recipe = recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template('editrecipe.html', recipe=recipe,
                            countries=get_countries())
