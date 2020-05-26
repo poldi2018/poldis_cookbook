@@ -21,7 +21,7 @@ screen and (width: 1366px) and (height: 1024px) and (orientation: landscape) {
 
     $recipeFontSize: 1.6vw;
     $readRecipeTitleFontSize: 2.5vw;
-    $headlineFontSize: 4vw;
+    $headlineFontSize: 3.5vw;
     $menuheaderFont: 1.9vw;
     $dosisFont: 'Dosis',
     sans-serif;
@@ -459,7 +459,7 @@ screen and (width: 1366px) and (height: 1024px) and (orientation: landscape) {
         border-radius: 10px;
     }
 
-    #outerInstructionsWrapper div,
+    #outerInstructionsWrapper,
     #ingredientWrapper input {
         font-size: $recipeFontSize;
         font-family: $dosisFont;
@@ -479,6 +479,7 @@ screen and (width: 1366px) and (height: 1024px) and (orientation: landscape) {
             top: 10px;
             bottom: 10px;
         }
+        font-size: 3.6vw;
     }
 
     .AddIngredientButtonWrapper {

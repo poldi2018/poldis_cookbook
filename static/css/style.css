@@ -284,7 +284,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
     width: 100%;
-    font-size: 4.8vw;
+    font-size: 4vw;
   }
   #recipetitle {
     font-size: 4.5vw;
@@ -1324,7 +1324,7 @@
     font-size: 7.8vw;
   }
   #recipetitle {
-    font-size: 4.5vw;
+    font-size: 5.5vw;
   }
   .recipeHeader {
     width: 100%;
@@ -1353,7 +1353,7 @@
     padding-top: 2px;
     width: 90%;
     height: 50%;
-    font-size: 4.5vw;
+    font-size: 5.5vw;
   }
   #readRecipeTitle {
     width: 100%;
@@ -1426,7 +1426,7 @@
     margin-bottom: 2px;
   }
   .statsWrapper div {
-    font-size: 4.5vw;
+    font-size: 5.5vw;
   }
   .statsfield {
     width: 100%;
@@ -1467,7 +1467,7 @@
     margin-top: 0px;
   }
   .timesWrapper div {
-    font-size: 4.5vw;
+    font-size: 5.5vw;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1482,13 +1482,13 @@
   }
   #prepTime,
   #cookingTime {
-    font-size: 4.5vw;
+    font-size: 5.5vw;
   }
   #outerStatsWrapper #dishImageWrapper {
     border: 2px solid none;
     border-radius: 10px;
     overflow: hidden;
-    font-size: 4.5vw;
+    font-size: 5.5vw;
     background-color: lightgrey;
     width: 100%;
     -ms-flex-wrap: wrap;
@@ -1569,7 +1569,7 @@
   #outerInstructionsWrapper,
   .amountContainer .input-field input,
   .ingredientContainer .input-field input {
-    font-size: 4.5vw;
+    font-size: 5.5vw;
     font-family: "Dosis", sans-serif;
   }
   #outerIngredientsWrapper,
@@ -1579,7 +1579,7 @@
   }
   #ingredientsHeadline,
   #directionsHeadline {
-    font-size: 6vw;
+    font-size: 8vw;
     margin-bottom: 2vw;
   }
   .AddIngredientButtonWrapper {
@@ -1618,7 +1618,7 @@
     width: 25%;
   }
   .amountContainer i {
-    font-size: 4.5vw;
+    font-size: 5.5vw;
   }
   .ingredientContainer {
     display: -webkit-box;
@@ -1667,7 +1667,7 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    font-size: 5vw;
+    font-size: 5.5vw;
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -1786,7 +1786,7 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    font-size: 4.5vw;
+    font-size: 4.0vw;
     font-family: "Dosis", sans serif;
     width: 100%;
   }
@@ -2271,7 +2271,7 @@
   .headline {
     margin-bottom: 10px;
     width: 100%;
-    font-size: 4vw;
+    font-size: 3.5vw;
   }
   #recipetitle {
     font-size: 1.6vw;
@@ -2458,7 +2458,7 @@
     background-color: lightgrey;
     border-radius: 10px;
   }
-  #outerInstructionsWrapper div,
+  #outerInstructionsWrapper,
   #ingredientWrapper input {
     font-size: 1.6vw;
     font-family: "Dosis", sans-serif;
@@ -2473,6 +2473,7 @@
   #directionsHeadline {
     margin-top: 10px;
     margin-bottom: 10px;
+    font-size: 3.6vw;
   }
   .AddIngredientButtonWrapper {
     display: -webkit-box;
@@ -3138,7 +3139,7 @@
     font-size: 4vw;
   }
   #recipetitle {
-    font-size: 1.6vw;
+    font-size: 2vw;
   }
   .recipeHeader {
     width: 100%;
@@ -3159,7 +3160,7 @@
     padding-top: 2px;
     width: 90%;
     height: 50%;
-    font-size: 1.6vw;
+    font-size: 2vw;
   }
   #readRecipeTitle {
     width: 100%;
@@ -3182,7 +3183,7 @@
     font-size: 2.5vw;
   }
   .select-wrapper input.select-dropdown {
-    font-size: 1.6vw;
+    font-size: 2vw;
   }
   .select-wrapper {
     width: 100%;
@@ -3218,7 +3219,7 @@
     margin-bottom: 2px;
   }
   .statsWrapper div {
-    font-size: 1.6vw;
+    font-size: 2vw;
   }
   .statsfield {
     width: 100%;
@@ -3260,11 +3261,11 @@
     margin-top: 0px;
   }
   .timesWrapper div {
-    font-size: 1.6vw;
+    font-size: 2vw;
   }
   #prepTime,
   #cookingTime {
-    font-size: 1.6vw;
+    font-size: 2vw;
   }
   .directionsLabel {
     width: 100%;
@@ -3274,7 +3275,7 @@
     border: 2px solid none;
     border-radius: 10px;
     overflow: hidden;
-    font-size: 1.6vw;
+    font-size: 2vw;
     background-color: lightgrey;
     width: 24.7%;
     -ms-flex-wrap: wrap;
@@ -3326,7 +3327,7 @@
   }
   #outerInstructionsWrapper,
   #ingredientWrapper input {
-    font-size: 1.6vw;
+    font-size: 2vw;
     font-family: "Dosis", sans-serif;
   }
   #outerIngredientsWrapper {
@@ -3380,7 +3381,7 @@
     width: 25%;
   }
   .amountContainer i {
-    font-size: 1.6vw;
+    font-size: 2vw;
   }
   .ingredientContainer {
     display: -webkit-box;
@@ -3466,7 +3467,7 @@
   .github {
     width: 25%;
     height: 3vw;
-    font-size: 1.6vw;
+    font-size: 2vw;
   }
   a i {
     color: black;
@@ -3526,7 +3527,7 @@
     margin: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 1.6vw;
+    font-size: 2vw;
     font-family: "Dosis", sans-serif;
   }
   .reviewValue {
@@ -3541,7 +3542,7 @@
     border: 2px solid none;
     border-radius: 10px;
     overflow: hidden;
-    font-size: 1.6vw;
+    font-size: 2vw;
     background-color: lightgrey;
     height: 100%;
     width: 22vw;
@@ -3614,7 +3615,7 @@
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     top: 7vw;
-    font-size: 1.6vw;
+    font-size: 2vw;
   }
   #reviewsWrapper,
   #rateWrapper {
@@ -3653,14 +3654,14 @@
     font-family: "Dosis", sans-serif;
   }
   .buttonWrapperPopup div {
-    font-size: 1.6vw;
+    font-size: 2vw;
   }
   #resultCheckForValidFields {
     margin: 2vw;
   }
   .buttonWrapper div {
     margin-left: 44px;
-    font-size: 1.6vw;
+    font-size: 2vw;
   }
   .buttonWrapper a {
     color: white;
@@ -3702,7 +3703,7 @@
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     top: 7vw;
-    font-size: 1.6vw;
+    font-size: 2vw;
   }
   .searchformOuterWrapper {
     display: -webkit-box;
@@ -3725,7 +3726,7 @@
   .searchfieldDescription {
     width: 30%;
     margin-top: 1rem;
-    font-size: 1.6vw;
+    font-size: 2vw;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -3992,7 +3993,7 @@
     font-size: 2.8vw;
   }
   #recipetitle {
-    font-size: 1.2vw;
+    font-size: 1.5vw;
   }
   .recipeHeader {
     width: 100%;
@@ -4011,7 +4012,7 @@
     padding-top: 2px;
     width: 90%;
     height: 50%;
-    font-size: 1.2vw;
+    font-size: 1.5vw;
   }
   #readRecipeTitle {
     width: 50%;
@@ -4031,10 +4032,10 @@
     margin-top: 0px;
   }
   #dishType {
-    font-size: 1.5vw;
+    font-size: 2vw;
   }
   .select-wrapper input.select-dropdown {
-    font-size: 1.2vw;
+    font-size: 1.5vw;
   }
   .select-wrapper {
     width: 100%;
@@ -4070,7 +4071,7 @@
     margin-bottom: 2px;
   }
   .statsWrapper div {
-    font-size: 1.2vw;
+    font-size: 1.5vw;
   }
   .statsfield {
     width: 100%;
@@ -4112,11 +4113,11 @@
     margin-top: 0px;
   }
   .timesWrapper div {
-    font-size: 1.2vw;
+    font-size: 1.5vw;
   }
   #prepTime,
   #cookingTime {
-    font-size: 1.2vw;
+    font-size: 1.5vw;
   }
   .directionsLabel {
     width: 100%;
@@ -4126,7 +4127,7 @@
     border: 2px solid none;
     border-radius: 10px;
     overflow: hidden;
-    font-size: 1.2vw;
+    font-size: 1.5vw;
     background-color: lightgrey;
     width: 24.7%;
     -ms-flex-wrap: wrap;
@@ -4176,9 +4177,9 @@
     background-color: lightgrey;
     border-radius: 10px;
   }
-  #outerInstructionsWrapper div,
+  #outerInstructionsWrapper,
   #ingredientWrapper input {
-    font-size: 1.2vw;
+    font-size: 1.5vw;
     font-family: "Dosis", sans-serif;
   }
   #outerIngredientsWrapper {
@@ -4191,6 +4192,7 @@
   #directionsHeadline {
     margin-top: 10px;
     margin-bottom: 10px;
+    font-size: 2.6vw;
   }
   .AddIngredientButtonWrapper {
     display: -webkit-box;
@@ -4228,7 +4230,7 @@
     width: 50%;
   }
   .amountContainer i {
-    font-size: 1.2vw;
+    font-size: 1.5vw;
   }
   .ingredientContainer {
     display: -webkit-box;
@@ -4314,7 +4316,7 @@
   .github {
     width: 25%;
     height: 3vw;
-    font-size: 1.2vw;
+    font-size: 1.5vw;
   }
   a i {
     color: black;
@@ -4374,7 +4376,7 @@
     margin: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 1.2vw;
+    font-size: 1.5vw;
     font-family: "Dosis", sans-serif;
   }
   .reviewValue {
@@ -4389,7 +4391,7 @@
     border: 2px solid none;
     border-radius: 10px;
     overflow: hidden;
-    font-size: 1.2vw;
+    font-size: 1.5vw;
     background-color: lightgrey;
     height: 100%;
     width: 22vw;
@@ -4483,7 +4485,7 @@
   #reviewsPopup,
   #ratePopup,
   #popupCheckForValidFields {
-    font-size: 1.2vw;
+    font-size: 1.5vw;
   }
   #deletePopup {
     font-size: 2.2vw;
@@ -4525,7 +4527,7 @@
     font-family: "Dosis", sans-serif;
   }
   .buttonWrapperPopup div {
-    font-size: 1.2vw;
+    font-size: 1.5vw;
   }
   #resultCheckForValidFields {
     margin: 2vw;
@@ -4533,7 +4535,7 @@
   .buttonWrapper div {
     margin-left: 10px;
     margin-right: 10px;
-    font-size: 1.2vw;
+    font-size: 1.5vw;
   }
   .buttonWrapper a {
     color: white;
@@ -4575,7 +4577,7 @@
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     top: 7vw;
-    font-size: 1.2vw;
+    font-size: 1.5vw;
   }
   .searchformOuterWrapper {
     display: -webkit-box;
@@ -4597,7 +4599,7 @@
   }
   .searchfieldDescription {
     width: 30%;
-    font-size: 1.2vw;
+    font-size: 1.5vw;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -4658,7 +4660,7 @@
   }
 }
 
-@media screen and (max-width: 665px) and (max-height: 680px) and (orientation: portrait) {
+@media screen and (min-width: 600px) and (max-width: 665px) and (min-height: 600px) and (max-height: 680px) and (orientation: portrait) {
   h3,
   .recipeTitle,
   .headline {

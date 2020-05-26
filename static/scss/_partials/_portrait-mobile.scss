@@ -16,7 +16,7 @@
     }
 
 
-    $recipeFontSize: 4.5vw;
+    $recipeFontSize: 5.5vw;
     $readRecipeTitleFontSize: 6.5vw;
     $headlineFontSize: 7.8vw;
     $menuheaderFont: 1.4vw;
@@ -588,7 +588,7 @@
 
     #ingredientsHeadline,
     #directionsHeadline {
-        font-size: 6vw;
+        font-size: 8vw;
         margin-bottom: 2vw;
 
     }
@@ -677,7 +677,7 @@
 
     #directions {
         display: flex;
-        font-size: 5vw;
+        font-size: 5.5vw;
         //white-space: pre;
         padding-left: 10px;
         padding-right: 10px;
@@ -791,7 +791,7 @@
 
     .recipeTileName {
         display: flex;
-        font-size: 4.5vw;
+        font-size: 4.0vw;
         font-family: "Dosis", sans serif;
         width: 100%;
 

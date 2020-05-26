@@ -17,13 +17,13 @@
     }
 
 
-    $recipeFontSize: 1.2vw;
+    $recipeFontSize: 1.5vw;
     $readRecipeTitleFontSize: 2.5vw;
     $headlineFontSize: 2.8vw;
     $menuheaderFont: 1.4vw;
     $dosisFont: 'Dosis',
     sans-serif;
-    $dishTypeFontSize: 1.5vw;
+    $dishTypeFontSize: 2.0vw;
 
 
 
@@ -457,7 +457,7 @@
         border-radius: 10px;
     }
 
-    #outerInstructionsWrapper div,
+    #outerInstructionsWrapper,
     #ingredientWrapper input {
         font-size: $recipeFontSize;
         font-family: $dosisFont;
@@ -477,6 +477,8 @@
             top: 10px;
             bottom: 10px;
         }
+        font-size: 2.6vw;
+
     }
 
     .AddIngredientButtonWrapper {
