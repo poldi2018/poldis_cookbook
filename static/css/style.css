@@ -4028,7 +4028,7 @@
   .headline {
     margin-bottom: 10px;
     width: 100%;
-    font-size: 4vw;
+    font-size: 2.8vw;
   }
   #recipetitle {
     font-size: 1.2vw;
@@ -4454,6 +4454,9 @@
         -ms-flex-pack: center;
             justify-content: center;
     margin: 2vw;
+  }
+  #welcomeWrapper .headline {
+    text-align: center;
   }
   #reviewsPopup {
     width: 95vw;

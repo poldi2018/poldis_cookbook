@@ -19,7 +19,7 @@
 
     $recipeFontSize: 1.2vw;
     $readRecipeTitleFontSize: 2.5vw;
-    $headlineFontSize: 4vw;
+    $headlineFontSize: 2.8vw;
     $menuheaderFont: 1.4vw;
     $dosisFont: 'Dosis',
     sans-serif;
@@ -704,6 +704,10 @@
         display: flex;
         justify-content: center;
         margin: 2vw;
+    }
+
+    #welcomeWrapper .headline {
+        text-align: center;
     }
 
 
