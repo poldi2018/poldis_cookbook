@@ -751,5 +751,53 @@
     {
         "country_name": "uy",
         "filename": "images/flags-mini/uy.png"
+    },
+    {
+        "country_name": "uz",
+        "filename": "images/flags-mini/uz.png"
+    },
+    {
+        "country_name": "va",
+        "filename": "images/flags-mini/va.png"
+    },
+    {
+        "country_name": "vc",
+        "filename": "images/flags-mini/vc.png"
+    },
+    {
+        "country_name": "ve",
+        "filename": "images/flags-mini/ve.png"
+    },
+    {
+        "country_name": "vn",
+        "filename": "images/flags-mini/vn.png"
+    },
+    {
+        "country_name": "vu",
+        "filename": "images/flags-mini/vu.png"
+    },
+    {
+        "country_name": "ws",
+        "filename": "images/flags-mini/ws.png"
+    },
+    {
+        "country_name": "xk",
+        "filename": "images/flags-mini/xk.png"
+    },
+    {
+        "country_name": "ye",
+        "filename": "images/flags-mini/ye.png"
+    },
+    {
+        "country_name": "za",
+        "filename": "images/flags-mini/za.png"
+    },
+    {
+        "country_name": "zm",
+        "filename": "images/flags-mini/zm.png"
+    },
+    {
+        "country_name": "zw",
+        "filename": "images/flags-mini/zw.png"
     }
 ]
