@@ -624,7 +624,6 @@
     display: -ms-flexbox;
     display: flex;
     font-size: 5vw;
-    white-space: pre;
     padding-left: 10px;
   }
   #directionsWrapper textarea {
@@ -1689,7 +1688,6 @@
     display: -ms-flexbox;
     display: flex;
     font-size: 5vw;
-    white-space: pre;
     padding-left: 10px;
   }
   #directionsWrapper textarea {
@@ -2582,7 +2580,6 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    white-space: pre;
     padding-left: 10px;
   }
   #directionsWrapper textarea {
@@ -3458,7 +3455,6 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    white-space: pre;
     padding-left: 10px;
   }
   #directionsWrapper textarea {
@@ -4312,7 +4308,6 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    white-space: pre;
     padding-left: 10px;
   }
   #directionsWrapper textarea {
@@ -5357,7 +5352,6 @@
     display: -ms-flexbox;
     display: flex;
     font-size: 5vw;
-    white-space: pre;
     padding-left: 10px;
   }
   #directionsWrapper textarea {
