@@ -186,6 +186,15 @@ converts it to json and writes it to disk. The file is needed for
 D3/DC charting.
 """
 
+"""
+all_recipes = recipes.find()
+    all_recipes = recipes.find()
+    all_recipes_json = dumps(all_recipes)
+    with open("static/data/all_recipes.json", "w") as filename:
+        filename.write(all_recipes_json)
+    return render_template("welcome.html")
+"""
+
 
 @app.route('/welcome')
 def welcome():
@@ -778,4 +787,4 @@ def insert_rating(recipe_id, recipe_title):
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT', 5000)),
-            debug=False)
+            debug=True)
