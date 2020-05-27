@@ -14,17 +14,18 @@ screen and (width: 1366px) and (height: 1024px) and (orientation: landscape) {
     // font definitions
     h3,
     .recipeTitle,
-    .headline {
+    .headline,
+    .introtext {
         font-family: 'Dosis', sans-serif;
     }
 
 
     $recipeFontSize: 1.8vw;
     $readRecipeTitleFontSize: 2.5vw;
-    $headlineFontSize: 3.5vw;
+    $headlineFontSize: 3.0vw;
+    $introtextFontSize: 2.5vw;
     $menuheaderFont: 1.9vw;
-    $dosisFont: 'Dosis',
-    sans-serif;
+    $dosisFont: 'Dosis', sans-serif;
     $dishTypeFontSize: 2.0vw;
 
 
@@ -233,11 +234,18 @@ screen and (width: 1366px) and (height: 1024px) and (orientation: landscape) {
 
     .headline {
         margin: {
-            bottom: 10px;
+            bottom: 3px;
         }
 
         width: 100%;
         font-size: $headlineFontSize;
+        text-align: center;
+
+    }
+
+    .introtext {
+        font-size: $introtextFontSize;
+        text-align: center;
     }
 
     #recipetitle {
@@ -621,7 +629,7 @@ screen and (width: 1366px) and (height: 1024px) and (orientation: landscape) {
     }
 
     .recipeTileStatsWrapper {
-        width: 22vw;
+        width: 24vw;
         border-radius: 10px;
         display: flex;
         justify-content: center;
@@ -632,20 +640,20 @@ screen and (width: 1366px) and (height: 1024px) and (orientation: landscape) {
     }
 
     .recipeTileStats {
-        width: 90%;
+        width: 93%;
     }
 
     .recipeTileDishType,
     .recipeTileAddedBy,
     .recipeTileReviewCount,
     .recipeTileViewCount {
-        font-size: 1vw;
+        font-size: 1.6vw;
         font-family: "Dosis", sans serif;
     }
 
     .recipeTileName {
         display: flex;
-        font-size: 1.5vw;
+        font-size: 1.9vw;
         font-family: "Dosis", sans serif;
         width: 100%;
 
@@ -655,7 +663,7 @@ screen and (width: 1366px) and (height: 1024px) and (orientation: landscape) {
         border: 2px solid grey;
         border-radius: 10px;
         flex-wrap: wrap;
-        width: 30%;
+        width: 47%;
         margin: 10px;
 
         padding: {
@@ -789,7 +797,7 @@ screen and (width: 1366px) and (height: 1024px) and (orientation: landscape) {
     }
 
     .outerRecipesWrapper {
-        width: 90vw;
+        width: 95vw;
     }
 
     .outerReviewsWrapper{
@@ -803,7 +811,7 @@ screen and (width: 1366px) and (height: 1024px) and (orientation: landscape) {
             bottom: 20px;
         }
 
-        width: 90vw;
+        width: 95vw;
         flex-wrap: wrap;
     }
 
@@ -833,11 +841,15 @@ screen and (width: 1366px) and (height: 1024px) and (orientation: landscape) {
         width: 100%;
 
         margin: {
-            top: 30px;
-            bottom: 20px;
+            top: 5px;
+            bottom: 5px;
         }
 
         font-family: $dosisFont;
+    }
+
+    .row {
+        margin-bottom: 15px;
     }
 
     .buttonWrapperPopup div {
@@ -888,7 +900,7 @@ screen and (width: 1366px) and (height: 1024px) and (orientation: landscape) {
     }
 
     #loginForm {
-        width: 15vw;
+        width: 30vw;
     }
 
     #flashesPopup {

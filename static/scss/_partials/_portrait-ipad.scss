@@ -14,7 +14,8 @@ screen and (width: 1024px) and (height: 1366px) and (orientation: portrait) {
     // font definitions
     h3,
     .recipeTitle,
-    .headline {
+    .headline,
+    .introtext {
         font-family: 'Dosis', sans-serif;
     }
 
@@ -22,6 +23,7 @@ screen and (width: 1024px) and (height: 1366px) and (orientation: portrait) {
     $recipeFontSize: 2.5vw;
     $readRecipeTitleFontSize: 6.5vw;
     $headlineFontSize: 4vw;
+    $introtextFontSize: 3.5vw;
     $menuheaderFont: 1.7vw;
     $dosisFont: 'Dosis',
     sans-serif;
@@ -241,6 +243,12 @@ screen and (width: 1024px) and (height: 1366px) and (orientation: portrait) {
 
         width: 100%;
         font-size: $headlineFontSize;
+        text-align: center;
+    }
+
+    .introtext {
+        font-size: $introtextFontSize;
+        text-align: center;
     }
 
     #recipetitle {
@@ -630,7 +638,7 @@ screen and (width: 1024px) and (height: 1366px) and (orientation: portrait) {
     }
 
     .recipeTileStatsWrapper {
-        width: 22vw;
+        width: 24vw;
         border-radius: 10px;
         display: flex;
         justify-content: center;
@@ -648,13 +656,13 @@ screen and (width: 1024px) and (height: 1366px) and (orientation: portrait) {
     .recipeTileAddedBy,
     .recipeTileReviewCount,
     .recipeTileViewCount {
-        font-size: 1vw;
+        font-size: 1.5vw;
         font-family: "Dosis", sans serif;
     }
 
     .recipeTileName {
         display: flex;
-        font-size: 1.5vw;
+        font-size: 1.8vw;
         font-family: "Dosis", sans serif;
         width: 100%;
 
@@ -664,8 +672,8 @@ screen and (width: 1024px) and (height: 1366px) and (orientation: portrait) {
         border: 2px solid grey;
         border-radius: 10px;
         flex-wrap: wrap;
-        width: 30%;
-        margin: 10px;
+        width: 47%;
+        margin: 5px;
 
         padding: {
             top: 10px;
@@ -705,12 +713,12 @@ screen and (width: 1024px) and (height: 1366px) and (orientation: portrait) {
     }
 
     .reviewKey {
-        width: 35%;
+        width: 32%;
     }
 
 
     .reviewValue {
-        width: 65%;
+        width: 68%;
     }
 
     // pages
@@ -876,12 +884,12 @@ screen and (width: 1024px) and (height: 1366px) and (orientation: portrait) {
 
     #loginWrapper,
     #registerWrapper {
-        width: 50vw;
+        width: 60vw;
         flex-wrap: wrap;
     }
 
     #loginForm {
-        width: 15vw;
+        width: 30vw;
     }
 
     #flashesPopup {

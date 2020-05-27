@@ -376,8 +376,6 @@ function setWidthBtnMobile() {
         $('#editRecipeBtn').css("width", width50);
         $('#deleteRecipePopupBtn').css("width", width50);
     }
-
-
 }
 
 function showMobileMenu() {

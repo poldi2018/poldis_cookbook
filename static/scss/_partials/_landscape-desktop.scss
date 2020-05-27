@@ -12,7 +12,8 @@
     // font definitions
     h3,
     .recipeTitle,
-    .headline {
+    .headline,
+    .introtext {
         font-family: 'Dosis', sans-serif;
     }
 
@@ -20,6 +21,7 @@
     $recipeFontSize: 1.5vw;
     $readRecipeTitleFontSize: 2.5vw;
     $headlineFontSize: 2.8vw;
+    $introtextFontSize: 5.5vw;
     $menuheaderFont: 1.4vw;
     $dosisFont: 'Dosis',
     sans-serif;
@@ -236,6 +238,11 @@
 
         width: 100%;
         font-size: $headlineFontSize;
+    }
+
+    .introtext {
+        font-size: $introtextFontSize;
+        text-align: center;
     }
 
     #recipetitle {
