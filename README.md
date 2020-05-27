@@ -242,7 +242,7 @@ Compliance reports can be found in reports folder:
 
 
 # TESTING OF CODE
-
+* The frontend was tested in different browsers such as Safari, Chrome and Firefox on both iphone and mac.
 
 
 ## TEST OF JAVASCRIPT CODE
