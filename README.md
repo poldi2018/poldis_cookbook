@@ -36,10 +36,13 @@
 
 * Creation of recipes and ratings are bound to user accounts
 * Author has the option to edit and delete the recipe.
-* full text search is available.
+* full text search is available, works for recipes and reviews
+* Recipes can be searched by different criteria such as title, dish type, author, difficulty, ingredients and by country.
+* Reviews can be found by star level.
 * image upload illustrating the prepared dish
 * Recipe review function is present. 
-* ingredients can be marked as allergens. Those marked allergens ingredients have a warning symbol.
+* ingredients can be marked as allergens. Those marked allergens have a warning indicator.
+* A little charting functionality is also implemented.
 
 For now, the user can select from following dish-type categories
 
@@ -52,8 +55,8 @@ For now, the user can select from following dish-type categories
 * Chicken
 * Fish
 * Game
-* Meet
-*Vegetarian
+* Meat
+* Vegetarian
 
 3. DESSERTS
 * Cake
