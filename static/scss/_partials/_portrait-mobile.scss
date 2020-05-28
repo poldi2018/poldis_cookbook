@@ -350,7 +350,7 @@
     .recipeHeaderItem,
     .statsWrapper,
     .timesWrapper {
-        height: 18vw;
+        height: 22vw;
     }
 
     .recipeButtonWrapper {
@@ -541,7 +541,7 @@
     }
 
     .fileselector {
-        height: 18vw;
+        height: 40vw;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
@@ -631,7 +631,7 @@
     .amountContainer {
         display: flex;
         align-items: center;
-        width: 25%;
+        width: 30%;
     }
 
     .amountContainer i {
@@ -641,7 +641,7 @@
     .ingredientContainer {
         display: flex;
         align-items: center;
-        width: 75%;
+        width: 70%;
     }
 
     .ingredientfield {

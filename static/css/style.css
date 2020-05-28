@@ -334,7 +334,7 @@
   .recipeHeaderItem,
   .statsWrapper,
   .timesWrapper {
-    height: 18vw;
+    height: 22vw;
   }
   .recipeButtonWrapper {
     border-radius: 10px;
@@ -513,7 +513,7 @@
     width: 50%;
   }
   .fileselector {
-    height: 18vw;
+    height: 40vw;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -606,7 +606,7 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 25%;
+    width: 30%;
   }
   .amountContainer i {
     font-size: 5.5vw;
@@ -618,7 +618,7 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 75%;
+    width: 70%;
   }
   .ingredientfield {
     width: 90%;
@@ -2311,7 +2311,7 @@
     border: 2px solid grey;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    width: 95vw;
+    width: 98vw;
     -webkit-transform: translateY(4vw);
             transform: translateY(4vw);
     margin-top: 60px;
@@ -2319,7 +2319,7 @@
     border-radius: 1vw;
   }
   .recipeWrapper {
-    width: 90vw;
+    width: 96vw;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     margin-top: 2vw;
@@ -3474,7 +3474,7 @@
     width: 50%;
   }
   .fileselector {
-    height: 18vw;
+    height: 40vw;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -5274,7 +5274,7 @@
     height: 20%;
   }
   #fileinputfield {
-    width: 80%;
+    width: 94%;
   }
   #dishImageWrapper label {
     font-size: 1.0rem;
@@ -5296,7 +5296,7 @@
         flex-wrap: wrap;
     margin-top: 2px;
     margin-bottom: 1vw;
-    padding-bottom: 4vw;
+    padding-bottom: 8vw;
     background-color: lightgrey;
     border-radius: 10px;
   }

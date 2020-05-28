@@ -219,7 +219,7 @@ screen and (width: 1024px) and (height: 1366px) and (orientation: portrait) {
     #baseWrapper {
         border: 2px solid grey;
         flex-wrap: wrap;
-        width: 95vw;
+        width: 98vw;
         transform: translateY(4vw);
 
         margin: {
@@ -231,7 +231,7 @@ screen and (width: 1024px) and (height: 1366px) and (orientation: portrait) {
     }
 
     .recipeWrapper {
-        width: 90vw;
+        width: 96vw;
         flex-wrap: wrap;
         margin-top: 2vw;
     }

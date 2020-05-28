@@ -440,7 +440,7 @@ screen and (width: 1366px) and (height: 1024px) and (orientation: landscape) {
     }
 
     #fileinputfield {
-        width: 80%;
+        width: 94%;
     }
 
     #dishImageWrapper label {
@@ -463,7 +463,7 @@ screen and (width: 1366px) and (height: 1024px) and (orientation: landscape) {
         flex-wrap: wrap;
         margin-top: 2px;
         margin-bottom: 1vw;
-        padding-bottom: 4vw;
+        padding-bottom: 8vw;
         background-color: $recipefields-bgcolor;
         border-radius: 10px;
     }
