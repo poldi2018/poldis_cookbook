@@ -575,7 +575,7 @@ depending on user's logged on status.
 
 @app.route('/add_recipe')
 def add_recipe():
-    if not session['username'] or session["username"] == "":
+    if session == {} or session["username"] == "":
         return render_template("loginpage.html", message="Please login first to \
                                be able to post recipes. Thanks!")
     else:

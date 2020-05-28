@@ -41,7 +41,7 @@
                 </form>
             </li>
 
-            {% if session["username"]=="" %}
+            {% if session=={} or session["username"]=="" %}
             <li class="menulistitem">
                 <a class="hyperlinks" href="{{url_for('login_page')}}">Login</a>
             </li>
@@ -89,7 +89,7 @@
                 </form>
             </li>
 
-            {% if session["username"]=="" %}
+            {% if session=={} or session["username"]=="" %}
             <li class="menulistitem">
                 <a class="hyperlinks" href="{{url_for('login_page')}}">Login</a>
             </li>
