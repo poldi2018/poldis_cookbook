@@ -171,13 +171,6 @@ def get_countries():
 index(): View method for index page. Session cookie is cleared.
 """
 
-
-@app.route('/')
-def index():
-    session["username"] = ""
-    session["email_address"] = ""
-    return render_template("index.html")
-
 # welcome page
 
 
@@ -187,7 +180,7 @@ converts it to json and writes it to disk. The file is needed for
 D3/DC charting.
 """
 
-
+@app.route('/')
 @app.route('/welcome')
 def welcome():
     all_recipes = recipes.find()
