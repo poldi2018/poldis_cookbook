@@ -31,6 +31,7 @@ imgbb_upload_url = "https://api.imgbb.com/1/upload?key=" + \
 # creating instance of Pymongo with app object to connect to MongoDB
 mongo = PyMongo(app)
 
+
 # Create indices to make full text search working
 mongo.db.recipes.create_index([("title", "text"), ("dish_type", "text"),
                                ("added_by", "text"),
@@ -574,7 +575,7 @@ depending on user's logged on status.
 
 @app.route('/add_recipe')
 def add_recipe():
-    if not session['username']:
+    if not session['username'] or session["username"] == "":
         return render_template("loginpage.html", message="Please login first to \
                                be able to post recipes. Thanks!")
     else:
