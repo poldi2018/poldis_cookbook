@@ -50,6 +50,7 @@
             </li>
             {% endif %}
 
+            {% if session!={} %}
             {% if session["username"]!="" %}
             <li class="menulistitem">
                 <a class="hyperlinks" href="{{url_for('logout')}}">Logout</a>
@@ -59,6 +60,8 @@
                         class="material-icons">home</i></a>
             </li>
             {% endif %}
+            {% endif %}
+
         </ul>
         <ul id="menulistMobile">
             <li id="menulistMobileShowBtn">
@@ -98,6 +101,8 @@
             </li>
             {% endif %}
 
+            
+            {% if session!={} %}
             {% if session["username"]!="" %}
             <li class="menulistitem">
                 <a class="hyperlinks" href="{{url_for('logout')}}">Logout</a>
@@ -107,6 +112,8 @@
                     class="material-icons">home</i></a>
             </li>
             {% endif %}
+            {% endif %}
+
         </ul>
     </header>
 
