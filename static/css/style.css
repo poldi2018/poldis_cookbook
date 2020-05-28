@@ -445,6 +445,9 @@
     background-color: lightgrey;
     -ms-flex-line-pack: center;
         align-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     width: 32.85%;
@@ -1504,6 +1507,9 @@
     background-color: lightgrey;
     -ms-flex-line-pack: center;
         align-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     width: 32.85%;
@@ -2440,6 +2446,9 @@
     background-color: lightgrey;
     -ms-flex-line-pack: center;
         align-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     width: 33.03%;
@@ -3398,6 +3407,9 @@
     background-color: lightgrey;
     -ms-flex-line-pack: center;
         align-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     width: 32.85%;
@@ -4324,6 +4336,9 @@
     background-color: lightgrey;
     -ms-flex-line-pack: center;
         align-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     width: 33.03%;
@@ -5207,6 +5222,9 @@
     background-color: lightgrey;
     -ms-flex-line-pack: center;
         align-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     width: 33.03%;
