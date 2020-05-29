@@ -4015,7 +4015,7 @@
   }
 }
 
-@media screen and (min-height: 415px) and (min-width: 500px) and (max-width: 3000px) and (orientation: landscape) {
+@media screen and (min-height: 415px) and (min-width: 500px) and (max-width: 3840px) and (orientation: landscape) {
   h3,
   .recipeTitle,
   .headline,
