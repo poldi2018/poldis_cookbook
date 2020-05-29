@@ -1,5 +1,4 @@
-// init
-
+// initialization
 $(document).ready(function () {
     $('select').material_select();
     calcTotalTime();
@@ -9,10 +8,12 @@ $(document).ready(function () {
 window.onresize = function() { checkCurrentBreakpoint(); };
 
 
-// global variables
+// globals
 var fieldcount = $(".outerIngredientContainer").length;
 var lockSendButton = false;
 
+
+// function to add fields for amounts, ingredients and allergens
 function addIngredientField() {
     fieldcount++;
     var amountFieldId = "amount" + fieldcount;
@@ -31,6 +32,7 @@ function addIngredientField() {
     $('#labelAllergensCheck').attr('for', allergensCheckFieldId).attr('id', labelAllergensCheckFieldId);
 }
 
+// remove an unused ingredient field
 function removeIngredientField() {
     if (fieldcount > 1) {
         $(".outerIngredientContainer").last().remove();
@@ -52,6 +54,7 @@ function encodeImgtoBase64(element) {
     reader.readAsDataURL(file);
 }
 
+// calculates the total time for both totalTimeDiv and totalTimeInput field
 function calcTotalTime() {
     var totalTimeDiv = parseInt($("#prepTimeDiv").html()) + parseInt($("#cookingTimeDiv").html());
     var totalTimeInput = parseInt($("#prepTime").val()) + parseInt($("#cookingTime").val());
@@ -71,6 +74,9 @@ function calcTotalTime() {
     }
 }
 
+// When processing the entered amounts, ingredients and allergens, the field content is read
+// and one string for amounts, ingredients and allergens are created. After each value a '#' is added
+// as a separator  
 function makeIngredientsStrings() {
     var amountsArray = $('.amounts').toArray();
     var ingredientsArray = $('.ingredients').toArray();
@@ -94,6 +100,8 @@ function makeIngredientsStrings() {
     $('#allergensString').val(allergens);
 }
 
+// checks if the selected file is of type jpg or jpeg by checking file extension. If that is the case,
+// the element in argument list is then encoded into base64 to be uploaded later to image hoster
 function validateImageName(element) {
     var enteredFilename = $('#fileinputfield').val();
     if (enteredFilename.endsWith('.jpeg') || enteredFilename.endsWith('.jpg')) {
@@ -105,6 +113,7 @@ function validateImageName(element) {
     }
 }
 
+// checks for filled amount and ingredient fields. 
 function ingredientfieldsFilled() {
     var amountsArray = $('.amounts').toArray();
     var ingredientsArray = $('.ingredients').toArray();
@@ -123,6 +132,8 @@ function ingredientfieldsFilled() {
     return true;
 }
 
+// validation of field length not exceeding maximum 30 chars for ingredient fields and
+// 1000 characters for directions field.
 function fieldsTooLong() {
     var amountsArray = $('.amounts').toArray();
     var ingredientsArray = $('.ingredients').toArray();
@@ -145,6 +156,7 @@ function fieldsTooLong() {
     }
 }
 
+// validation of empty fields on create and edit operation
 function fieldvalidation() {
     if ($('#recipetitle').val() == "") {
         $('#resultCheckForValidFields').html("Please give your recipe a title.");
@@ -188,11 +200,13 @@ function fieldvalidation() {
     return;
 }
 
+// show popup for invalid fields checks
 function popupCheckForValidFields() {
     $('#popupCheckForValidFields').css("transform", "translateX(0vw)");
     $('#popupCheckForValidFields').css("opacity", "1.0");
 }
 
+// close popup field checks
 function closeCheckForValidFieldsPopup() {
     $('#popupCheckForValidFields').css("opacity", "0.0");
     setTimeout(function () {
@@ -201,6 +215,7 @@ function closeCheckForValidFieldsPopup() {
     }, 400);
 }
 
+// close flashes popup
 function closeFlashesPopup() {
     $('#flashesPopup').css("opacity", "0.0");
     setTimeout(function () {
@@ -209,11 +224,13 @@ function closeFlashesPopup() {
     }, 400);
 }
 
+// show reviews popup in read recipe view
 function showReviewsPopup() {
     $('#reviewsPopup').css("transform", "translateX(0vw)");
     $('#reviewsPopup').css("opacity", "1.0");
 }
 
+// close reviews popup
 function closeReviewsPopup() {
     $('#reviewsPopup').css("opacity", "0.0");
     setTimeout(function () {
@@ -221,11 +238,13 @@ function closeReviewsPopup() {
     }, 400);
 }
 
+// show dialog for rating a recipe
 function showRatePopup() {
     $('#ratePopup').css("transform", "translateX(0vw)");
     $('#ratePopup').css("opacity", "1.0");
 }
 
+// check for filled and max length of form fields in rating dialog and send review to view function.
 function sendReview() {
     if ($('#review_title').val() == "") {
         $('#resultCheckForValidFields').html("Please give your review a title.");
@@ -254,6 +273,7 @@ function sendReview() {
     }
 }
 
+// cancel review button
 function cancelReview() {
     $('#ratePopup').css("opacity", "0.0");
     setTimeout(function () {
@@ -261,11 +281,13 @@ function cancelReview() {
     }, 400);
 }
 
+// show delete recipe confirmation popup
 function showdeleteRecipePopup() {
     $('#deletePopup').css("transform", "translateX(0vw)");
     $('#deletePopup').css("opacity", "1.0");
 }
 
+// cancel delete recipe button
 function cancelDeleteRecipe() {
     $('#deletePopup').css("opacity", "0.0");
     setTimeout(function () {
@@ -273,6 +295,8 @@ function cancelDeleteRecipe() {
     }, 400);
 }
 
+// function to check form data in registration form, such as field length, valid email address
+// and matching passwords.
 function checkRegistrationForm() {
     // mailformat string has been taken from https://www.w3resource.com/javascript/form/email-validation.php
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -297,14 +321,18 @@ function checkRegistrationForm() {
     }
 }
 
+// function to submit login form
 function login() {
     $('#loginForm').submit();
 }
 
+// send form on advancedsearch.html
 function sendSearchform() {
     $('#searchForm').submit();
 }
 
+// function to disable file selection field in case user wants to upload an image later or wants to use
+// the current image.
 function disableFileInputField() {
     if ($('#checkboxUseCurrentFile').is(':checked') == true || $('#checkboxUploadFileLater').is(':checked') == true) {
         $('#fileinputfield').prop('disabled', true);
@@ -313,6 +341,8 @@ function disableFileInputField() {
     }
 }
 
+// checks for breakpoint and orientation to call functions to set button width, depending on 
+// user's logged on status and being / not being author 
 function checkCurrentBreakpoint() {
     // if in landscape mode
     if ($(window).width() > $(window).height()) {
@@ -331,6 +361,7 @@ function checkCurrentBreakpoint() {
     }
 }
 
+// sets button width for desktop
 function setWidthBtnDesktop() {
     //check if logged in by checking existence of popup button and set width for 2 buttons to fillup space
     if (!$('#showRatePopupBtn').length) {
@@ -354,6 +385,7 @@ function setWidthBtnDesktop() {
     }
 }
 
+// sets button width for mobile
 function setWidthBtnMobile() {
     //check if logged in by checking existence of popup button and set width for 2 buttons to fillup space
     var width33 = "32.85%";
@@ -377,11 +409,12 @@ function setWidthBtnMobile() {
         $('#deleteRecipePopupBtn').css("width", width50);
     }
 }
-
+// show side menu on mobile
 function showMobileMenu() {
     $('#sideMobileMenu').css("transform", "translateX(4vw)");
 }
 
+// hide side menu on mobile
 function hideMobileMenu() {
     $('#sideMobileMenu').css("transform", "translateX(-76vw)");
 }

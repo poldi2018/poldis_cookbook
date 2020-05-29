@@ -5,7 +5,7 @@
         <div class="innerRecipesWrapper">
             {% if category=="dish_type" %}
             <div class="headline">
-                The following recipes in category {{value}} have been found:
+                Recipes in dish type category {{value}}
             </div>
             {% for recipe in by_category %}
             <div class="recipeTile">
@@ -34,7 +34,7 @@
 
             {% if category=="user" %}
             <div class="headline">
-                The following recipes by user {{value}} have been found:
+                Recipes entered by user {{value}}
             </div>
             {% for recipe in recipes_by_user %}
             <div class="recipeTile">
@@ -68,7 +68,7 @@
             
             {% if result['category']!="with a rating of" %}
             <div class="headline">
-                {{result['count']}} {% if result['count'] == 1 %} recipe {% else %} recipes {% endif %} {{result['category']}} {{result['search_term']}} have been found:
+                {{result['count']}} {% if result['count'] == 1 %} recipe {% else %} recipes {% endif %} {{result['category']}} {{result['search_term']}} have been found
             </div>
             {% if 'found_recipes' in result %}
             {% for recipe in result['found_recipes'] %}
@@ -98,7 +98,7 @@
 
             {% if result['found_reviews'] != None %}
             <div class="headline">
-                {{result['review_count']}} {% if result['review_count'] == 1 %} review {% else %} reviews {% endif %} for / of {{result['search_term']}} have been found:
+                {{result['review_count']}} {% if result['review_count'] == 1 %} review {% else %} reviews {% endif %} for / of {{result['search_term']}} have been found
             </div>
             <div class="outerReviewsWrapper">
                 <div class="innerReviewsWrapper">
@@ -136,7 +136,7 @@
 
             {% if result['category']=="with a rating of" %}
             <div class="headline">
-                {{result['review_count']}} {% if result['review_count'] == 1 %} review {% else %} reviews {% endif %} {{result['category']}} {{result['search_term']}} have been found:
+                {{result['review_count']}} {% if result['review_count'] == 1 %} review {% else %} reviews {% endif %} {{result['category']}} {{result['search_term']}} have been found
             </div>
             <div class="outerReviewsWrapper">
                 <div class="innerReviewsWrapper">
